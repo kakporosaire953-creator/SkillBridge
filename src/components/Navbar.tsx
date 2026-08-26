@@ -3,6 +3,7 @@ import { ViewType } from '../types/platform';
 import { SkillBridgeLogo } from './SkillBridgeLogo';
 import { useAuth } from '../context/AuthContext';
 import { Menu, X, ArrowRight, User } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
   currentView: ViewType;
@@ -49,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
         {/* Brand Logo */}
         <div 
           onClick={() => handleNav('home')}
-          className="cursor-pointer"
+          className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
           <SkillBridgeLogo size="md" />
         </div>
@@ -71,7 +72,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#59B83E] rounded-full" />
+                  <motion.span 
+                    layoutId="activeNavTab"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#59B83E] rounded-full" 
+                    transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
+                  />
                 )}
               </button>
             );
@@ -85,72 +90,64 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               <button
                 type="button"
                 onClick={() => handleNav('passport')}
-                className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`sb-btn px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                   currentView === 'passport'
                     ? 'bg-[#123B5D] text-white shadow-xs'
                     : 'bg-white border border-[#E2E8E5] text-[#123B5D] hover:bg-stone-50'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-[#59B83E]" />
+                <span className="w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
                 <span>Skill Passport</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNav('dashboard-talent')}
-                className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-white border border-[#E2E8E5] text-xs font-bold text-[#123B5D] hover:border-[#123B5D] transition-colors cursor-pointer shadow-2xs"
+                className="sb-btn p-2 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 transition-colors flex items-center gap-2 cursor-pointer"
+                title="Mon Espace"
               >
-                {profile?.avatar_url ? (
-                  <img
-                    src={profile.avatar_url}
-                    alt={profile.first_name}
-                    className="w-6 h-6 rounded-full object-cover border border-[#59B83E]"
-                    referrerPolicy="no-referrer"
-                  />
-                ) : (
-                  <div className="w-6 h-6 rounded-full bg-[#123B5D] text-[#C8F169] text-[10px] font-bold flex items-center justify-center">
-                    {(profile?.first_name?.[0] || 'T')}
-                  </div>
-                )}
-                <span>{profile?.first_name || 'Mon Espace'}</span>
+                <User className="w-4 h-4 text-[#123B5D]" />
+                <span className="text-xs font-bold font-mono">
+                  {profile?.first_name || 'Espace'}
+                </span>
               </button>
 
               <button
                 type="button"
                 onClick={() => signOut()}
-                className="text-xs text-stone-500 hover:text-rose-600 transition-colors cursor-pointer ml-1"
+                className="text-xs text-stone-400 hover:text-rose-600 transition-colors font-medium cursor-pointer"
               >
                 Déconnexion
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => handleNav('auth')}
-                className="text-sm font-semibold text-[#123B5D] hover:text-[#59B83E] transition-colors cursor-pointer"
+                className="sb-btn px-4 py-2 rounded-xl text-xs font-bold text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
               >
-                Se connecter
+                Connexion
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNav('onboarding')}
-                className="px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md hover:shadow-lg flex items-center gap-2 cursor-pointer group"
+                className="sb-btn px-4 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer group"
               >
-                <span>Rejoindre SkillBridge</span>
-                <ArrowRight className="w-4 h-4 text-[#C8F169] group-hover:translate-x-1 transition-transform" />
+                <span>Rejoindre</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#C8F169] group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
           )}
         </div>
 
         {/* Mobile Hamburger Button */}
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex lg:hidden items-center gap-2">
           <button
             type="button"
             onClick={() => handleNav('onboarding')}
-            className="px-3.5 py-2 rounded-xl bg-[#123B5D] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+            className="sb-btn px-3.5 py-2 rounded-xl bg-[#123B5D] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
           >
             <span>Rejoindre</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
@@ -159,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-[#101820] hover:bg-stone-100"
+            className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-[#101820] hover:bg-stone-100 cursor-pointer"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -169,60 +166,68 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
       </div>
 
       {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[#E2E8E5] bg-white px-6 py-6 space-y-4 animate-in slide-in-from-top-2 duration-200">
-          <nav className="flex flex-col space-y-3">
-            {navLinks.map((link) => {
-              const isActive = currentView === link.view;
-              return (
-                <button
-                  key={link.view}
-                  type="button"
-                  onClick={() => handleNav(link.view)}
-                  className={`text-left text-sm font-semibold py-2 px-3 rounded-lg transition-all ${
-                    isActive 
-                      ? 'bg-[#F5F7F6] text-[#123B5D] font-bold' 
-                      : 'text-[#101820]/80 hover:bg-stone-50'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              );
-            })}
-          </nav>
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-hidden lg:hidden border-b border-[#E2E8E5] bg-white px-6 py-6 space-y-4"
+          >
+            <nav className="flex flex-col space-y-2">
+              {navLinks.map((link) => {
+                const isActive = currentView === link.view;
+                return (
+                  <button
+                    key={link.view}
+                    type="button"
+                    onClick={() => handleNav(link.view)}
+                    className={`text-left text-sm font-semibold py-2 px-3 rounded-lg transition-all cursor-pointer ${
+                      isActive 
+                        ? 'bg-[#F5F7F6] text-[#123B5D] font-bold' 
+                        : 'text-[#101820]/80 hover:bg-stone-50'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
+            </nav>
 
-          <div className="pt-4 border-t border-[#E2E8E5] flex flex-col gap-3">
-            {user ? (
-              <button
-                type="button"
-                onClick={() => handleNav('dashboard-talent')}
-                className="w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2"
-              >
-                <User className="w-3.5 h-3.5 text-[#C8F169]" />
-                <span>Mon Espace Personnel</span>
-              </button>
-            ) : (
-              <>
+            <div className="pt-4 border-t border-[#E2E8E5] flex flex-col gap-3">
+              {user ? (
                 <button
                   type="button"
-                  onClick={() => handleNav('auth')}
-                  className="w-full py-2.5 rounded-xl bg-white border border-[#E2E8E5] text-[#123B5D] font-bold text-xs"
+                  onClick={() => handleNav('dashboard-talent')}
+                  className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  Se connecter
+                  <User className="w-3.5 h-3.5 text-[#C8F169]" />
+                  <span>Mon Espace Personnel</span>
                 </button>
-                <button
-                  type="button"
-                  onClick={() => handleNav('onboarding')}
-                  className="w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2"
-                >
-                  <span>Rejoindre SkillBridge</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-      )}
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => handleNav('auth')}
+                    className="sb-btn w-full py-2.5 rounded-xl bg-white border border-[#E2E8E5] text-[#123B5D] font-bold text-xs cursor-pointer"
+                  >
+                    Se connecter
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleNav('onboarding')}
+                    className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Rejoindre SkillBridge</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
+                  </button>
+                </>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

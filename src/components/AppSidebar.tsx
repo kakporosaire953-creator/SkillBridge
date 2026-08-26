@@ -165,7 +165,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         >
           <FaIcon icon={faBell} />
           {unreadNotificationsCount > 0 && (
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] ring-2 ring-white" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] ring-2 ring-white sb-pulse-dot" />
           )}
         </button>
       </div>
@@ -182,7 +182,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               key={item.key}
               type="button"
               onClick={() => onNavigate(item.view)}
-              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-medium transition-all group cursor-pointer ${
+              className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-medium transition-all group cursor-pointer hover:translate-x-0.5 ${
                 item.active
                   ? 'bg-white text-[#123B5D] shadow-xs border border-[#E2E8E5] font-semibold'
                   : 'text-stone-600 hover:text-[#101820] hover:bg-white/60'

@@ -19,7 +19,6 @@ const sizeMap = {
 export const SkillBridgeLogo: React.FC<SkillBridgeLogoProps> = ({
   className = '',
   isDark = false,
-  withTagline = false,
   size = 'md',
 }) => {
   return (

@@ -39,6 +39,8 @@ import { PublicPassportVerificationView } from "./views/PublicPassportVerificati
 import { FavoritesView } from "./views/FavoritesView";
 
 
+import { PageTransition } from './components/motion/PageTransition';
+
 export const App: React.FC = () => {
   const { user, isLoading } = useAuth();
   const [currentView, setCurrentView] = useState<ViewType>('home');
@@ -198,7 +200,9 @@ export const App: React.FC = () => {
   if (user) {
     return (
       <AppShell currentView={currentView} onNavigate={handleNavigate}>
-        {renderView()}
+        <PageTransition pageKey={currentView}>
+          {renderView()}
+        </PageTransition>
       </AppShell>
     );
   }
@@ -214,7 +218,9 @@ export const App: React.FC = () => {
 
       {/* Main Content Router */}
       <main className="flex-1 w-full flex flex-col">
-        {renderView()}
+        <PageTransition pageKey={currentView}>
+          {renderView()}
+        </PageTransition>
       </main>
 
       {/* Public Footer */}

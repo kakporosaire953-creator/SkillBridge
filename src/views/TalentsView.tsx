@@ -6,6 +6,10 @@ import {
   X
 } from 'lucide-react';
 
+import { FadeInUp } from '../components/motion/FadeInUp';
+import { StaggerContainer } from '../components/motion/StaggerContainer';
+import { ScaleOnHover } from '../components/motion/ScaleOnHover';
+
 interface TalentsViewProps {
   onNavigate: (view: ViewType) => void;
 }
@@ -142,129 +146,145 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
       {/* Talent Ecosystem Features */}
       <section className="py-20 border-b border-[#E2E8E5] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-            <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
-              FONCTIONNALITÉS ESSENTIELLES
-            </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#101820]">
-              Comment SkillBridge valorise votre travail
-            </h2>
-          </div>
+          <FadeInUp>
+            <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
+              <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
+                FONCTIONNALITÉS ESSENTIELLES
+              </span>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#101820]">
+                Comment SkillBridge valorise votre travail
+              </h2>
+            </div>
+          </FadeInUp>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#123B5D]">01 · SKILL PROOFS</span>
-              <h3 className="font-heading font-bold text-base text-[#101820]">Preuves Vérifiées</h3>
-              <p className="text-xs text-stone-600 font-light">Associez vos dépôts GitHub, démos et audits examinés par des pairs.</p>
-            </div>
-            <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#59B83E]">02 · PASSPORT SCORE</span>
-              <h3 className="font-heading font-bold text-base text-[#101820]">Indice d'Aptitude</h3>
-              <p className="text-xs text-stone-600 font-light">Un score transparent et souverain calculé à partir de données réelles.</p>
-            </div>
-            <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#123B5D]">03 · MENTOR REVIEWS</span>
-              <h3 className="font-heading font-bold text-base text-[#101820]">Recommandations</h3>
-              <p className="text-xs text-stone-600 font-light">Des avis authentifiés rédigés par des ingénieurs et leads seniors.</p>
-            </div>
-            <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2">
-              <span className="font-mono text-xs font-bold text-[#101820]">04 · OPPORTUNITÉS</span>
-              <h3 className="font-heading font-bold text-base text-[#101820]">Contact Direct</h3>
-              <p className="text-xs text-stone-600 font-light">Soyez sollicité directement par les organisations pour vos capacités.</p>
-            </div>
-          </div>
+          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <ScaleOnHover>
+              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#123B5D]">01 · SKILL PROOFS</span>
+                <h3 className="font-heading font-bold text-base text-[#101820]">Preuves Vérifiées</h3>
+                <p className="text-xs text-stone-600 font-light">Associez vos dépôts GitHub, démos et audits examinés par des pairs.</p>
+              </div>
+            </ScaleOnHover>
+
+            <ScaleOnHover>
+              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#59B83E]">02 · PASSPORT SCORE</span>
+                <h3 className="font-heading font-bold text-base text-[#101820]">Indice d'Aptitude</h3>
+                <p className="text-xs text-stone-600 font-light">Un score transparent et souverain calculé à partir de données réelles.</p>
+              </div>
+            </ScaleOnHover>
+
+            <ScaleOnHover>
+              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#123B5D]">03 · MENTOR REVIEWS</span>
+                <h3 className="font-heading font-bold text-base text-[#101820]">Recommandations</h3>
+                <p className="text-xs text-stone-600 font-light">Des avis authentifiés rédigés par des ingénieurs et leads seniors.</p>
+              </div>
+            </ScaleOnHover>
+
+            <ScaleOnHover>
+              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#101820]">04 · OPPORTUNITÉS</span>
+                <h3 className="font-heading font-bold text-base text-[#101820]">Contact Direct</h3>
+                <p className="text-xs text-stone-600 font-light">Soyez sollicité directement par les organisations pour vos capacités.</p>
+              </div>
+            </ScaleOnHover>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Directory & Sample Profiles */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8E5]">
-          <div className="space-y-1">
-            <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
-              ANNUAIRE & PROFILS DÉMONSTRATION
-            </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820]">
-              Découvrez des profils certifiés SkillBridge
-            </h2>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
-              {['Tous', 'Ingénierie & Systèmes', 'UI/UX', 'Cloud'].map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setCategoryFilter(cat)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
-                    categoryFilter === cat
-                      ? 'bg-[#123B5D] text-white'
-                      : 'bg-white border border-[#E2E8E5] text-stone-600 hover:bg-stone-50'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+        <FadeInUp>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8E5]">
+            <div className="space-y-1">
+              <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
+                ANNUAIRE & PROFILS DÉMONSTRATION
+              </span>
+              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820]">
+                Découvrez des profils certifiés SkillBridge
+              </h2>
             </div>
 
-            <div className="relative w-full sm:w-64">
-              <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Rechercher une compétence..."
-                className="w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-[#E2E8E5] text-xs text-[#101820] focus:outline-hidden focus:border-[#123B5D]"
-              />
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0">
+                {['Tous', 'Ingénierie & Systèmes', 'UI/UX', 'Cloud'].map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setCategoryFilter(cat)}
+                    className={`sb-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
+                      categoryFilter === cat
+                        ? 'bg-[#123B5D] text-white'
+                        : 'bg-white border border-[#E2E8E5] text-stone-600 hover:bg-stone-50'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative w-full sm:w-64">
+                <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-3" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Rechercher une compétence..."
+                  className="sb-focus w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-[#E2E8E5] text-xs text-[#101820] focus:outline-hidden focus:border-[#123B5D]"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </FadeInUp>
 
         {/* Talents List */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredTalents.map((t) => (
-            <div
-              key={t.id}
-              onClick={() => setSelectedTalent(t)}
-              className="bg-white border border-[#E2E8E5] rounded-3xl p-6 space-y-5 hover:border-[#123B5D] transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between"
-            >
-              <div className="space-y-4">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-base">
-                      {t.name.slice(0, 2).toUpperCase()}
+            <ScaleOnHover key={t.id}>
+              <div
+                onClick={() => setSelectedTalent(t)}
+                className="bg-white border border-[#E2E8E5] rounded-3xl p-6 space-y-5 hover:border-[#123B5D] transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between h-full"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 rounded-2xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-base">
+                        {t.name.slice(0, 2).toUpperCase()}
+                      </div>
+                      <div>
+                        <h4 className="font-heading font-bold text-base text-[#101820]">{t.name}</h4>
+                        <p className="text-xs text-stone-500">{t.location}, {t.country}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-heading font-bold text-base text-[#101820]">{t.name}</h4>
-                      <p className="text-xs text-stone-500">{t.location}, {t.country}</p>
-                    </div>
+
+                    <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#59B83E]/10 text-[#59B83E]">
+                      {t.passportScore}/100
+                    </span>
                   </div>
 
-                  <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#59B83E]/10 text-[#59B83E]">
-                    {t.passportScore}/100
-                  </span>
+                  <p className="text-xs text-stone-600 font-medium line-clamp-2">
+                    {t.headline}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {t.skills.map((s) => (
+                      <span key={s.name} className="text-[11px] px-2.5 py-1 rounded-lg bg-[#F5F7F6] border border-[#E2E8E5] text-[#101820] font-medium">
+                        {s.name}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <p className="text-xs text-stone-600 font-medium line-clamp-2">
-                  {t.headline}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {t.skills.map((s) => (
-                    <span key={s.name} className="text-[11px] px-2.5 py-1 rounded-lg bg-[#F5F7F6] border border-[#E2E8E5] text-[#101820] font-medium">
-                      {s.name}
-                    </span>
-                  ))}
+                <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#123B5D] font-bold">
+                  <span>Voir le profil complet</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#123B5D] font-bold">
-                <span>Voir le profil complet</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
+            </ScaleOnHover>
           ))}
-        </div>
+        </StaggerContainer>
 
       </section>
 

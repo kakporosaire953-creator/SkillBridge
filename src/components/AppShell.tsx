@@ -16,6 +16,8 @@ import {
   faComments
 } from '@fortawesome/free-solid-svg-icons';
 
+import { SkillBridgeLogo } from './SkillBridgeLogo';
+
 interface AppShellProps {
   children: React.ReactNode;
   currentView: ViewType;
@@ -68,13 +70,7 @@ export const AppShell: React.FC<AppShellProps> = ({
             onClick={() => onNavigate('dashboard-talent')}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <div className="w-7 h-7 rounded-lg bg-[#123B5D] flex items-center justify-center text-white shadow-2xs">
-              <span className="font-heading font-black text-xs text-[#59B83E]">S</span>
-              <span className="font-heading font-black text-xs text-white">B</span>
-            </div>
-            <div className="font-heading font-black text-sm text-[#123B5D]">
-              Skill<span className="text-[#59B83E]">Bridge</span>
-            </div>
+            <SkillBridgeLogo size="sm" isDark={false} />
           </button>
 
           <div className="flex items-center gap-2">
@@ -85,7 +81,7 @@ export const AppShell: React.FC<AppShellProps> = ({
               aria-label="Notifications"
             >
               <FaIcon icon={faBell} className="text-xs" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E]" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
             </button>
 
             <button

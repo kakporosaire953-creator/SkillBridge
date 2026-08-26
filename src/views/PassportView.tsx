@@ -11,6 +11,8 @@ import {
 import { SkillPassport } from '../components/SkillPassport';
 import { SkillPassportData, PassportStatus, VerificationStatus, SkillLevel } from '../types/platform';
 
+import { FadeInUp } from '../components/motion/FadeInUp';
+
 interface PassportViewProps {
   onNavigate: (view: ViewType) => void;
 }
@@ -75,7 +77,7 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => onNavigate('dashboard-talent')}
-              className="p-2 rounded-xl border border-[#E2E8E5] text-stone-500 hover:bg-stone-50 transition-colors"
+              className="sb-btn p-2 rounded-xl border border-[#E2E8E5] text-stone-500 hover:bg-stone-50 transition-colors cursor-pointer"
             >
               <FaIcon icon={faArrowLeft} />
             </button>
@@ -90,12 +92,12 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
           <div className="flex items-center gap-3 w-full sm:w-auto">
             <button 
               onClick={() => onNavigate('dashboard-talent')} // Placeholder for edit profile
-              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 text-xs font-bold transition-colors inline-flex justify-center items-center gap-2"
+              className="sb-btn flex-1 sm:flex-none px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 text-xs font-bold transition-colors inline-flex justify-center items-center gap-2 cursor-pointer"
             >
               <FaIcon icon={faEdit} /> Mettre à jour
             </button>
             <button 
-              className="p-2.5 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 transition-colors"
+              className="sb-btn p-2.5 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 transition-colors cursor-pointer"
               title="Partager"
             >
               <FaIcon icon={faShareNodes} />
@@ -103,7 +105,7 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
             <button 
               onClick={handleExportPDF}
               disabled={isExporting}
-              className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold transition-colors inline-flex justify-center items-center gap-2 shadow-xs"
+              className="sb-btn flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold transition-colors inline-flex justify-center items-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
             >
               <FaIcon icon={faDownload} /> {isExporting ? 'Génération...' : 'Télécharger PDF'}
             </button>
@@ -112,9 +114,9 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
       </div>
 
       {/* Main Passport Display Area */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex justify-center items-center print:p-0 print:m-0">
+      <FadeInUp delay={0.1} duration={0.6} yOffset={16} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex justify-center items-center print:p-0 print:m-0">
         <SkillPassport user={profile} passport={passportData} />
-      </div>
+      </FadeInUp>
       
     </div>
   );
