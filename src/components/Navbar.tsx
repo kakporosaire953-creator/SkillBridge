@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           onClick={() => handleNav('home')}
           className="cursor-pointer"
         >
-          <SkillBridgeLogo />
+          <SkillBridgeLogo size="md" />
         </div>
 
         {/* Desktop Navigation Links */}

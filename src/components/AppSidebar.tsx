@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLearning } from '../context/LearningContext';
 import { UserAvatar } from './UserAvatar';
 import { FaIcon } from './FaIcon';
+import { SkillBridgeLogo } from './SkillBridgeLogo';
 import { 
   faHouse, 
   faGraduationCap, 
@@ -149,20 +150,9 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         <button
           type="button"
           onClick={() => onNavigate('dashboard-talent')}
-          className="flex items-center gap-2.5 group text-left cursor-pointer"
+          className="flex items-center group text-left cursor-pointer"
         >
-          <div className="w-8 h-8 rounded-xl bg-[#123B5D] flex items-center justify-center text-white shadow-xs group-hover:bg-[#0A2338] transition-colors">
-            <span className="font-heading font-black text-sm tracking-tight text-[#59B83E]">S</span>
-            <span className="font-heading font-black text-sm tracking-tight text-white">B</span>
-          </div>
-          <div>
-            <div className="font-heading font-black text-base text-[#123B5D] tracking-tight leading-none flex items-center gap-1">
-              Skill<span className="text-[#59B83E]">Bridge</span>
-            </div>
-            <div className="text-[10px] font-mono font-medium text-stone-400 mt-1 tracking-wider uppercase">
-              Espace Personnel
-            </div>
-          </div>
+          <SkillBridgeLogo size="sm" isDark={false} />
         </button>
 
         {/* Notifications Quick Trigger */}
