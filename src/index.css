@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --sb-deep-blue: #123B5D;
+    --sb-green: #59B83E;
+    --sb-light-green: #C8F169;
+    --sb-near-black: #101820;
+    --sb-white: #FFFFFF;
+    --sb-soft: #F5F7F6;
+  }
+
+  body {
+    font-family: 'Manrope', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #F5F7F6;
+    color: #101820;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .font-editorial {
+    font-family: 'Newsreader', Georgia, serif;
+  }
+}
+
+/* Custom SkillBridge color utilities */
+.bg-sb-deep-blue { background-color: #123B5D; }
+.text-sb-deep-blue { color: #123B5D; }
+.border-sb-deep-blue { border-color: #123B5D; }
+
+.bg-sb-green { background-color: #59B83E; }
+.text-sb-green { color: #59B83E; }
+.border-sb-green { border-color: #59B83E; }
+
+.bg-sb-light-green { background-color: #C8F169; }
+.text-sb-light-green { color: #C8F169; }
+.border-sb-light-green { border-color: #C8F169; }
+
+.bg-sb-near-black { background-color: #101820; }
+.text-sb-near-black { color: #101820; }
+.border-sb-near-black { border-color: #101820; }
+
+.bg-sb-soft { background-color: #F5F7F6; }
+.text-sb-soft { color: #F5F7F6; }
+.border-sb-soft { border-color: #E2E8E5; }
+
+/* Architectural lines & bridge motif */
+.architectural-grid {
+  background-image: 
+    linear-gradient(to right, rgba(18, 59, 93, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(18, 59, 93, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.architectural-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Subtle line accents */
+.bridge-line {
+  height: 1px;
+  background: linear-gradient(90deg, #123B5D 0%, #59B83E 50%, #123B5D 100%);
+}
+
+.bridge-glow {
+  box-shadow: 0 10px 40px -10px rgba(18, 59, 93, 0.08);
+}
