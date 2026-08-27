@@ -6,6 +6,11 @@ import { FadeInUp } from '../components/motion/FadeInUp';
 import { StaggerContainer } from '../components/motion/StaggerContainer';
 import { ScaleOnHover } from '../components/motion/ScaleOnHover';
 import { BridgeConnector } from '../components/motion/BridgeConnector';
+import { motion } from 'motion/react';
+import gapSkillsImg from '../assets/gap/gap-skills.jpg';
+import gapTalentImg from '../assets/gap/gap-talent.jpg';
+import gapTransmissionImg from '../assets/gap/gap-transmission.jpg';
+import gapOpportunitiesImg from '../assets/gap/gap-opportunities.jpg';
 import { 
   ArrowRight, 
   CheckCircle2, 
@@ -111,96 +116,335 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 08 — SECTION PROBLÈME : THE GAP */}
-      <section className="relative py-24 bg-white border-b border-[#E2E8E5] z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 08 — SECTION PROBLÈME : THE GAP (STORYTELLING ÉDITORIAL IMMERSIF) */}
+      <section className="relative py-28 sm:py-36 bg-gradient-to-b from-white via-[#F7F9F8] to-white border-b border-[#E2E8E5] z-10 overflow-hidden">
+        
+        {/* Subtle background ambient mesh */}
+        <div className="absolute inset-0 architectural-grid opacity-30 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <FadeInUp>
-            <div className="max-w-3xl mb-16 space-y-3">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#59B83E] block">
-                THE GAP
-              </span>
-              <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] leading-tight">
-                Le talent est partout. <br />
-                Les opportunités ne le sont pas toujours.
-              </h2>
+          {/* Section Header */}
+          <FadeInUp className="text-center max-w-3xl mx-auto mb-24 sm:mb-32 space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#E2E8E5] text-[#59B83E] text-xs font-mono font-bold tracking-widest uppercase shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#59B83E] sb-pulse-dot" />
+              <span>THE GAP · LA RÉALITÉ DU TERRAIN</span>
             </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#101820] tracking-tight leading-tight">
+              Le talent est partout. <br className="hidden sm:inline" />
+              <span className="text-[#123B5D]">Les opportunités</span> ne le sont pas toujours.
+            </h2>
+            <p className="text-stone-600 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
+              L'écosystème regorge de potentiels remarquables, mais l'absence de passerelles vérifiables crée une distance silencieuse entre les capacités réelles et la reconnaissance méritée.
+            </p>
           </FadeInUp>
 
-          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            <ScaleOnHover>
-              <div className="p-8 rounded-2xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-3 flex flex-col justify-between h-full">
-                <div>
-                  <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-2">
-                    01 / TALENTS
-                  </span>
-                  <h3 className="font-heading text-lg font-bold text-[#101820]">
-                    Visibilité
-                  </h3>
-                </div>
-                <p className="text-sm text-stone-600 leading-relaxed font-light">
-                  Des personnes compétentes restent invisibles et peinent à faire reconnaître leurs capacités réelles.
-                </p>
+          {/* Alternating Narrative Blocks with Flow Connectors */}
+          <div className="space-y-24 sm:space-y-36 relative">
+
+            {/* Continuous Vertical Guide Line for Desktop */}
+            <div className="hidden lg:block absolute left-1/2 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#59B83E]/30 to-transparent -translate-x-1/2 pointer-events-none" />
+
+            {/* ========================================================
+                BLOC 1 : SKILLS (Texte à gauche / Image à droite)
+               ======================================================== */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+              
+              {/* Central Connection Dot */}
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border-2 border-[#123B5D] items-center justify-center z-20 shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#59B83E]" />
               </div>
-            </ScaleOnHover>
 
-            <ScaleOnHover>
-              <div className="p-8 rounded-2xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-3 flex flex-col justify-between h-full">
-                <div>
-                  <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-2">
-                    02 / EXPÉRIENCE
-                  </span>
-                  <h3 className="font-heading text-lg font-bold text-[#101820]">
-                    Transmission
-                  </h3>
+              {/* Text Left */}
+              <motion.div 
+                initial={{ opacity: 0, x: -36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 space-y-5 lg:pr-6 order-2 lg:order-1"
+              >
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded-md bg-[#123B5D]/10 text-[#123B5D]">01</span>
+                  <span>SKILLS & VISIBILITÉ</span>
                 </div>
-                <p className="text-sm text-stone-600 leading-relaxed font-light">
-                  Des savoir-faire précieux restent difficiles à transmettre entre les générations de professionnels.
-                </p>
-              </div>
-            </ScaleOnHover>
+                
+                <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] leading-snug">
+                  Des compétences réelles, <br />
+                  <span className="text-[#59B83E]">souvent invisibles</span> au monde.
+                </h3>
 
-            <ScaleOnHover>
-              <div className="p-8 rounded-2xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-3 flex flex-col justify-between h-full">
-                <div>
-                  <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-2">
-                    03 / APPRENTISSAGE
-                  </span>
-                  <h3 className="font-heading text-lg font-bold text-[#101820]">
-                    Orientation
-                  </h3>
+                <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+                  Des milliers de développeurs, concepteurs et ingénieurs se forment en continu et créent des solutions sophistiquées. Pourtant, faute d'outils souverains d'audit et de visibilité internationale, leur maîtrise reste invisible aux yeux des recruteurs et des partenaires stratégiques.
+                </p>
+
+                <div className="pt-2 flex items-center gap-3 text-xs font-mono text-stone-500">
+                  <span className="w-2 h-2 rounded-full bg-[#59B83E]" />
+                  <span>Besoin : Transformer les lignes de code en preuves incontestables</span>
                 </div>
-                <p className="text-sm text-stone-600 leading-relaxed font-light">
-                  Beaucoup veulent progresser sans trouver les bons chemins ni les retours d'expérience concrets.
-                </p>
-              </div>
-            </ScaleOnHover>
+              </motion.div>
 
-            <ScaleOnHover>
-              <div className="p-8 rounded-2xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-3 flex flex-col justify-between h-full">
-                <div>
-                  <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider block mb-2">
-                    04 / OPPORTUNITÉS
-                  </span>
-                  <h3 className="font-heading text-lg font-bold text-[#101820]">
-                    Confiance
-                  </h3>
+              {/* Image Right */}
+              <motion.div 
+                initial={{ opacity: 0, x: 36, scale: 0.98 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 order-1 lg:order-2"
+              >
+                <div className="relative rounded-3xl overflow-hidden bg-white p-2 sm:p-3 border border-[#E2E8E5] shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
+                    <img 
+                      src={gapSkillsImg} 
+                      alt="Session collaborative de développement de compétences SkillBridge"
+                      className="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Communauté active · Labs & Équipes d'ingénierie
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm text-stone-600 leading-relaxed font-light">
-                  Les organisations ne voient pas toujours ce que les talents savent réellement faire sur le terrain.
-                </p>
+              </motion.div>
+
+            </div>
+
+            {/* ========================================================
+                BLOC 2 : TALENT (Image à gauche / Texte à droite)
+               ======================================================== */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+              
+              {/* Central Connection Dot */}
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border-2 border-[#59B83E] items-center justify-center z-20 shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#123B5D]" />
               </div>
-            </ScaleOnHover>
 
-          </StaggerContainer>
+              {/* Image Left */}
+              <motion.div 
+                initial={{ opacity: 0, x: -36, scale: 0.98 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6"
+              >
+                <div className="relative rounded-3xl overflow-hidden bg-white p-2 sm:p-3 border border-[#E2E8E5] shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
+                    <img 
+                      src={gapTalentImg} 
+                      alt="Talent individuel concentré et engagé dans son parcours"
+                      className="w-full h-full object-cover object-top rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Identité certifiée · Révélation du potentiel souverain
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
 
-          {/* Conclusion */}
-          <FadeInUp delay={0.2}>
-            <div className="mt-14 pt-8 border-t border-[#E2E8E5] text-center">
-              <p className="font-heading text-lg sm:text-xl font-bold text-[#123B5D]">
-                SkillBridge est né pour réduire cette distance.
-              </p>
+              {/* Text Right */}
+              <motion.div 
+                initial={{ opacity: 0, x: 36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 space-y-5 lg:pl-6"
+              >
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#59B83E] uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded-md bg-[#59B83E]/10 text-[#59B83E]">02</span>
+                  <span>TALENTS & PARCOURS</span>
+                </div>
+                
+                <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] leading-snug">
+                  Un potentiel exceptionnel <br />
+                  qui réclame sa <span className="text-[#123B5D]">juste reconnaissance</span>.
+                </h3>
+
+                <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+                  Le parcours d'un talent ne se résume pas à des diplômes théoriques. Sans un passeport de compétences auditable qui atteste des projets déployés et de la fiabilité technique, l'accès aux responsabilités majeures reste semé d'obstacles arbitraires.
+                </p>
+
+                <div className="pt-2 flex items-center gap-3 text-xs font-mono text-stone-500">
+                  <span className="w-2 h-2 rounded-full bg-[#123B5D]" />
+                  <span>Objectif : Doter chaque talent d'une identité professionnelle inaltérable</span>
+                </div>
+              </motion.div>
+
+            </div>
+
+            {/* ========================================================
+                BLOC 3 : TRANSMISSION (Texte à gauche / Image à droite)
+               ======================================================== */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+              
+              {/* Central Connection Dot */}
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border-2 border-[#123B5D] items-center justify-center z-20 shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#C8F169]" />
+              </div>
+
+              {/* Text Left */}
+              <motion.div 
+                initial={{ opacity: 0, x: -36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 space-y-5 lg:pr-6 order-2 lg:order-1"
+              >
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded-md bg-[#123B5D]/10 text-[#123B5D]">03</span>
+                  <span>EXPÉRIENCE & TRANSMISSION</span>
+                </div>
+                
+                <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] leading-snug">
+                  La transmission du savoir, <br />
+                  <span className="text-[#59B83E]">clé de voûte</span> de l'autonomie.
+                </h3>
+
+                <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+                  L'expérience acquise sur le terrain par les praticiens chevronnés est inestimable. Sans passerelle structurée entre générations, cette sagesse technologique peine à irriguer les créateurs émergents, ralentissant l'élévation globale des standards industriels.
+                </p>
+
+                <div className="pt-2 flex items-center gap-3 text-xs font-mono text-stone-500">
+                  <span className="w-2 h-2 rounded-full bg-[#59B83E]" />
+                  <span>Mission : Bâtir des canaux directs de mentorat et d'évaluation par les pairs</span>
+                </div>
+              </motion.div>
+
+              {/* Image Right */}
+              <motion.div 
+                initial={{ opacity: 0, x: 36, scale: 0.98 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 order-1 lg:order-2"
+              >
+                <div className="relative rounded-3xl overflow-hidden bg-white p-2 sm:p-3 border border-[#E2E8E5] shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
+                    <img 
+                      src={gapTransmissionImg} 
+                      alt="Transmission intergénérationnelle et mentorat technologique"
+                      className="w-full h-full object-cover object-top rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Mentorat direct · Accélération de la maturité technique
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+            </div>
+
+            {/* ========================================================
+                BLOC 4 : OPPORTUNITÉS (Image à gauche / Texte à droite)
+               ======================================================== */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative">
+              
+              {/* Central Connection Dot */}
+              <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border-2 border-[#59B83E] items-center justify-center z-20 shadow-xs">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#123B5D]" />
+              </div>
+
+              {/* Image Left */}
+              <motion.div 
+                initial={{ opacity: 0, x: -36, scale: 0.98 }}
+                whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6"
+              >
+                <div className="relative rounded-3xl overflow-hidden bg-white p-2 sm:p-3 border border-[#E2E8E5] shadow-xl hover:shadow-2xl transition-all duration-500 group">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone-100">
+                    <img 
+                      src={gapOpportunitiesImg} 
+                      alt="Entreprises et organisations en quête de confiance vérifiable"
+                      className="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#101820]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      Organisations & Entreprises · Recrutement fondé sur la preuve
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Text Right */}
+              <motion.div 
+                initial={{ opacity: 0, x: 36 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.65, ease: [0.25, 0.1, 0.25, 1] as const }}
+                className="lg:col-span-6 space-y-5 lg:pl-6"
+              >
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#101820] uppercase tracking-wider">
+                  <span className="px-2.5 py-1 rounded-md bg-[#101820]/10 text-[#101820]">04</span>
+                  <span>OPPORTUNITÉS & CONFIANCE</span>
+                </div>
+                
+                <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] leading-snug">
+                  Des organisations en quête <br />
+                  de <span className="text-[#123B5D]">confiance vérifiable</span>.
+                </h3>
+
+                <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed">
+                  Les entreprises africaines et globales recherchent continuellement des experts aptes à livrer des systèmes critiques. Mais sans registre transparent des compétences prouvées, le recrutement reste lent, incertain et coûteux.
+                </p>
+
+                <div className="pt-2 flex items-center gap-3 text-xs font-mono text-stone-500">
+                  <span className="w-2 h-2 rounded-full bg-[#123B5D]" />
+                  <span>Solution : Remplacer l'incertitude du CV par la clarté des réalisations réelles</span>
+                </div>
+              </motion.div>
+
+            </div>
+
+          </div>
+
+          {/* ========================================================
+              SECTION FINALE DU GAP : LA RÉSOLUTION PAR LE PONT
+             ======================================================== */}
+          <FadeInUp delay={0.2} className="mt-28 sm:mt-36">
+            <div className="relative rounded-3xl bg-gradient-to-r from-[#123B5D] to-[#0A2338] text-white p-8 sm:p-14 overflow-hidden shadow-2xl border border-white/10 text-center space-y-6">
+              
+              {/* Background Glow */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[#59B83E]/15 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C8F169]/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="relative z-10 max-w-3xl mx-auto space-y-5">
+                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#C8F169] text-xs font-mono font-bold tracking-widest uppercase">
+                  <span>LA RÉPONSE SKILLBRIDGE</span>
+                </span>
+                
+                <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-white leading-tight">
+                  SkillBridge est né pour réduire cette distance.
+                </h3>
+                
+                <p className="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto">
+                  En connectant organiquement les <strong>compétences</strong>, le <strong>talent</strong>, l'<strong>expérience</strong> et les <strong>opportunités</strong>, nous bâtissons l'infrastructure où chacun avance par la preuve.
+                </p>
+
+                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('onboarding')}
+                    className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-[#59B83E] hover:bg-[#4ea536] text-white font-bold text-sm tracking-wide transition-all shadow-lg flex items-center justify-center gap-2.5 cursor-pointer group"
+                  >
+                    <span>Rejoindre l'écosystème</span>
+                    <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('talents')}
+                    className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Explorer les profils vérifiés</span>
+                  </button>
+                </div>
+              </div>
+
             </div>
           </FadeInUp>
 
