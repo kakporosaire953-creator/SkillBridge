@@ -2,9 +2,12 @@ import React from 'react';
 import { ViewType } from '../types/platform';
 import { useAuth } from '../context/AuthContext';
 import { useLearning } from '../context/LearningContext';
+import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { UserAvatar } from './UserAvatar';
 import { FaIcon } from './FaIcon';
 import { SkillBridgeLogo } from './SkillBridgeLogo';
+import { Sun, Moon } from 'lucide-react';
 import { 
   faHouse, 
   faGraduationCap, 
@@ -40,6 +43,8 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
 }) => {
   const { user, profile, signOut } = useAuth();
   const { userCertificates } = useLearning();
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
 
   const isViewActive = (navKey: string): boolean => {
     switch (navKey) {
@@ -61,14 +66,14 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   const navItems = [
     {
       key: 'dashboard',
-      label: 'Accueil',
+      label: t('nav.home'),
       view: 'dashboard-talent' as ViewType,
       icon: faHouse,
       active: isViewActive('dashboard')
     },
     {
       key: 'explore',
-      label: 'Explorer',
+      label: t('nav.explorer'),
       view: 'explorer' as ViewType,
       icon: faCompass,
       active: isViewActive('explore')
@@ -82,14 +87,14 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
     },
     {
       key: 'messaging',
-      label: 'Messages',
+      label: t('nav.messages'),
       view: 'messaging' as ViewType,
       icon: faComments,
       active: isViewActive('messaging')
     },
     {
       key: 'learn',
-      label: 'Apprendre',
+      label: t('nav.learn'),
       view: 'learn' as ViewType,
       icon: faGraduationCap,
       active: isViewActive('learn')
@@ -99,18 +104,18 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       label: 'Projets',
       view: 'project-publish' as ViewType,
       icon: faFolderOpen,
-      active: isViewActive('projects')
+      active: currentView === 'project-publish'
     },
     {
       key: 'opportunities',
-      label: 'Opportunités',
+      label: 'Offres',
       view: 'opportunities' as ViewType,
       icon: faBriefcase,
-      active: isViewActive('opportunities')
+      active: currentView === 'opportunities'
     },
     {
       key: 'passport',
-      label: 'Skill Passport',
+      label: t('nav.passport'),
       view: 'passport' as ViewType,
       icon: faShieldHalved,
       active: isViewActive('passport'),
@@ -140,34 +145,56 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
   const userRole = profile?.account_type === 'mentor'
     ? 'Mentor & Formateur'
     : profile?.account_type === 'company'
-    ? 'Entreprise Partenaire'
-    : 'Talent Souverain';
+    ? 'Organisation'
+    : 'Talent Vérifié';
 
   return (
     <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 bg-[#FAFCFB] border-r border-[#E2E8E5] shrink-0 z-30 select-none">
       {/* Top Brand Area */}
-      <div className="p-6 border-b border-[#E2E8E5]/70 flex items-center justify-between">
+      <div className="p-4 border-b border-[#E2E8E5]/70 flex items-center justify-between">
         <button
           type="button"
           onClick={() => onNavigate('dashboard-talent')}
           className="flex items-center group text-left cursor-pointer"
         >
-          <SkillBridgeLogo size="sm" isDark={false} />
+          <SkillBridgeLogo size="sm" isDark={theme === 'dark'} />
         </button>
 
-        {/* Notifications Quick Trigger */}
-        <button
-          type="button"
-          onClick={onOpenNotifications}
-          className="relative p-2 rounded-xl text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
-          title="Notifications"
-          aria-label="Notifications"
-        >
-          <FaIcon icon={faBell} />
-          {unreadNotificationsCount > 0 && (
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] ring-2 ring-white sb-pulse-dot" />
-          )}
-        </button>
+        {/* Global Quick Controls */}
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-1.5 rounded-lg text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            title={theme === 'dark' ? 'Mode clair' : 'Mode sombre'}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5" />}
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="px-1.5 py-1 rounded-lg text-[10px] font-mono font-bold text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            title="Langue"
+          >
+            {language.toUpperCase()}
+          </button>
+
+          {/* Notifications Quick Trigger */}
+          <button
+            type="button"
+            onClick={onOpenNotifications}
+            className="relative p-1.5 rounded-lg text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            title="Notifications"
+            aria-label="Notifications"
+          >
+            <FaIcon icon={faBell} className="text-xs" />
+            {unreadNotificationsCount > 0 && (
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#59B83E] ring-2 ring-white sb-pulse-dot" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Main Navigation Menu */}

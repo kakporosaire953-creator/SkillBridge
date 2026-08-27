@@ -1,5 +1,6 @@
 import React from 'react';
 import { Profile } from '../types';
+import defaultAvatarImg from '../assets/default-avatar.jpg';
 
 interface UserAvatarProps {
   profile?: Profile | null;
@@ -29,45 +30,25 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
 }) => {
   const [imageError, setImageError] = React.useState(false);
 
-  const effectiveAvatar = avatarUrl !== undefined ? avatarUrl : profile?.avatar_url;
+  const effectiveAvatar = avatarUrl !== undefined && avatarUrl !== null && avatarUrl.trim() !== ''
+    ? avatarUrl
+    : (profile?.avatar_url && profile.avatar_url.trim() !== '' ? profile.avatar_url : defaultAvatarImg);
   
   const effectiveName = name || (
     profile?.first_name || profile?.last_name
       ? `${profile.first_name || ''} ${profile.last_name || ''}`.trim()
-      : profile?.username || 'Talent'
+      : profile?.username || 'Talent SkillBridge'
   );
-
-  const getInitials = (str: string): string => {
-    if (!str || !str.trim()) return 'SB';
-    const parts = str.trim().split(/\s+/);
-    if (parts.length >= 2) {
-      return (parts[0][0] + parts[1][0]).toUpperCase();
-    }
-    return str.slice(0, 2).toUpperCase();
-  };
-
-  const initials = getInitials(effectiveName);
 
   const borderClass = showBorder ? 'ring-2 ring-[#59B83E]/40 border border-white' : '';
 
-  if (effectiveAvatar && !imageError) {
-    return (
-      <img
-        src={effectiveAvatar}
-        alt={effectiveName}
-        onError={() => setImageError(true)}
-        className={`${sizeClasses[size]} rounded-2xl object-cover shrink-0 ${borderClass} ${className}`}
-      />
-    );
-  }
-
   return (
-    <div
-      className={`${sizeClasses[size]} rounded-2xl bg-gradient-to-br from-[#123B5D] to-[#0A2338] text-white font-mono font-bold shrink-0 flex items-center justify-center tracking-wider select-none shadow-xs ${borderClass} ${className}`}
-      title={effectiveName}
-      aria-label={effectiveName}
-    >
-      <span className="leading-none">{initials}</span>
-    </div>
+    <img
+      src={effectiveAvatar && !imageError ? effectiveAvatar : defaultAvatarImg}
+      alt={effectiveName}
+      onError={() => setImageError(true)}
+      className={`${sizeClasses[size]} rounded-2xl object-cover shrink-0 ${borderClass} ${className} bg-[#101820]`}
+      loading="lazy"
+    />
   );
 };

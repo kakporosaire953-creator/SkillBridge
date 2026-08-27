@@ -168,10 +168,10 @@ export const App: React.FC = () => {
       case "opportunities": return <OpportunitiesView onNavigate={handleNavigate} />;
       case "admin-auth": return <AdminAuthView onNavigate={handleNavigate} />;
       case "admin-dashboard": return <AdminDashboardView onNavigate={handleNavigate} />;
-        case 'public-profile':
+      case 'public-profile':
+        return <PublicProfileView onNavigate={handleNavigate} />;
       case 'public-passport':
         return <PublicPassportVerificationView onNavigate={handleNavigate} passportId={verifyCertId} />;
-          return <PublicProfileView onNavigate={handleNavigate} />;
       case "favorites": return <FavoritesView onNavigate={handleNavigate} />;
       case 'onboarding':
         return <OnboardingView onNavigate={handleNavigate} />;

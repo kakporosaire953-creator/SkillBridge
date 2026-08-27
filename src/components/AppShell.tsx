@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { ViewType } from '../types/platform';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
 import { AppSidebar } from './AppSidebar';
 import { NotificationsModal } from './NotificationsModal';
 import { ProfileModal } from './ProfileModal';
 import { UserAvatar } from './UserAvatar';
 import { FaIcon } from './FaIcon';
+import { Sun, Moon } from 'lucide-react';
 import { 
   faHouse, 
   faGraduationCap, 
   faCompass, 
   faShieldHalved, 
-  
   faBell,
   faComments
 } from '@fortawesome/free-solid-svg-icons';
@@ -30,8 +32,11 @@ export const AppShell: React.FC<AppShellProps> = ({
   onNavigate
 }) => {
   const { profile } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const unreadNotificationsCount = 2;
 
   const isViewActive = (navKey: string): boolean => {
     switch (navKey) {
@@ -70,10 +75,27 @@ export const AppShell: React.FC<AppShellProps> = ({
             onClick={() => onNavigate('dashboard-talent')}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <SkillBridgeLogo size="sm" isDark={false} />
+            <SkillBridgeLogo size="sm" isDark={theme === 'dark'} />
           </button>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 transition-colors cursor-pointer"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5" />}
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="px-2 py-1 rounded-xl text-[10px] font-mono font-bold text-stone-600 hover:bg-stone-100 transition-colors cursor-pointer"
+            >
+              {language.toUpperCase()}
+            </button>
+
             <button
               type="button"
               onClick={() => setIsNotificationsOpen(true)}
@@ -81,13 +103,15 @@ export const AppShell: React.FC<AppShellProps> = ({
               aria-label="Notifications"
             >
               <FaIcon icon={faBell} className="text-xs" />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
+              {unreadNotificationsCount > 0 && (
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
+              )}
             </button>
 
             <button
               type="button"
               onClick={() => setIsProfileModalOpen(true)}
-              className="p-1 rounded-xl hover:ring-2 hover:ring-[#123B5D]/20 transition-all cursor-pointer"
+              className="p-0.5 rounded-xl hover:ring-2 hover:ring-[#123B5D]/20 transition-all cursor-pointer"
               aria-label="Mon Profil"
             >
               <UserAvatar profile={profile} size="xs" />

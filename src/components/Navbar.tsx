@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ViewType } from '../types/platform';
 import { SkillBridgeLogo } from './SkillBridgeLogo';
 import { useAuth } from '../context/AuthContext';
-import { Menu, X, ArrowRight, User } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
+import { useLanguage } from '../context/LanguageContext';
+import { UserAvatar } from './UserAvatar';
+import { Menu, X, ArrowRight, Sun, Moon, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface NavbarProps {
@@ -12,6 +15,8 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
   const { user, profile, signOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -24,12 +29,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
   }, []);
 
   const navLinks: { label: string; view: ViewType }[] = [
-    { label: 'Accueil', view: 'home' },
-    { label: 'Apprendre', view: 'learn' },
-    { label: 'Talents', view: 'talents' },
-    { label: 'Mentors', view: 'mentors' },
-    { label: 'Entreprises', view: 'companies' },
-    { label: 'Ressources', view: 'resources' },
+    { label: t('nav.home'), view: 'home' },
+    { label: t('nav.learn'), view: 'learn' },
+    { label: t('nav.talents'), view: 'talents' },
+    { label: t('nav.mentors'), view: 'mentors' },
+    { label: t('nav.companies'), view: 'companies' },
+    { label: t('nav.resources'), view: 'resources' },
   ];
 
   const handleNav = (v: ViewType) => {
@@ -52,7 +57,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           onClick={() => handleNav('home')}
           className="cursor-pointer transition-transform hover:scale-[1.02] active:scale-[0.98]"
         >
-          <SkillBridgeLogo size="md" />
+          <SkillBridgeLogo size="md" isDark={theme === 'dark'} />
         </div>
 
         {/* Desktop Navigation Links */}
@@ -83,10 +88,37 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           })}
         </nav>
 
-        {/* Right CTA Actions */}
-        <div className="hidden lg:flex items-center gap-4">
+        {/* Right CTA Actions & Global Utilities */}
+        <div className="hidden lg:flex items-center gap-3">
+          
+          {/* Language Switcher Button */}
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="sb-btn px-2.5 py-1.5 rounded-xl border border-[#E2E8E5] bg-white text-xs font-mono font-bold text-stone-700 hover:bg-stone-50 flex items-center gap-1.5 cursor-pointer shadow-2xs"
+            title={language === 'fr' ? 'Passer en Anglais' : 'Switch to French'}
+          >
+            <Globe className="w-3.5 h-3.5 text-[#59B83E]" />
+            <span className="uppercase">{language}</span>
+          </button>
+
+          {/* Dark / Light Theme Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="sb-btn p-2 rounded-xl border border-[#E2E8E5] bg-white text-stone-700 hover:bg-stone-50 transition-colors cursor-pointer shadow-2xs"
+            title={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 text-amber-400" />
+            ) : (
+              <Moon className="w-4 h-4 text-[#123B5D]" />
+            )}
+          </button>
+
           {user ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 ml-1">
               <button
                 type="button"
                 onClick={() => handleNav('passport')}
@@ -97,16 +129,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 }`}
               >
                 <span className="w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
-                <span>Skill Passport</span>
+                <span>{t('nav.passport')}</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNav('dashboard-talent')}
-                className="sb-btn p-2 rounded-xl border border-[#E2E8E5] text-stone-700 hover:bg-stone-50 transition-colors flex items-center gap-2 cursor-pointer"
+                className="sb-btn p-1.5 pr-3 rounded-xl border border-[#E2E8E5] bg-white text-stone-700 hover:bg-stone-50 transition-colors flex items-center gap-2 cursor-pointer shadow-2xs"
                 title="Mon Espace"
               >
-                <User className="w-4 h-4 text-[#123B5D]" />
+                <UserAvatar profile={profile} size="xs" />
                 <span className="text-xs font-bold font-mono">
                   {profile?.first_name || 'Espace'}
                 </span>
@@ -117,17 +149,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 onClick={() => signOut()}
                 className="text-xs text-stone-400 hover:text-rose-600 transition-colors font-medium cursor-pointer"
               >
-                Déconnexion
+                {t('nav.logout')}
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 ml-1">
               <button
                 type="button"
                 onClick={() => handleNav('auth')}
-                className="sb-btn px-4 py-2 rounded-xl text-xs font-bold text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+                className="sb-btn px-3.5 py-2 rounded-xl text-xs font-bold text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
               >
-                Connexion
+                {t('nav.login')}
               </button>
 
               <button
@@ -135,22 +167,33 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 onClick={() => handleNav('onboarding')}
                 className="sb-btn px-4 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer group"
               >
-                <span>Rejoindre</span>
+                <span>{t('nav.join')}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#C8F169] group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
           )}
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Controls & Hamburger */}
         <div className="flex lg:hidden items-center gap-2">
+          
+          {/* Quick Theme Switch Mobile */}
           <button
             type="button"
-            onClick={() => handleNav('onboarding')}
-            className="sb-btn px-3.5 py-2 rounded-xl bg-[#123B5D] text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-stone-700 cursor-pointer"
+            aria-label="Toggle theme"
           >
-            <span>Rejoindre</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#123B5D]" />}
+          </button>
+
+          {/* Quick Language Switch Mobile */}
+          <button
+            type="button"
+            onClick={toggleLanguage}
+            className="px-2 py-1.5 rounded-xl bg-white border border-[#E2E8E5] text-[11px] font-mono font-bold text-stone-700 cursor-pointer"
+          >
+            {language.toUpperCase()}
           </button>
 
           <button
@@ -172,7 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.22, ease: [0.25, 0.1, 0.25, 1] as const }}
             className="overflow-hidden lg:hidden border-b border-[#E2E8E5] bg-white px-6 py-6 space-y-4"
           >
             <nav className="flex flex-col space-y-2">
@@ -202,8 +245,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                   onClick={() => handleNav('dashboard-talent')}
                   className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <User className="w-3.5 h-3.5 text-[#C8F169]" />
-                  <span>Mon Espace Personnel</span>
+                  <UserAvatar profile={profile} size="xs" />
+                  <span>{t('nav.dashboard')}</span>
                 </button>
               ) : (
                 <>
@@ -212,14 +255,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                     onClick={() => handleNav('auth')}
                     className="sb-btn w-full py-2.5 rounded-xl bg-white border border-[#E2E8E5] text-[#123B5D] font-bold text-xs cursor-pointer"
                   >
-                    Se connecter
+                    {t('nav.login')}
                   </button>
                   <button
                     type="button"
                     onClick={() => handleNav('onboarding')}
                     className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Rejoindre SkillBridge</span>
+                    <span>{t('nav.join')}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
                   </button>
                 </>

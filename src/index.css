@@ -15,6 +15,12 @@
     background-color: #F5F7F6;
     color: #101820;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  html.dark body {
+    background-color: #0B131B;
+    color: #F1F5F9;
   }
   
   h1, h2, h3, h4, .font-heading {
@@ -25,6 +31,44 @@
   .font-editorial {
     font-family: 'Newsreader', Georgia, serif;
   }
+}
+
+/* Dark Mode Global Overrides */
+html.dark .bg-white {
+  background-color: #111C24 !important;
+}
+
+html.dark .bg-\[\#F5F7F6\],
+html.dark .bg-\[\#FAFCFB\],
+html.dark .bg-\[\#F7F9F8\] {
+  background-color: #0E1720 !important;
+}
+
+html.dark .border-\[\#E2E8E5\] {
+  border-color: #1F2D3D !important;
+}
+
+html.dark .text-\[\#101820\] {
+  color: #F1F5F9 !important;
+}
+
+html.dark .text-stone-600,
+html.dark .text-stone-500 {
+  color: #94A3B8 !important;
+}
+
+html.dark .text-stone-400 {
+  color: #64748B !important;
+}
+
+html.dark .bg-stone-50,
+html.dark .bg-stone-100 {
+  background-color: #16222D !important;
+}
+
+html.dark .border-stone-200,
+html.dark .border-stone-100 {
+  border-color: #1F2D3D !important;
 }
 
 /* Custom SkillBridge color utilities */

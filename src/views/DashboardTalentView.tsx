@@ -1,10 +1,10 @@
 import React from 'react';
 import { ViewType } from '../types/platform';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import { UserAvatar } from '../components/UserAvatar';
 import { FaIcon } from '../components/FaIcon';
 import { 
-
   faShieldHalved, 
   faCertificate, 
   faArrowRight, 
@@ -24,6 +24,7 @@ interface DashboardTalentViewProps {
 
 export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavigate }) => {
   const { profile } = useAuth();
+  const { t } = useLanguage();
 
   return (
     <div className="flex-1 w-full min-h-screen bg-[#FAFCFB] pb-24 lg:pb-8">
@@ -35,10 +36,10 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
               <UserAvatar profile={profile} size="xl" className="shadow-xs border-4 border-white" />
               <div className="space-y-1">
                 <h1 className="text-2xl sm:text-3xl font-heading font-black text-[#101820]">
-                  Bienvenue, {profile?.first_name || 'Talent'}
+                  {t('dash.welcome')}, {profile?.first_name || 'Talent'}
                 </h1>
                 <p className="text-sm text-stone-500 font-medium max-w-lg">
-                  Votre espace personnel. Retrouvez ici vos statistiques, vos candidatures et les recommandations adaptées à votre profil.
+                  {t('dash.subtitle')}
                 </p>
               </div>
             </div>
