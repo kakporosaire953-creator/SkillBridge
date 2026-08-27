@@ -1,6 +1,0 @@
-{
-  "name": "SkillBridge",
-  "description": "The bridge between skills and opportunities. L'écosystème reliant les compétences, les talents, l'expérience et les opportunités à travers l'Afrique.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
