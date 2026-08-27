@@ -265,7 +265,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                   {onNavigateToVerify && (
                     <button
                       type="button"
-                      onClick={() => onNavigateToVerify(profile.passport_id)}
+                      onClick={() => onNavigateToVerify(profile.passport_id || '')}
                       className="text-[11px] text-[#59B83E] hover:underline font-mono font-bold flex items-center gap-1 cursor-pointer pt-0.5"
                     >
                       <span>Vérifier en ligne</span>
@@ -475,7 +475,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
         {onNavigateToVerify && (
           <button
             type="button"
-            onClick={() => onNavigateToVerify(profile.passport_id)}
+            onClick={() => onNavigateToVerify(profile.passport_id || '')}
             className="px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-[#C8F169]" />

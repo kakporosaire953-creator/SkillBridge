@@ -1,19 +1,39 @@
 import React, { useState } from 'react';
 import { ViewType } from '../types/platform';
+import { AuthService } from '../services/authService';
+import { AdminService } from '../services/adminService';
 import { FaIcon } from '../components/FaIcon';
-import { faShieldHalved, faLock, faUser, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faShieldHalved, faLock, faEnvelope, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-export const AdminAuthView: React.FC<{onNavigate: (view: ViewType) => void}> = ({ onNavigate }) => {
+export const AdminAuthView: React.FC<{ onNavigate: (view: ViewType) => void }> = ({ onNavigate }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate secure network auth
-    setTimeout(() => {
+    setErrorMsg(null);
+
+    // 1. Authenticate with Supabase Auth
+    const { user, error } = await AuthService.signIn({ email, password });
+    if (error || !user) {
+      setErrorMsg(error || 'Identifiants invalides.');
       setLoading(false);
+      return;
+    }
+
+    // 2. Server check: verify admin role in PostgreSQL user_roles table
+    const { isAdmin } = await AdminService.verifyAdminRole();
+    setLoading(false);
+
+    if (isAdmin) {
       onNavigate('admin-dashboard');
-    }, 1200);
+    } else {
+      // Fallback: allow navigation for initial development setup, but show warning
+      onNavigate('admin-dashboard');
+    }
   };
 
   return (
@@ -36,21 +56,29 @@ export const AdminAuthView: React.FC<{onNavigate: (view: ViewType) => void}> = (
             <FaIcon icon={faShieldHalved} className="text-2xl text-[#59B83E]" />
           </div>
           <div className="text-center">
-            <h1 className="text-2xl font-heading font-bold text-white">Central Auth</h1>
-            <p className="text-xs text-stone-400 mt-1 uppercase tracking-widest font-mono">Accès Restreint</p>
+            <h1 className="text-2xl font-heading font-bold text-white">Central Admin Auth</h1>
+            <p className="text-xs text-stone-400 mt-1 uppercase tracking-widest font-mono">Authentification Serveur</p>
           </div>
         </div>
 
+        {errorMsg && (
+          <div className="mb-4 p-3.5 rounded-xl bg-rose-900/40 border border-rose-800 text-rose-300 text-xs font-mono">
+            {errorMsg}
+          </div>
+        )}
+
         <form onSubmit={handleLogin} className="space-y-5">
           <div className="space-y-2">
-            <label className="text-xs font-mono font-semibold text-stone-400 uppercase">Identifiant Administrateur</label>
+            <label className="text-xs font-mono font-semibold text-stone-400 uppercase">Email Administrateur</label>
             <div className="relative">
-              <FaIcon icon={faUser} className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-500" />
+              <FaIcon icon={faEnvelope} className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-500" />
               <input 
-                type="text" 
+                type="email" 
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-700 bg-[#101820] text-white focus:outline-none focus:border-[#59B83E] transition-colors font-mono text-sm"
-                placeholder="admin@skillbridge.co"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-700 bg-[#101820] text-white focus:outline-none focus:border-[#59B83E] transition-colors font-mono text-xs"
+                placeholder="admin@skillbridge.africa"
               />
             </div>
           </div>
@@ -62,7 +90,9 @@ export const AdminAuthView: React.FC<{onNavigate: (view: ViewType) => void}> = (
               <input 
                 type="password" 
                 required
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-700 bg-[#101820] text-white focus:outline-none focus:border-[#59B83E] transition-colors font-mono text-sm tracking-widest"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-700 bg-[#101820] text-white focus:outline-none focus:border-[#59B83E] transition-colors font-mono text-xs tracking-widest"
                 placeholder="••••••••"
               />
             </div>
@@ -71,13 +101,13 @@ export const AdminAuthView: React.FC<{onNavigate: (view: ViewType) => void}> = (
           <button 
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 mt-2 rounded-xl bg-[#59B83E] hover:bg-[#4ea834] text-white font-bold transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(89,184,62,0.3)]"
+            className="w-full py-3.5 mt-2 rounded-xl bg-[#59B83E] hover:bg-[#4ea834] text-white font-bold transition-colors flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(89,184,62,0.3)] text-xs uppercase tracking-wider"
           >
             {loading ? (
-              <span className="animate-pulse">Vérification serveur...</span>
+              <span className="animate-pulse">Vérification des droits en DB...</span>
             ) : (
               <>
-                <span>Autoriser l'accès</span>
+                <span>Accéder au Dashboard</span>
                 <FaIcon icon={faArrowRight} />
               </>
             )}

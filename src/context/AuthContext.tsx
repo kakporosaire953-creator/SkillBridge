@@ -4,6 +4,9 @@ import { Profile, ProfileUpdateInput, AccountType, UserSkillItem, UserProjectIte
 import { AuthService, SignUpParams, SignInParams } from '../services/authService';
 import { ProfileService } from '../services/profileService';
 import { StorageService } from '../services/storageService';
+import { SkillService } from '../services/skillService';
+import { ProjectService } from '../services/projectService';
+import { PassportService } from '../services/passportService';
 import { isSupabaseConfigured } from '../services/supabase';
 
 const STORAGE_KEY_PROFILE = 'sb_active_profile_v2';
@@ -45,7 +48,6 @@ const createCleanProfile = (
   accountType: AccountType = 'talent'
 ): Profile => {
   const cleanUsername = `${(firstName || '').toLowerCase().replace(/\s+/g, '')}_${(lastName || '').toLowerCase().replace(/\s+/g, '')}`.replace(/^_+|_+$/g, '') || `user_${userId.slice(0, 6)}`;
-  const randomSuffix = Math.floor(10000 + Math.random() * 90000);
   
   return {
     id: `prof-${userId}`,
@@ -59,6 +61,9 @@ const createCleanProfile = (
     location: null,
     country: null,
     account_type: accountType,
+    title: null,
+    domain: null,
+    languages: [],
     website: null,
     linkedin_url: null,
     instagram_url: null,
@@ -66,12 +71,8 @@ const createCleanProfile = (
     github_url: null,
     availability: 'Disponible pour opportunités et projets',
     profile_visibility: 'public',
-    passport_id: `SB-2026-${randomSuffix}`,
-    passport_score: 20,
-    skills: [],
-    projects: [],
-    certifications: [],
-    validations: [],
+    passport_id: null,
+    passport_score: 0,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   };
@@ -136,14 +137,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           setError(profileErr);
           loadLocalState();
         } else if (userProfile) {
-          // Merge with extra properties if missing
+          // Fetch passport to get official sbid and real score
+          const { data: passportData } = await PassportService.getPassportByUserId(activeUser.id);
+          
           const fullProfile: Profile = {
             ...createCleanProfile(activeUser.id, activeUser.email || '', userProfile.first_name, userProfile.last_name, userProfile.account_type),
             ...userProfile,
-            skills: userProfile.skills || [],
-            projects: userProfile.projects || [],
-            certifications: userProfile.certifications || [],
-            validations: userProfile.validations || []
+            passport_id: passportData?.sbid || userProfile.passport_id,
+            passport_score: passportData?.score !== undefined ? passportData.score : userProfile.passport_score,
           };
           setProfile(fullProfile);
           try {
@@ -249,7 +250,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         await loadUserProfile(newUser);
       }
     } else {
-      // Local fallback account creation
       const localId = `sb_usr_${Date.now()}`;
       const localUser = {
         id: localId,
@@ -263,11 +263,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       } as unknown as User;
 
       const newProf = createCleanProfile(localId, params.email, params.firstName, params.lastName, params.accountType);
-      newProf.skills = [];
-      newProf.projects = [];
-      newProf.certifications = [];
-      newProf.validations = [];
-      newProf.passport_score = 40;
 
       setUser(localUser);
       saveProfileLocally(newProf);
@@ -299,7 +294,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         await loadUserProfile(loggedUser);
       }
     } else {
-      // Local login fallback: load existing user or create clean account for this email
       const savedUserStr = localStorage.getItem(STORAGE_KEY_USER);
       const savedProfStr = localStorage.getItem(STORAGE_KEY_PROFILE);
       if (savedUserStr && savedProfStr) {
@@ -334,38 +328,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return { success: true };
   };
 
-  const loadDemoAccount = (role: 'talent' | 'mentor' | 'company' = 'talent') => {
-    const demoId = `demo_${role}_${Date.now()}`;
-    const first = role === 'mentor' ? 'Dr. Ousmane' : role === 'company' ? 'Koffi' : 'Aïcha';
-    const last = role === 'mentor' ? 'Sylla' : role === 'company' ? 'Tech Corp' : 'Konaté';
-    const email = `${first.toLowerCase().replace(/[^a-z]/g, '')}@skillbridge.africa`;
-    
-    const demoUser = {
-      id: demoId,
-      email,
-      user_metadata: {
-        first_name: first,
-        last_name: last,
-        username: `${first.toLowerCase().replace(/[^a-z]/g, '')}_${last.toLowerCase().replace(/[^a-z]/g, '')}`,
-        account_type: role
-      }
-    } as unknown as User;
-
-    const demoProfile = createCleanProfile(demoId, email, first, last, role);
-    demoProfile.headline = role === 'mentor' ? 'Lead Architecte Cloud & Mentor' : role === 'company' ? 'Directeur Recrutement & Partenariats' : 'Ingénieur Logiciel & Systèmes Distribués';
-    demoProfile.location = 'Dakar';
-    demoProfile.country = 'Sénégal';
-    demoProfile.bio = 'Passionné par l\'ingénierie logicielle d\'excellence et l\'impact technologique en Afrique.';
-    
-    setUser(demoUser);
-    saveProfileLocally(demoProfile);
-    try {
-      localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(demoUser));
-    } catch (e) {
-      console.warn(e);
-    }
-  };
-
   const signOut = async (): Promise<void> => {
     setError(null);
     setIsLoading(true);
@@ -391,24 +353,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     setError(null);
 
-    // Calculate dynamic passport score based on real verified items
-    const skillsCount = (input.skills || profile.skills).length;
-    const verifiedSkillsCount = (input.skills || profile.skills).filter(s => s.stage === 'verified' || s.stage === 'demonstrated').length;
-    const projectsCount = (input.projects || profile.projects).length;
-    const certsCount = (input.certifications || profile.certifications).length;
-    const hasPhoto = Boolean(input.avatar_url || profile.avatar_url);
-
-    const calculatedScore = Math.min(
-      100,
-      35 + (hasPhoto ? 10 : 0) + (skillsCount * 5) + (verifiedSkillsCount * 8) + (projectsCount * 10) + (certsCount * 8)
-    );
-
     const updatedProfile: Profile = {
       ...profile,
       first_name: input.first_name !== undefined ? input.first_name : profile.first_name,
       last_name: input.last_name !== undefined ? input.last_name : profile.last_name,
       username: input.username !== undefined ? input.username : profile.username,
       headline: input.headline !== undefined ? input.headline : profile.headline,
+      title: input.title !== undefined ? input.title : profile.title,
+      domain: input.domain !== undefined ? input.domain : profile.domain,
+      languages: input.languages !== undefined ? input.languages : profile.languages,
       bio: input.bio !== undefined ? input.bio : profile.bio,
       location: input.location !== undefined ? input.location : profile.location,
       country: input.country !== undefined ? input.country : profile.country,
@@ -418,11 +371,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       github_url: input.github_url !== undefined ? input.github_url : profile.github_url,
       availability: input.availability !== undefined ? input.availability : profile.availability,
       avatar_url: input.avatar_url !== undefined ? input.avatar_url : profile.avatar_url,
-      skills: input.skills !== undefined ? input.skills : profile.skills,
-      projects: input.projects !== undefined ? input.projects : profile.projects,
-      certifications: input.certifications !== undefined ? input.certifications : profile.certifications,
-      validations: input.validations !== undefined ? input.validations : profile.validations,
-      passport_score: input.passport_score !== undefined ? input.passport_score : calculatedScore,
       updated_at: new Date().toISOString()
     };
 
@@ -441,7 +389,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
 
     setError(null);
-
     let finalUrl = '';
 
     if (typeof fileOrDataUrl === 'string') {
@@ -455,7 +402,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         }
         finalUrl = url;
       } else {
-        // Read file as Base64 data URL for local storage
         finalUrl = await new Promise<string>((resolve, reject) => {
           const reader = new FileReader();
           reader.onload = () => resolve(reader.result as string);
@@ -484,93 +430,115 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const addSkill = async (newSkillData: Omit<UserSkillItem, 'id'>) => {
-    if (!profile) return;
-    const newSkill: UserSkillItem = {
-      ...newSkillData,
-      id: `sk-${Date.now()}`
-    };
-    const updatedSkills = [newSkill, ...(profile.skills || [])];
-    await updateProfile({ skills: updatedSkills });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await SkillService.addUserSkill(user.id, profile.id, {
+        name: newSkillData.name,
+        category: newSkillData.category,
+        stage: newSkillData.stage,
+        level: newSkillData.level,
+      });
+      await refreshProfile();
+    }
   };
 
   const updateSkillStage = async (skillId: string, stage: SkillStage) => {
-    if (!profile) return;
-    const stageLevelMap: Record<SkillStage, number> = {
-      declared: 30,
-      learning: 50,
-      practicing: 70,
-      demonstrated: 85,
-      verified: 95
-    };
-    const updatedSkills = profile.skills.map((s) => {
-      if (s.id === skillId) {
-        return {
-          ...s,
-          stage,
-          level: stageLevelMap[stage]
-        };
-      }
-      return s;
-    });
-    await updateProfile({ skills: updatedSkills });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await SkillService.updateSkillStage(skillId, stage);
+      await refreshProfile();
+    }
   };
 
   const addSkillProof = async (skillId: string, proofData: Omit<SkillProof, 'id'>) => {
-    if (!profile) return;
-    const newProof: SkillProof = {
-      ...proofData,
-      id: `prf-${Date.now()}`
-    };
-    const updatedSkills = profile.skills.map((s) => {
-      if (s.id === skillId) {
-        return {
-          ...s,
-          stage: s.stage === 'declared' || s.stage === 'learning' ? ('practicing' as SkillStage) : s.stage,
-          proofs: [newProof, ...(s.proofs || [])]
-        };
-      }
-      return s;
-    });
-    await updateProfile({ skills: updatedSkills });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await SkillService.addSkillProof(user.id, {
+        user_skill_id: skillId,
+        title: proofData.title,
+        url: proofData.url || undefined,
+        type: proofData.type,
+      });
+      await refreshProfile();
+    }
   };
 
   const removeSkill = async (skillId: string) => {
-    if (!profile) return;
-    const updatedSkills = profile.skills.filter(s => s.id !== skillId);
-    await updateProfile({ skills: updatedSkills });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await SkillService.removeUserSkill(skillId);
+      await refreshProfile();
+    }
   };
 
   const addProject = async (projectData: Omit<UserProjectItem, 'id' | 'createdAt'>) => {
-    if (!profile) return;
-    const newProject: UserProjectItem = {
-      ...projectData,
-      id: `prj-${Date.now()}`,
-      createdAt: new Date().toISOString().split('T')[0]
-    };
-    const updatedProjects = [newProject, ...(profile.projects || [])];
-    await updateProfile({ projects: updatedProjects });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await ProjectService.createProject(user.id, profile.id, {
+        title: projectData.title,
+        description: projectData.description,
+        technologies: projectData.tech,
+        github_url: projectData.githubUrl,
+        live_url: projectData.liveUrl,
+      });
+      await refreshProfile();
+    }
   };
 
   const removeProject = async (projectId: string) => {
-    if (!profile) return;
-    const updatedProjects = profile.projects.filter(p => p.id !== projectId);
-    await updateProfile({ projects: updatedProjects });
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await ProjectService.deleteProject(projectId);
+      await refreshProfile();
+    }
   };
 
-  const addCertification = async (certData: Omit<UserCertificationItem, 'id'>) => {
-    if (!profile) return;
-    const newCert: UserCertificationItem = {
-      ...certData,
-      id: `cert-${Date.now()}`
-    };
-    const updatedCerts = [newCert, ...(profile.certifications || [])];
-    await updateProfile({ certifications: updatedCerts });
+  const addCertification = async (_certData: Omit<UserCertificationItem, 'id'>) => {
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await refreshProfile();
+    }
   };
 
-  const removeCertification = async (certId: string) => {
-    if (!profile) return;
-    const updatedCerts = profile.certifications.filter(c => c.id !== certId);
-    await updateProfile({ certifications: updatedCerts });
+  const removeCertification = async (_certId: string) => {
+    if (!profile || !user) return;
+    if (isConfigured) {
+      await refreshProfile();
+    }
+  };
+
+  const loadDemoAccount = (role: 'talent' | 'mentor' | 'company' = 'talent') => {
+    const demoId = `demo_${role}_${Date.now()}`;
+    const first = role === 'mentor' ? 'Dr. Ousmane' : role === 'company' ? 'Koffi' : 'Aïcha';
+    const last = role === 'mentor' ? 'Sylla' : role === 'company' ? 'Tech Corp' : 'Konaté';
+    const email = `${first.toLowerCase().replace(/[^a-z]/g, '')}@skillbridge.africa`;
+    
+    const demoUser = {
+      id: demoId,
+      email,
+      user_metadata: {
+        first_name: first,
+        last_name: last,
+        username: `${first.toLowerCase().replace(/[^a-z]/g, '')}_${last.toLowerCase().replace(/[^a-z]/g, '')}`,
+        account_type: role
+      }
+    } as unknown as User;
+
+    const demoProfile = createCleanProfile(demoId, email, first, last, role);
+    demoProfile.headline = role === 'mentor' ? 'Lead Architecte Cloud & Mentor' : role === 'company' ? 'Directeur Recrutement & Partenariats' : 'Ingénieur Logiciel & Systèmes Distribués';
+    demoProfile.location = 'Dakar';
+    demoProfile.country = 'Sénégal';
+    demoProfile.bio = 'Passionné par l\'ingénierie logicielle d\'excellence et l\'impact technologique en Afrique.';
+    demoProfile.passport_id = `SB-2026-${Math.floor(10000 + Math.random() * 90000)}`;
+    demoProfile.passport_score = 85;
+    
+    setUser(demoUser);
+    saveProfileLocally(demoProfile);
+    try {
+      localStorage.setItem(STORAGE_KEY_USER, JSON.stringify(demoUser));
+    } catch (e) {
+      console.warn(e);
+    }
   };
 
   const clearError = () => setError(null);

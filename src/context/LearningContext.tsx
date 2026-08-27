@@ -8,7 +8,7 @@ import {
 } from '../types/learning';
 import { INITIAL_LEARNING_ITEMS, INITIAL_MENTOR_APPLICATIONS } from '../data/learningData';
 import { useAuth } from './AuthContext';
-import { SkillProof } from '../types/platform';
+import { SkillProof } from '../types';
 
 const STORAGE_KEY_LEARNING_ITEMS = 'sb_learning_items_v3';
 const STORAGE_KEY_ENROLLMENTS = 'sb_user_enrollments_v3';

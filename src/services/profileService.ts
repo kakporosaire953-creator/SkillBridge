@@ -206,6 +206,10 @@ export const ProfileService = {
       if (input.first_name !== undefined) payload.first_name = input.first_name.trim();
       if (input.last_name !== undefined) payload.last_name = input.last_name.trim();
       if (input.username !== undefined) payload.username = input.username.trim();
+      if (input.headline !== undefined) payload.headline = input.headline ? input.headline.trim() : null;
+      if (input.title !== undefined) payload.title = input.title ? input.title.trim() : null;
+      if (input.domain !== undefined) payload.domain = input.domain ? input.domain.trim() : null;
+      if (input.languages !== undefined) payload.languages = input.languages;
       if (input.bio !== undefined) payload.bio = input.bio ? input.bio.trim() : null;
       if (input.location !== undefined) payload.location = input.location ? input.location.trim() : null;
       if (input.country !== undefined) payload.country = input.country ? input.country.trim() : null;
