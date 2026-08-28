@@ -17,10 +17,13 @@ export const isValidHttpUrl = (urlString?: string): boolean => {
 export const getSupabaseConfig = () => {
   const metaEnv = import.meta.env as Record<string, string> | undefined;
 
-  const rawUrl = 
+  let rawUrl = 
     metaEnv?.VITE_SUPABASE_URL ||
     metaEnv?.NEXT_PUBLIC_SUPABASE_URL ||
     '';
+
+  // Normalize URL: remove any /rest/v1 suffix and trailing slash
+  rawUrl = rawUrl.trim().replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
 
   const rawKey = 
     metaEnv?.VITE_SUPABASE_ANON_KEY ||
