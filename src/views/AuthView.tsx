@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import { StatusAlert } from '../components/StatusAlert';
 import { Mail, Lock, ArrowRight, KeyRound, CheckCircle2 } from 'lucide-react';
 
@@ -9,6 +10,7 @@ interface AuthViewProps {
 
 export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
   const { signIn, signUp, loadDemoAccount } = useAuth();
+  const { t } = useLanguage();
   const [tab, setTab] = useState<'login' | 'register' | 'forgot'>('login');
 
   // Login form state
@@ -121,25 +123,25 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
           </div>
 
           <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#101820] tracking-tight leading-tight">
-            Accédez à votre espace <span className="text-[#59B83E]">SkillBridge</span>.
+            {t('auth.title').split('SkillBridge')[0]} <span className="text-[#59B83E]">SkillBridge</span>.
           </h1>
 
           <p className="text-stone-600 text-sm sm:text-base leading-relaxed font-light">
-            Gérez votre Skill Passport, vérifiez vos preuves de compétences, échangez avec des mentors et explorez les opportunités panafricaines.
+            {t('auth.subtitle')}
           </p>
 
           <div className="space-y-3 pt-4 border-t border-[#E2E8E5]">
             <div className="flex items-center gap-3 text-xs text-stone-600">
               <CheckCircle2 className="w-4 h-4 text-[#59B83E] shrink-0" />
-              <span>Skill Passport infalsifiable et partageable</span>
+              <span>{t('auth.bullet1')}</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-stone-600">
               <CheckCircle2 className="w-4 h-4 text-[#59B83E] shrink-0" />
-              <span>Accès direct aux sessions de mentorat 1-on-1</span>
+              <span>{t('auth.bullet2')}</span>
             </div>
             <div className="flex items-center gap-3 text-xs text-stone-600">
               <CheckCircle2 className="w-4 h-4 text-[#59B83E] shrink-0" />
-              <span>Mise en relation directe avec les entreprises</span>
+              <span>{t('auth.bullet3')}</span>
             </div>
           </div>
         </div>
@@ -182,7 +184,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                     : 'text-stone-500 hover:text-[#101820]'
                 }`}
               >
-                Se connecter
+                {t('auth.login_tab')}
               </button>
               <button
                 type="button"
@@ -197,7 +199,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                     : 'text-stone-500 hover:text-[#101820]'
                 }`}
               >
-                Créer un compte
+                {t('auth.register_tab')}
               </button>
             </div>
 
@@ -206,7 +208,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
               <form onSubmit={handleLogin} className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1.5">
-                    Adresse e-mail
+                    {t('auth.email')}
                   </label>
                   <div className="relative">
                     <Mail className="w-4 h-4 text-stone-400 absolute left-4 top-3.5" />
@@ -224,14 +226,14 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                 <div>
                   <div className="flex items-center justify-between mb-1.5">
                     <label className="text-xs font-bold uppercase tracking-wider text-[#123B5D]">
-                      Mot de passe
+                      {t('auth.password')}
                     </label>
                     <button
                       type="button"
                       onClick={() => setTab('forgot')}
                       className="text-xs text-[#59B83E] hover:underline font-medium transition-colors cursor-pointer"
                     >
-                      Mot de passe oublié ?
+                      {t('auth.forgot_password')}
                     </button>
                   </div>
                   <div className="relative">
@@ -253,10 +255,10 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                   className="w-full mt-4 py-3.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer shadow-md"
                 >
                   {isSubmitting ? (
-                    <span>Connexion en cours...</span>
+                    <span>{t('auth.login_loading')}</span>
                   ) : (
                     <>
-                      <span>Accéder à mon espace</span>
+                      <span>{t('auth.submit_login')}</span>
                       <ArrowRight className="w-4 h-4 text-[#59B83E]" />
                     </>
                   )}
@@ -265,7 +267,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                 {/* Quick Demo Access Trigger */}
                 <div className="pt-4 mt-4 border-t border-stone-100 space-y-2">
                   <div className="text-[11px] font-mono text-stone-400 uppercase tracking-wider text-center">
-                    Ou tester en un clic
+                    {t('auth.demo_title')}
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <button
@@ -276,7 +278,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                       }}
                       className="py-2 px-3 rounded-xl border border-stone-200 bg-stone-50 hover:bg-white text-[11px] font-bold text-[#123B5D] transition-colors text-center shadow-2xs"
                     >
-                      Démo Talent
+                      {t('auth.demo_talent')}
                     </button>
                     <button
                       type="button"
@@ -286,7 +288,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                       }}
                       className="py-2 px-3 rounded-xl border border-stone-200 bg-stone-50 hover:bg-white text-[11px] font-bold text-[#59B83E] transition-colors text-center shadow-2xs"
                     >
-                      Démo Mentor
+                      {t('auth.demo_mentor')}
                     </button>
                   </div>
                 </div>
@@ -299,7 +301,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                      Prénom <span className="text-rose-500">*</span>
+                      {t('auth.first_name')} <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -313,7 +315,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
 
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                      Nom <span className="text-rose-500">*</span>
+                      {t('auth.last_name')} <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -328,22 +330,22 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                    Rôle principal <span className="text-rose-500">*</span>
+                    {t('auth.role')} <span className="text-rose-500">*</span>
                   </label>
                   <select
                     value={regRole}
                     onChange={(e) => setRegRole(e.target.value as any)}
                     className="w-full px-3 py-2.5 rounded-xl bg-[#F5F7F6] border border-[#E2E8E5] text-[#101820] text-xs focus:outline-hidden focus:border-[#123B5D]"
                   >
-                    <option value="talent">Talent (Développeur, Designer, Architecte)</option>
-                    <option value="mentor">Mentor (Senior Engineer, VP Product)</option>
-                    <option value="company">Entreprise / Organisation</option>
+                    <option value="talent">{t('auth.role_talent')}</option>
+                    <option value="mentor">{t('auth.role_mentor')}</option>
+                    <option value="company">{t('auth.role_company')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                    Adresse e-mail <span className="text-rose-500">*</span>
+                    {t('auth.email')} <span className="text-rose-500">*</span>
                   </label>
                   <input
                     type="email"
@@ -358,7 +360,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                      Mot de passe <span className="text-rose-500">*</span>
+                      {t('auth.password')} <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="password"
@@ -372,7 +374,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
 
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1">
-                      Confirmation <span className="text-rose-500">*</span>
+                      {t('auth.confirm_password')} <span className="text-rose-500">*</span>
                     </label>
                     <input
                       type="password"
@@ -391,10 +393,10 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                   className="w-full mt-3 py-3.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-xs sm:text-sm tracking-wide transition-all flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer shadow-md"
                 >
                   {isSubmitting ? (
-                    <span>Création du profil...</span>
+                    <span>{t('auth.register_loading')}</span>
                   ) : (
                     <>
-                      <span>Créer mon profil</span>
+                      <span>{t('auth.submit_register')}</span>
                       <ArrowRight className="w-4 h-4 text-[#C8F169]" />
                     </>
                   )}
@@ -406,12 +408,12 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
             {tab === 'forgot' && (
               <form onSubmit={handleForgot} className="space-y-4">
                 <p className="text-xs text-stone-600 leading-relaxed mb-4 font-light">
-                  Saisissez votre adresse e-mail pour recevoir le lien de réinitialisation sécurisé.
+                  {t('auth.forgot_desc')}
                 </p>
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1.5">
-                    Adresse e-mail
+                    {t('auth.email')}
                   </label>
                   <input
                     type="email"
@@ -428,7 +430,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                   className="w-full py-3.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-xs tracking-wide transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   <KeyRound className="w-4 h-4 text-[#C8F169]" />
-                  <span>Envoyer le lien de récupération</span>
+                  <span>{t('auth.send_link')}</span>
                 </button>
 
                 <div className="text-center pt-2">
@@ -437,7 +439,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ onSuccess }) => {
                     onClick={() => setTab('login')}
                     className="text-xs text-stone-500 hover:text-[#101820] transition-colors cursor-pointer"
                   >
-                    ← Retour à la connexion
+                    {t('auth.back_to_login')}
                   </button>
                 </div>
               </form>

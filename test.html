@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.error("GLOBAL ERROR:", message, error);
+    };
+    window.addEventListener("unhandledrejection", function(event) {
+      console.error("UNHANDLED PROMISE:", event.reason);
+    });
+  </script>
+</head>
+<body>
+<script type="module">
+  import { JSDOM } from "jsdom";
+  
+  // Wait, I can't use JSDOM in browser.
+</script>
+</body>
+</html>

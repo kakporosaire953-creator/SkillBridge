@@ -49,6 +49,28 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         
+        {/* Top Banner or Notification */}
+        <FadeInUp delay={0.08}>
+          <div className="bg-[#123B5D] rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
+            <div className="relative z-10 space-y-2 text-center sm:text-left">
+              <h2 className="text-xl sm:text-2xl font-heading font-black text-white">
+                Skill Intelligence System
+              </h2>
+              <p className="text-stone-300 text-sm max-w-xl">
+                Définissez précisément vos compétences principales, votre niveau d'expertise et les outils que vous maîtrisez pour améliorer votre <strong className="text-white">Profile Strength</strong>.
+              </p>
+            </div>
+            <button 
+              onClick={() => onNavigate('skills-manager')}
+              className="relative z-10 shrink-0 sb-btn px-6 py-3 rounded-xl bg-[#59B83E] hover:bg-[#4ea536] text-white font-bold text-sm tracking-wide transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Gérer mes compétences</span>
+              <FaIcon icon={faArrowRight} />
+            </button>
+          </div>
+        </FadeInUp>
+
         {/* Empty States Section */}
         <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
@@ -58,16 +80,16 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                 <FaIcon icon={faFolderOpen} className="text-xl text-[#59B83E]" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-[#101820]">Mes Projets</h3>
+                <h3 className="text-sm font-bold text-[#101820]">{t('dash.my_projects')}</h3>
                 <p className="text-xs text-stone-500 max-w-sm mx-auto">
-                  Vous n'avez pas encore publié de projets pour enrichir votre portefeuille.
+                  {t('dash.my_projects_desc')}
                 </p>
               </div>
               <button 
                 onClick={() => onNavigate('project-publish')}
                 className="sb-btn px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold inline-flex items-center gap-2 transition-colors shadow-2xs cursor-pointer"
               >
-                <span>Publier un projet</span>
+                <span>{t('dash.publish_project')}</span>
                 <FaIcon icon={faArrowRight} />
               </button>
             </div>
@@ -79,16 +101,16 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                 <FaIcon icon={faBriefcase} className="text-xl text-[#59B83E]" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-[#101820]">Mes Opportunités</h3>
+                <h3 className="text-sm font-bold text-[#101820]">{t('dash.my_opportunities')}</h3>
                 <p className="text-xs text-stone-500 max-w-sm mx-auto">
-                  Vous n'avez aucune candidature en cours actuellement.
+                  {t('dash.my_opportunities_desc')}
                 </p>
               </div>
               <button 
                 onClick={() => onNavigate('opportunities')}
                 className="sb-btn px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold inline-flex items-center gap-2 transition-colors shadow-2xs cursor-pointer"
               >
-                <span>Explorer les offres</span>
+                <span>{t('dash.explore_jobs')}</span>
                 <FaIcon icon={faArrowRight} />
               </button>
             </div>
@@ -106,7 +128,7 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                   <FaIcon icon={faCertificate} className="text-[#59B83E]" />
                 </div>
                 <h3 className="font-heading text-base font-bold text-[#101820]">
-                  Mes Certifications
+                  Certifications
                 </h3>
                 <p className="text-xs text-stone-600 leading-relaxed">
                   Vos diplômes et titres de compétences souverains, auditables par les recruteurs avec code de validation.
@@ -116,7 +138,7 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                 onClick={() => onNavigate('certificates')}
                 className="sb-btn w-full py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 text-xs font-bold text-[#123B5D] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
-                <span>Accéder aux certificats (0)</span>
+                <span>Accéder (0)</span>
                 <FaIcon icon={faChevronRight} className="text-[10px]" />
               </button>
             </div>
@@ -139,7 +161,7 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                 onClick={() => onNavigate('passport')}
                 className="sb-btn w-full py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 text-xs font-bold text-[#123B5D] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
-                <span>Voir mon Passeport</span>
+                <span>{t('nav.passport')}</span>
                 <FaIcon icon={faChevronRight} className="text-[10px]" />
               </button>
             </div>
@@ -152,7 +174,7 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                   <FaIcon icon={faCircleCheck} className="text-[#59B83E]" />
                 </div>
                 <h3 className="font-heading text-base font-bold text-[#101820]">
-                  Registre de Vérification
+                  Verification
                 </h3>
                 <p className="text-xs text-stone-600 leading-relaxed">
                   Permet à n'importe quel tiers ou recruteur d'attester l'authenticité de vos certifications SkillBridge.
@@ -162,7 +184,7 @@ export const DashboardTalentView: React.FC<DashboardTalentViewProps> = ({ onNavi
                 onClick={() => onNavigate('verify')}
                 className="sb-btn w-full py-2.5 rounded-xl border border-stone-200 hover:bg-stone-50 text-xs font-bold text-[#123B5D] flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
-                <span>Tester le vérificateur</span>
+                <span>Test</span>
                 <FaIcon icon={faChevronRight} className="text-[10px]" />
               </button>
             </div>

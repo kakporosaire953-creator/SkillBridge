@@ -20,6 +20,7 @@ export type ViewType =
   | 'dashboard-mentor'
   | 'dashboard-company'
   | 'admin-programs'
+  | 'skills-manager'
   | 'explorer'
   | 'messaging'
   | 'skill-exchange'

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ViewType } from '../types/platform';
+import { useLanguage } from '../context/LanguageContext';
 import { HeroBridgeVisual } from '../components/HeroBridgeVisual';
 import { PremiumGridBackground } from '../components/PremiumGridBackground';
 import { FadeInUp } from '../components/motion/FadeInUp';
@@ -24,6 +25,7 @@ interface HomeViewProps {
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSent, setNewsletterSent] = useState(false);
   const [challengeEmail, setChallengeEmail] = useState('');
@@ -60,26 +62,26 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             <FadeInUp delay={0.05} yOffset={16}>
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#E2E8E5] text-[#123B5D] text-xs font-bold tracking-widest uppercase shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#59B83E] sb-pulse-dot" />
-                <span>L'ÉCOSYSTÈME AFRICAIN DES COMPÉTENCES</span>
+                <span>{t('hero.badge')}</span>
               </div>
             </FadeInUp>
 
             {/* Headline */}
             <FadeInUp delay={0.15} yOffset={20}>
               <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101820] tracking-tight leading-[1.15]">
-                Les compétences existent. <br className="hidden sm:inline" />
-                Nous construisons les{' '}
+                {t('hero.title1')} <br className="hidden sm:inline" />
+                {t('hero.title2')}{' '}
                 <span className="text-[#59B83E] underline decoration-[#C8F169] decoration-4 underline-offset-8">
-                  ponts
+                  {t('hero.title3')}
                 </span>{' '}
-                qui leur permettent d'aller plus loin.
+                {t('hero.title4')}
               </h1>
             </FadeInUp>
 
             {/* Description */}
             <FadeInUp delay={0.25} yOffset={20}>
               <p className="text-stone-600 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                SkillBridge connecte les compétences, les talents, l'expérience et les opportunités pour construire un écosystème où chacun peut apprendre, progresser, démontrer son savoir-faire et aller plus loin.
+                {t('hero.subtitle')}
               </p>
             </FadeInUp>
 
@@ -91,7 +93,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('onboarding')}
                   className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-sm sm:text-base tracking-wide transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 cursor-pointer group"
                 >
-                  <span>Rejoindre SkillBridge</span>
+                  <span>{t('hero.cta.join')}</span>
                   <ArrowRight className="w-4 h-4 text-[#C8F169] group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -100,7 +102,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                   onClick={() => onNavigate('about')}
                   className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-stone-50 border border-[#E2E8E5] text-[#123B5D] font-bold text-sm sm:text-base transition-all flex items-center justify-center gap-2 cursor-pointer hover:border-[#123B5D]"
                 >
-                  <span>Découvrir notre vision</span>
+                  <span>{t('hero.cta.vision')}</span>
                 </button>
               </div>
             </FadeInUp>
@@ -128,14 +130,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
           <FadeInUp className="text-center max-w-3xl mx-auto mb-24 sm:mb-32 space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#E2E8E5] text-[#59B83E] text-xs font-mono font-bold tracking-widest uppercase shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#59B83E] sb-pulse-dot" />
-              <span>THE GAP · LA RÉALITÉ DU TERRAIN</span>
+              <span>{t('gap.badge')}</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-extrabold text-[#101820] tracking-tight leading-tight">
-              Le talent est partout. <br className="hidden sm:inline" />
-              <span className="text-[#123B5D]">Les opportunités</span> ne le sont pas toujours.
+              {t('gap.title1')} <br className="hidden sm:inline" />
+              <span className="text-[#123B5D]">{t('gap.title2')}</span> {t('gap.title3')}
             </h2>
             <p className="text-stone-600 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              L'écosystème regorge de potentiels remarquables, mais l'absence de passerelles vérifiables crée une distance silencieuse entre les capacités réelles et la reconnaissance méritée.
+              {t('gap.subtitle')}
             </p>
           </FadeInUp>
 
@@ -415,16 +417,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
 
               <div className="relative z-10 max-w-3xl mx-auto space-y-5">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#C8F169] text-xs font-mono font-bold tracking-widest uppercase">
-                  <span>LA RÉPONSE SKILLBRIDGE</span>
+                  <span>{t('gap.resolution.badge')}</span>
                 </span>
                 
                 <h3 className="font-heading text-2xl sm:text-4xl font-extrabold text-white leading-tight">
-                  SkillBridge est né pour réduire cette distance.
+                  {t('gap.resolution.title')}
                 </h3>
                 
-                <p className="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto">
-                  En connectant organiquement les <strong>compétences</strong>, le <strong>talent</strong>, l'<strong>expérience</strong> et les <strong>opportunités</strong>, nous bâtissons l'infrastructure où chacun avance par la preuve.
-                </p>
+                <p className="text-stone-300 text-sm sm:text-base font-light leading-relaxed max-w-2xl mx-auto" dangerouslySetInnerHTML={{ __html: t('gap.resolution.desc').replace(/compétences/g, '<strong>compétences</strong>').replace(/talent/g, '<strong>talent</strong>').replace(/expérience/g, '<strong>expérience</strong>').replace(/opportunités/g, '<strong>opportunités</strong>') }} />
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
                   <button
@@ -432,7 +432,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                     onClick={() => onNavigate('onboarding')}
                     className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-[#59B83E] hover:bg-[#4ea536] text-white font-bold text-sm tracking-wide transition-all shadow-lg flex items-center justify-center gap-2.5 cursor-pointer group"
                   >
-                    <span>Rejoindre l'écosystème</span>
+                    <span>{t('gap.resolution.join')}</span>
                     <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
@@ -440,7 +440,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                     onClick={() => onNavigate('talents')}
                     className="sb-btn w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Explorer les profils vérifiés</span>
+                    <span>{t('gap.resolution.explore')}</span>
                   </button>
                 </div>
               </div>

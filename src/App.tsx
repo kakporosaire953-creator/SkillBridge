@@ -19,6 +19,7 @@ import { CertificatesView } from './views/CertificatesView';
 import { AuthView } from './views/AuthView';
 import { OnboardingView } from './views/OnboardingView';
 import { DashboardTalentView } from './views/DashboardTalentView';
+import { SkillsManagerView } from './views/SkillsManagerView';
 import { ContactView } from './views/ContactView';
 import { TermsView } from './views/TermsView';
 import { PrivacyView } from './views/PrivacyView';
@@ -175,6 +176,8 @@ export const App: React.FC = () => {
       case "favorites": return <FavoritesView onNavigate={handleNavigate} />;
       case 'onboarding':
         return <OnboardingView onNavigate={handleNavigate} />;
+      case 'skills-manager':
+        return <SkillsManagerView onNavigate={handleNavigate} />;
       case 'dashboard-talent':
       case 'dashboard-mentor':
       case 'dashboard-company':

@@ -34,41 +34,48 @@
 }
 
 /* Dark Mode Global Overrides */
-html.dark .bg-white {
-  background-color: #111C24 !important;
+html.dark body {
+  background-color: #101820 !important;
+  color: #FFFFFF !important;
 }
 
+html.dark .bg-white,
 html.dark .bg-\[\#F5F7F6\],
 html.dark .bg-\[\#FAFCFB\],
-html.dark .bg-\[\#F7F9F8\] {
-  background-color: #0E1720 !important;
+html.dark .bg-\[\#F7F9F8\],
+html.dark .bg-stone-50,
+html.dark .bg-stone-100 {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
 }
 
-html.dark .border-\[\#E2E8E5\] {
-  border-color: #1F2D3D !important;
+html.dark .border-\[\#E2E8E5\],
+html.dark .border-stone-200,
+html.dark .border-stone-100 {
+  border-color: rgba(255, 255, 255, 0.10) !important;
 }
 
 html.dark .text-\[\#101820\] {
-  color: #F1F5F9 !important;
+  color: #FFFFFF !important;
 }
 
 html.dark .text-stone-600,
 html.dark .text-stone-500 {
-  color: #94A3B8 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 html.dark .text-stone-400 {
-  color: #64748B !important;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
-html.dark .bg-stone-50,
-html.dark .bg-stone-100 {
-  background-color: #16222D !important;
-}
-
-html.dark .border-stone-200,
-html.dark .border-stone-100 {
-  border-color: #1F2D3D !important;
+/* Add custom liquid glass utility for specific panels if needed */
+html.dark .sb-liquid-glass {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Custom SkillBridge color utilities */

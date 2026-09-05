@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
   </head>
   <body class="h-full bg-[#F5F7F6] text-[#101820] selection:bg-[#59B83E] selection:text-white overflow-x-hidden font-sans">
-    <div id="root" class="min-h-full flex flex-col"></div>
+    <div id="logs" style="color:red; background:white; position:fixed; z-index:9999; top:0; left:0;"></div><script>window.onerror = function(m,s,l,c,e) { document.getElementById("logs").innerText += m + "\n"; }; window.addEventListener("unhandledrejection", function(e) { document.getElementById("logs").innerText += (e.reason?e.reason.message:"promise error") + "\n"; });</script><div id="root" class="min-h-full flex flex-col"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
