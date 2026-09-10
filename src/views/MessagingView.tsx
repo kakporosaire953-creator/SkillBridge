@@ -90,9 +90,9 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
   return (
     <div className="flex-1 w-full h-[calc(100vh-80px)] lg:h-screen flex bg-white overflow-hidden">
       {/* Sidebar List */}
-      <div className="w-full lg:w-80 flex-shrink-0 border-r border-[#E2E8E5] flex flex-col bg-[#F5F7F6]">
+      <div className="w-full lg:w-80 flex-shrink-0 border-r border-[#E2E8E5] flex flex-col bg-[#F7F8F3]">
         <div className="p-4 border-b border-[#E2E8E5] bg-white">
-          <h2 className="text-xl font-heading font-bold text-[#101820] mb-3">Messagerie</h2>
+          <h2 className="text-xl font-heading font-bold text-[#1A2233] mb-3">Messagerie</h2>
           <div className="relative">
             <FaIcon icon={faSearch} className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-sm" />
             <input 
@@ -100,7 +100,7 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher une discussion..." 
-              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#E2E8E5] bg-[#F5F7F6] text-xs focus:outline-none focus:border-[#59B83E]"
+              className="w-full pl-9 pr-3 py-2 rounded-xl border border-[#E2E8E5] bg-[#F7F8F3] text-xs focus:outline-none focus:border-[#68A91B]"
             />
           </div>
         </div>
@@ -111,7 +111,7 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
           ) : filteredConversations.length === 0 ? (
             <div className="text-center py-12 px-4">
               <FaIcon icon={faCommentDots} className="text-3xl text-stone-300 mb-2" />
-              <p className="text-xs text-stone-500 font-medium">Aucune conversation trouvée.</p>
+              <p className="text-xs text-[#5C6B78] font-medium">Aucune conversation trouvée.</p>
               <p className="text-[11px] text-stone-400 mt-1">Contactez un talent ou un mentor depuis l'Explorer pour démarrer.</p>
             </div>
           ) : (
@@ -134,11 +134,11 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
                   />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <h4 className="font-bold text-xs text-[#101820] truncate">
+                      <h4 className="font-bold text-xs text-[#1A2233] truncate">
                         {other?.first_name} {other?.last_name}
                       </h4>
                       {conv.unread_count && conv.unread_count > 0 ? (
-                        <span className="w-4 h-4 rounded-full bg-[#59B83E] text-white text-[9px] font-bold flex items-center justify-center">
+                        <span className="w-4 h-4 rounded-full bg-[#68A91B] text-white text-[9px] font-bold flex items-center justify-center">
                           {conv.unread_count}
                         </span>
                       ) : null}
@@ -166,15 +166,15 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
                 size="md"
               />
               <div>
-                <h3 className="font-bold text-sm text-[#101820]">
+                <h3 className="font-bold text-sm text-[#1A2233]">
                   {selectedConv.other_participant?.first_name} {selectedConv.other_participant?.last_name}
                 </h3>
-                <p className="text-[10px] text-[#59B83E] font-medium">En ligne</p>
+                <p className="text-[10px] text-[#68A91B] font-medium">En ligne</p>
               </div>
             </div>
 
             {/* Messages Stream */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-[#F5F7F6]">
+            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-[#F7F8F3]">
               {messages.map((msg) => {
                 const isMe = msg.sender_id === user?.id;
 
@@ -186,7 +186,7 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
                     <div
                       className={`max-w-md px-4 py-2.5 rounded-2xl text-xs ${
                         isMe
-                          ? 'bg-[#123B5D] text-white rounded-br-none'
+                          ? 'bg-[#06234B] text-white rounded-br-none'
                           : 'bg-white text-stone-800 border border-[#E2E8E5] rounded-bl-none shadow-2xs'
                       }`}
                     >
@@ -208,12 +208,12 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
                 value={messageText}
                 onChange={(e) => setMessageText(e.target.value)}
                 placeholder="Écrivez votre message..."
-                className="flex-1 px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                className="flex-1 px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={isSending || !messageText.trim()}
-                className="px-5 py-2.5 rounded-xl bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0A2338] disabled:opacity-40 transition-colors flex items-center gap-1.5"
+                className="px-5 py-2.5 rounded-xl bg-[#06234B] text-white text-xs font-bold hover:bg-[#0A2338] disabled:opacity-40 transition-colors flex items-center gap-1.5"
               >
                 <FaIcon icon={faPaperPlane} />
                 <span>Envoyer</span>
@@ -225,8 +225,8 @@ export const MessagingView: React.FC<{ onNavigate: (view: ViewType) => void }> =
             <div className="w-16 h-16 rounded-full bg-stone-50 border border-stone-100 flex items-center justify-center mb-4 text-stone-300 text-2xl">
               <FaIcon icon={faPaperPlane} />
             </div>
-            <h3 className="text-lg font-heading font-bold text-[#101820]">Vos messages</h3>
-            <p className="text-sm text-stone-500 max-w-sm mt-2">
+            <h3 className="text-lg font-heading font-bold text-[#1A2233]">Vos messages</h3>
+            <p className="text-sm text-[#5C6B78] max-w-sm mt-2">
               Sélectionnez une conversation dans la liste pour commencer à échanger en direct.
             </p>
           </div>

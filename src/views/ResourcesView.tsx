@@ -69,21 +69,21 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
   });
 
   return (
-    <div className="flex-1 w-full bg-[#F5F7F6] text-[#101820]">
+    <div className="flex-1 w-full bg-[#F7F8F3] text-[#1A2233]">
       
       {/* Hero */}
       <section className="py-20 sm:py-28 border-b border-[#E2E8E5] bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F7F6] border border-[#E2E8E5] text-[#123B5D] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F8F3] border border-[#E2E8E5] text-[#06234B] text-xs font-mono font-bold uppercase tracking-wider">
             <span>RESSOURCES & PUBLICATIONS ÉDITORIALES</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101820] leading-tight">
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1A2233] leading-tight">
             Réflexions sur l'ingénierie, <br className="hidden sm:inline" />
-            <span className="text-[#59B83E]">le savoir et les compétences.</span>
+            <span className="text-[#68A91B]">le savoir et les compétences.</span>
           </h1>
 
-          <p className="text-stone-600 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#5C6B78] text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
             Analyses d'architecture, méthodologies de transmission et guides pratiques rédigés par et pour l'écosystème tech panafricain.
           </p>
         </div>
@@ -101,8 +101,8 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-[#123B5D] text-white shadow-xs'
-                  : 'bg-white border border-[#E2E8E5] text-[#101820] hover:bg-stone-50'
+                  ? 'bg-[#06234B] text-white shadow-xs'
+                  : 'bg-white border border-[#E2E8E5] text-[#1A2233] hover:bg-stone-50'
               }`}
             >
               {cat}
@@ -114,10 +114,10 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
         {filteredArticles.length > 0 && (
           <div 
             onClick={() => setActiveArticle(filteredArticles[0])}
-            className="bg-white border border-[#E2E8E5] rounded-3xl p-8 sm:p-12 hover:border-[#123B5D] transition-all cursor-pointer shadow-xs space-y-6 group"
+            className="bg-white border border-[#E2E8E5] rounded-3xl p-8 sm:p-12 hover:border-[#06234B] transition-all cursor-pointer shadow-xs space-y-6 group"
           >
             <div className="flex flex-wrap items-center gap-3">
-              <span className="px-3 py-1 rounded-full bg-[#59B83E]/10 text-[#59B83E] text-xs font-bold font-mono">
+              <span className="px-3 py-1 rounded-full bg-[#68A91B]/10 text-[#68A91B] text-xs font-bold font-mono">
                 {filteredArticles[0].category}
               </span>
               <span className="text-xs text-stone-400 font-mono">
@@ -125,17 +125,17 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
               </span>
             </div>
 
-            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] group-hover:text-[#123B5D] transition-colors leading-snug">
+            <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#1A2233] group-hover:text-[#06234B] transition-colors leading-snug">
               {filteredArticles[0].title}
             </h2>
 
-            <p className="text-sm sm:text-base text-stone-600 font-light leading-relaxed max-w-3xl">
+            <p className="text-sm sm:text-base text-[#5C6B78] font-light leading-relaxed max-w-3xl">
               {filteredArticles[0].excerpt}
             </p>
 
-            <div className="pt-2 flex items-center gap-2 text-xs font-bold text-[#123B5D]">
+            <div className="pt-2 flex items-center gap-2 text-xs font-bold text-[#06234B]">
               <span>Lire l'article complet</span>
-              <ArrowRight className="w-4 h-4 text-[#59B83E] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#68A91B] group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         )}
@@ -146,24 +146,24 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
             <div
               key={art.id}
               onClick={() => setActiveArticle(art)}
-              className="bg-white border border-[#E2E8E5] rounded-3xl p-8 space-y-4 hover:border-[#123B5D] transition-all cursor-pointer shadow-xs flex flex-col justify-between group"
+              className="bg-white border border-[#E2E8E5] rounded-3xl p-8 space-y-4 hover:border-[#06234B] transition-all cursor-pointer shadow-xs flex flex-col justify-between group"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between text-xs text-stone-400 font-mono">
-                  <span className="text-[#59B83E] font-bold">{art.category}</span>
+                  <span className="text-[#68A91B] font-bold">{art.category}</span>
                   <span>{art.readTime}</span>
                 </div>
 
-                <h3 className="font-heading font-bold text-lg text-[#101820] group-hover:text-[#123B5D] transition-colors">
+                <h3 className="font-heading font-bold text-lg text-[#1A2233] group-hover:text-[#06234B] transition-colors">
                   {art.title}
                 </h3>
 
-                <p className="text-xs text-stone-600 font-light leading-relaxed line-clamp-3">
+                <p className="text-xs text-[#5C6B78] font-light leading-relaxed line-clamp-3">
                   {art.excerpt}
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#123B5D] font-bold">
+              <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#06234B] font-bold">
                 <span>Lire l'article</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
@@ -181,16 +181,16 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
             <button
               type="button"
               onClick={() => setActiveArticle(null)}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F5F7F6] text-stone-500 hover:text-[#101820]"
+              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F7F8F3] text-[#5C6B78] hover:text-[#1A2233]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="space-y-3 border-b border-[#E2E8E5] pb-6">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#59B83E] block">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B] block">
                 {activeArticle.category} · {activeArticle.readTime} DE LECTURE
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820] pr-8">
+              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1A2233] pr-8">
                 {activeArticle.title}
               </h2>
               <p className="text-xs text-stone-400 font-mono">Publié en {activeArticle.date} par la rédaction SkillBridge</p>
@@ -202,11 +202,11 @@ export const ResourcesView: React.FC<ResourcesViewProps> = () => {
             </div>
 
             <div className="pt-6 border-t border-[#E2E8E5] flex justify-between items-center">
-              <span className="font-editorial italic text-stone-500 text-sm">SkillBridge Infrastructure Research</span>
+              <span className="font-editorial italic text-[#5C6B78] text-sm">SkillBridge Infrastructure Research</span>
               <button
                 type="button"
                 onClick={() => setActiveArticle(null)}
-                className="px-6 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs"
+                className="px-6 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs"
               >
                 Fermer
               </button>

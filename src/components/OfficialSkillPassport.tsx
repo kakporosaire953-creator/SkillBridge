@@ -108,7 +108,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
             transition: 'transform 0.15s ease-out, box-shadow 0.25s ease',
             transformStyle: 'preserve-3d'
           }}
-          className="relative w-full bg-[#101820] text-white rounded-3xl border-2 border-[#123B5D]/80 shadow-2xl overflow-hidden transition-all duration-300"
+          className="relative w-full bg-[#1A2233] text-white rounded-3xl border-2 border-[#06234B]/80 shadow-2xl overflow-hidden transition-all duration-300"
         >
           
           {/* Subtle Glare Layer */}
@@ -120,20 +120,20 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
           />
 
           {/* Architectural Background Watermark Grid */}
-          <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#C8F169_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+          <div className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#68A91B_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
           
           {/* Top Holographic Security Header */}
-          <div className="relative z-10 bg-linear-to-r from-[#123B5D] via-[#102a43] to-[#123B5D] px-6 sm:px-10 py-5 border-b border-[#59B83E]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="relative z-10 bg-linear-to-r from-[#06234B] via-[#102a43] to-[#06234B] px-6 sm:px-10 py-5 border-b border-[#68A91B]/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-[#59B83E]/20 border border-[#59B83E]/60 flex items-center justify-center text-[#C8F169] shadow-inner">
-                <ShieldCheck className="w-5 h-5 text-[#C8F169]" />
+              <div className="w-10 h-10 rounded-xl bg-[#68A91B]/20 border border-[#68A91B]/60 flex items-center justify-center text-[#68A91B] shadow-inner">
+                <ShieldCheck className="w-5 h-5 text-[#68A91B]" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#C8F169]">
+                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-[#68A91B]">
                     SKILLBRIDGE SOVEREIGN LEDGER
                   </span>
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#59B83E] animate-pulse" />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#68A91B] animate-pulse" />
                 </div>
                 <h2 className="font-heading text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
                   <span>OFFICIAL SKILL PASSPORT</span>
@@ -144,11 +144,11 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <span className="text-[10px] font-mono text-stone-400 block uppercase">PASSPORT ID</span>
-                <span className="text-xs sm:text-sm font-mono font-bold text-[#C8F169] tracking-wider">
+                <span className="text-xs sm:text-sm font-mono font-bold text-[#68A91B] tracking-wider">
                   {profile.passport_id || 'SB-2026-882910'}
                 </span>
               </div>
-              <div className="px-3 py-1 rounded-full bg-[#59B83E]/15 border border-[#59B83E]/40 text-[#59B83E] text-[11px] font-mono font-bold">
+              <div className="px-3 py-1 rounded-full bg-[#68A91B]/15 border border-[#68A91B]/40 text-[#68A91B] text-[11px] font-mono font-bold">
                 ✓ ACTIF
               </div>
             </div>
@@ -162,7 +162,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               
               {/* Profile Photo Area */}
               <div className="relative group">
-                <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-stone-900 border-2 border-[#59B83E]/50 overflow-hidden shadow-lg flex items-center justify-center text-white relative">
+                <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl bg-stone-900 border-2 border-[#68A91B]/50 overflow-hidden shadow-lg flex items-center justify-center text-white relative">
                   {profile.avatar_url ? (
                     <img 
                       src={profile.avatar_url} 
@@ -171,8 +171,8 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                       referrerPolicy="no-referrer"
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-linear-to-br from-[#123B5D] to-[#0c1f30]">
-                      <span className="text-3xl font-extrabold font-heading text-[#C8F169]">
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-linear-to-br from-[#06234B] to-[#0c1f30]">
+                      <span className="text-3xl font-extrabold font-heading text-[#68A91B]">
                         {(profile.first_name?.[0] || 'T') + (profile.last_name?.[0] || 'K')}
                       </span>
                       <span className="text-[10px] font-mono text-stone-400 mt-1">PROFIL CERTIFIÉ</span>
@@ -180,7 +180,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                   )}
 
                   {/* Holographic watermark on photo */}
-                  <div className="absolute top-2 right-2 text-[8px] font-mono text-[#C8F169]/80 font-bold px-1 rounded-sm bg-black/40 border border-[#C8F169]/30">
+                  <div className="absolute top-2 right-2 text-[8px] font-mono text-[#68A91B]/80 font-bold px-1 rounded-sm bg-black/40 border border-[#68A91B]/30">
                     SB·AFR
                   </div>
 
@@ -192,7 +192,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                       className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center text-white text-xs font-bold gap-1 cursor-pointer"
                       title="Changer ma photo"
                     >
-                      <Camera className="w-5 h-5 text-[#C8F169]" />
+                      <Camera className="w-5 h-5 text-[#68A91B]" />
                       <span>Modifier photo</span>
                     </button>
                   )}
@@ -208,19 +208,19 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               </div>
 
               {/* Verified Score & Index */}
-              <div className="w-full bg-[#123B5D]/40 border border-[#123B5D] rounded-2xl p-4 space-y-2">
+              <div className="w-full bg-[#06234B]/40 border border-[#06234B] rounded-2xl p-4 space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-mono uppercase text-stone-300 font-bold flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-[#C8F169]" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#68A91B]" />
                     <span>INDICE PASSPORT</span>
                   </span>
-                  <span className="text-xl font-mono font-extrabold text-[#C8F169]">
+                  <span className="text-xl font-mono font-extrabold text-[#68A91B]">
                     {passportScore}<span className="text-xs text-stone-400 font-normal">/100</span>
                   </span>
                 </div>
                 <div className="w-full h-2 bg-stone-800 rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-linear-to-r from-[#59B83E] to-[#C8F169] transition-all duration-500"
+                    className="h-full bg-linear-to-r from-[#68A91B] to-[#68A91B] transition-all duration-500"
                     style={{ width: `${passportScore}%` }}
                   />
                 </div>
@@ -233,7 +233,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               <div className="w-full bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center gap-3.5">
                 <div className="w-14 h-14 bg-white rounded-xl p-1.5 flex items-center justify-center shrink-0 shadow-xs">
                   {/* Stylized QR Code SVG */}
-                  <svg viewBox="0 0 100 100" className="w-full h-full text-[#101820]">
+                  <svg viewBox="0 0 100 100" className="w-full h-full text-[#1A2233]">
                     <rect x="0" y="0" width="30" height="30" fill="currentColor" />
                     <rect x="5" y="5" width="20" height="20" fill="white" />
                     <rect x="10" y="10" width="10" height="10" fill="currentColor" />
@@ -256,7 +256,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                   </svg>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono text-[#C8F169] font-bold block uppercase tracking-wider">
+                  <span className="text-[10px] font-mono text-[#68A91B] font-bold block uppercase tracking-wider">
                     SCAN VERIFY QR
                   </span>
                   <p className="text-[11px] text-stone-300 font-light leading-tight">
@@ -266,7 +266,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                     <button
                       type="button"
                       onClick={() => onNavigateToVerify(profile.passport_id || '')}
-                      className="text-[11px] text-[#59B83E] hover:underline font-mono font-bold flex items-center gap-1 cursor-pointer pt-0.5"
+                      className="text-[11px] text-[#68A91B] hover:underline font-mono font-bold flex items-center gap-1 cursor-pointer pt-0.5"
                     >
                       <span>Vérifier en ligne</span>
                       <ExternalLink className="w-3 h-3" />
@@ -283,12 +283,12 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               {/* Holder Name & Headline */}
               <div className="border-b border-white/10 pb-5 space-y-1.5">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[11px] font-mono uppercase text-[#C8F169] tracking-widest font-bold">
+                  <span className="text-[11px] font-mono uppercase text-[#68A91B] tracking-widest font-bold">
                     TITULAIRE DU PASSEPORT
                   </span>
                   <span className="text-xs text-stone-400">·</span>
                   <span className="text-xs text-stone-300 flex items-center gap-1 font-mono">
-                    <MapPin className="w-3 h-3 text-[#59B83E]" />
+                    <MapPin className="w-3 h-3 text-[#68A91B]" />
                     {profile.location || 'Dakar'}, {profile.country || 'Sénégal'}
                   </span>
                 </div>
@@ -311,7 +311,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               {/* Verified Dynamic Skills with Stages */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169] flex items-center gap-1.5">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B] flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5" />
                     <span>COMPÉTENCES & NIVEAUX D'ÉVOLUTION</span>
                   </span>
@@ -365,10 +365,10 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                           {/* Associated proofs preview */}
                           {skill.proofs && skill.proofs.length > 0 && (
                             <div className="flex items-center gap-1 text-[10px] text-stone-400 font-mono pt-0.5">
-                              <FileCode2 className="w-3 h-3 text-[#59B83E]" />
+                              <FileCode2 className="w-3 h-3 text-[#68A91B]" />
                               <span>Preuve : {skill.proofs[0].title}</span>
                               {skill.proofs[0].verified && (
-                                <span className="text-[#59B83E] font-bold">✓ Validée</span>
+                                <span className="text-[#68A91B] font-bold">✓ Validée</span>
                               )}
                             </div>
                           )}
@@ -387,7 +387,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               {profile.projects && profile.projects.length > 0 && (
                 <div className="space-y-3 pt-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169] flex items-center gap-1.5">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B] flex items-center gap-1.5">
                       <FileCode2 className="w-3.5 h-3.5" />
                       <span>RÉALISATIONS & PROJETS VÉRIFIÉS</span>
                     </span>
@@ -403,7 +403,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                           <span className="font-bold text-white truncate max-w-[180px]">
                             {proj.title}
                           </span>
-                          <span className="text-[10px] font-mono text-[#59B83E] font-bold">
+                          <span className="text-[10px] font-mono text-[#68A91B] font-bold">
                             ✓ VÉRIFIÉ
                           </span>
                         </div>
@@ -428,7 +428,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
               {/* Certifications & Mentor Validations */}
               {profile.certifications && profile.certifications.length > 0 && (
                 <div className="space-y-2 pt-2">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169] flex items-center gap-1.5">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B] flex items-center gap-1.5">
                     <Award className="w-3.5 h-3.5" />
                     <span>CERTIFICATIONS OFFICIELLES</span>
                   </span>
@@ -439,7 +439,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
                           <span className="font-bold text-white block">{c.title}</span>
                           <span className="text-[10px] text-stone-400 font-mono">{c.issuer} · {c.date}</span>
                         </div>
-                        <span className="text-[10px] font-mono text-[#59B83E] font-bold px-2 py-0.5 rounded-md bg-[#59B83E]/10 border border-[#59B83E]/30">
+                        <span className="text-[10px] font-mono text-[#68A91B] font-bold px-2 py-0.5 rounded-md bg-[#68A91B]/10 border border-[#68A91B]/30">
                           CERTIFIÉ
                         </span>
                       </div>
@@ -453,7 +453,7 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
           </div>
 
           {/* Machine Readable Bottom Security Strip (MRZ) */}
-          <div className="relative z-10 bg-black/60 border-t border-white/10 px-6 sm:px-10 py-4 font-mono text-[10px] sm:text-xs text-[#C8F169]/80 tracking-widest leading-loose select-all overflow-x-auto">
+          <div className="relative z-10 bg-black/60 border-t border-white/10 px-6 sm:px-10 py-4 font-mono text-[10px] sm:text-xs text-[#68A91B]/80 tracking-widest leading-loose select-all overflow-x-auto">
             <div className="whitespace-nowrap">{mrzDoc}</div>
             <div className="whitespace-nowrap">{mrzId}</div>
           </div>
@@ -466,9 +466,9 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
         <button
           type="button"
           onClick={handleCopyVerificationLink}
-          className="px-5 py-2.5 rounded-xl bg-white hover:bg-stone-50 border border-[#E2E8E5] text-[#123B5D] text-xs font-mono font-bold flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+          className="px-5 py-2.5 rounded-xl bg-white hover:bg-stone-50 border border-[#E2E8E5] text-[#06234B] text-xs font-mono font-bold flex items-center gap-2 shadow-xs transition-all cursor-pointer"
         >
-          {copied ? <Check className="w-3.5 h-3.5 text-[#59B83E]" /> : <Copy className="w-3.5 h-3.5" />}
+          {copied ? <Check className="w-3.5 h-3.5 text-[#68A91B]" /> : <Copy className="w-3.5 h-3.5" />}
           <span>{copied ? 'Lien de vérification copié !' : 'Partager le lien public'}</span>
         </button>
 
@@ -476,9 +476,9 @@ export const OfficialSkillPassport: React.FC<OfficialSkillPassportProps> = ({
           <button
             type="button"
             onClick={() => onNavigateToVerify(profile.passport_id || '')}
-            className="px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
+            className="px-5 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-sm"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-[#C8F169]" />
+            <ShieldCheck className="w-3.5 h-3.5 text-[#68A91B]" />
             <span>Tester la page de vérification</span>
           </button>
         )}

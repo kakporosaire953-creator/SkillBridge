@@ -89,12 +89,12 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
   );
 
   return (
-    <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] pb-24 lg:pb-8">
+    <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] pb-24 lg:pb-8">
       {/* Search Header */}
       <div className="bg-white border-b border-[#E2E8E5] sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#101820]">Explorer l'Écosystème</h1>
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#1A2233]">Explorer l'Écosystème</h1>
           </div>
           
           <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Rechercher des opportunités, compétences, projets, talents..."
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E2E8E5] bg-[#F5F7F6] focus:bg-white focus:outline-none focus:border-[#59B83E] focus:ring-1 focus:ring-[#59B83E] transition-all text-sm"
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E2E8E5] bg-[#F7F8F3] focus:bg-white focus:outline-none focus:border-[#68A91B] focus:ring-1 focus:ring-[#68A91B] transition-all text-sm"
               />
             </div>
           </div>
@@ -121,11 +121,11 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors ${
                     activeTab === tab.id
-                      ? 'border-[#59B83E] text-[#123B5D]'
-                      : 'border-transparent text-stone-500 hover:text-stone-700'
+                      ? 'border-[#68A91B] text-[#06234B]'
+                      : 'border-transparent text-[#5C6B78] hover:text-stone-700'
                   }`}
                 >
-                  <FaIcon icon={tab.icon} className={activeTab === tab.id ? 'text-[#59B83E]' : 'text-stone-400'} />
+                  <FaIcon icon={tab.icon} className={activeTab === tab.id ? 'text-[#68A91B]' : 'text-stone-400'} />
                   {tab.label}
                 </button>
               ))}
@@ -142,16 +142,16 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
           filteredOpportunities.length === 0 ? (
             <div className="text-center py-16 bg-white rounded-3xl border border-[#E2E8E5] p-8">
               <FaIcon icon={faBriefcase} className="text-4xl text-stone-300 mb-3" />
-              <h3 className="font-bold text-[#101820] text-lg">Aucune opportunité trouvée</h3>
-              <p className="text-stone-500 text-sm mt-1">Revenez bientôt ou modifiez vos critères de recherche.</p>
+              <h3 className="font-bold text-[#1A2233] text-lg">Aucune opportunité trouvée</h3>
+              <p className="text-[#5C6B78] text-sm mt-1">Revenez bientôt ou modifiez vos critères de recherche.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredOpportunities.map(opp => (
-                <div key={opp.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+                <div key={opp.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#06234B]/40 transition-all">
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF3F8] text-[#123B5D]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF3F8] text-[#06234B]">
                         {opp.type}
                       </span>
                       {opp.location && (
@@ -161,12 +161,12 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                         </span>
                       )}
                     </div>
-                    <h3 className="font-bold text-base text-[#101820] leading-snug">{opp.title}</h3>
-                    <p className="text-xs text-stone-500 line-clamp-3">{opp.description}</p>
+                    <h3 className="font-bold text-base text-[#1A2233] leading-snug">{opp.title}</h3>
+                    <p className="text-xs text-[#5C6B78] line-clamp-3">{opp.description}</p>
                     
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {opp.required_skills.map((s, idx) => (
-                        <span key={idx} className="text-[10px] font-semibold bg-stone-100 text-stone-600 px-2 py-0.5 rounded-md">
+                        <span key={idx} className="text-[10px] font-semibold bg-stone-100 text-[#5C6B78] px-2 py-0.5 rounded-md">
                           {s}
                         </span>
                       ))}
@@ -175,7 +175,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
 
                   <button
                     onClick={() => onNavigate('opportunities')}
-                    className="mt-5 w-full py-2.5 rounded-xl bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors text-center"
+                    className="mt-5 w-full py-2.5 rounded-xl bg-[#06234B] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors text-center"
                   >
                     Voir et Postuler
                   </button>
@@ -187,16 +187,16 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
           filteredProjects.length === 0 ? (
             <div className="text-center py-16 bg-white rounded-3xl border border-[#E2E8E5] p-8">
               <FaIcon icon={faFolderOpen} className="text-4xl text-stone-300 mb-3" />
-              <h3 className="font-bold text-[#101820] text-lg">Aucun projet publié pour l'instant</h3>
-              <p className="text-stone-500 text-sm mt-1">Soyez le premier à publier votre projet dans l'écosystème !</p>
-              <button onClick={() => onNavigate('project-publish')} className="mt-4 px-5 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs">
+              <h3 className="font-bold text-[#1A2233] text-lg">Aucun projet publié pour l'instant</h3>
+              <p className="text-[#5C6B78] text-sm mt-1">Soyez le premier à publier votre projet dans l'écosystème !</p>
+              <button onClick={() => onNavigate('project-publish')} className="mt-4 px-5 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs">
                 Publier un projet
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map(proj => (
-                <div key={proj.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all">
+                <div key={proj.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#06234B]/40 transition-all">
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <UserAvatar 
@@ -205,17 +205,17 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                         size="sm"
                       />
                       <div>
-                        <h4 className="font-bold text-xs text-[#101820]">{proj.author?.first_name} {proj.author?.last_name}</h4>
+                        <h4 className="font-bold text-xs text-[#1A2233]">{proj.author?.first_name} {proj.author?.last_name}</h4>
                         <p className="text-[10px] text-stone-400">{proj.author?.headline || 'Créateur'}</p>
                       </div>
                     </div>
 
-                    <h3 className="font-bold text-base text-[#101820]">{proj.title}</h3>
-                    <p className="text-xs text-stone-500 line-clamp-3">{proj.description}</p>
+                    <h3 className="font-bold text-base text-[#1A2233]">{proj.title}</h3>
+                    <p className="text-xs text-[#5C6B78] line-clamp-3">{proj.description}</p>
 
                     <div className="flex flex-wrap gap-1.5">
                       {proj.technologies.map((t, idx) => (
-                        <span key={idx} className="text-[10px] font-semibold bg-[#EBF3F8] text-[#123B5D] px-2 py-0.5 rounded-md">
+                        <span key={idx} className="text-[10px] font-semibold bg-[#EBF3F8] text-[#06234B] px-2 py-0.5 rounded-md">
                           {t}
                         </span>
                       ))}
@@ -228,7 +228,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                       <span className="flex items-center gap-1"><FaIcon icon={faComment} /> {proj.comments_count}</span>
                     </div>
                     {proj.live_url && (
-                      <a href={proj.live_url} target="_blank" rel="noreferrer" className="text-[#123B5D] font-bold flex items-center gap-1 hover:underline">
+                      <a href={proj.live_url} target="_blank" rel="noreferrer" className="text-[#06234B] font-bold flex items-center gap-1 hover:underline">
                         Démo <FaIcon icon={faExternalLinkAlt} className="text-[10px]" />
                       </a>
                     )}
@@ -243,7 +243,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
               <div 
                 key={talent.id}
                 onClick={() => onNavigate('talents')}
-                className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs hover:border-[#123B5D]/40 transition-all cursor-pointer flex flex-col items-center text-center space-y-3"
+                className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs hover:border-[#06234B]/40 transition-all cursor-pointer flex flex-col items-center text-center space-y-3"
               >
                 <UserAvatar 
                   avatarUrl={talent.avatar_url}
@@ -251,12 +251,12 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
                   size="lg"
                 />
                 <div>
-                  <h3 className="font-bold text-[#101820] text-base">{talent.first_name} {talent.last_name}</h3>
-                  <p className="text-xs text-[#123B5D] font-medium mt-0.5">{talent.headline || 'Membre vérifié'}</p>
+                  <h3 className="font-bold text-[#1A2233] text-base">{talent.first_name} {talent.last_name}</h3>
+                  <p className="text-xs text-[#06234B] font-medium mt-0.5">{talent.headline || 'Membre vérifié'}</p>
                   {talent.location && <p className="text-[11px] text-stone-400 mt-0.5">{talent.location}, {talent.country}</p>}
                 </div>
                 {talent.passport_id && (
-                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#ECFDF5] text-[#59B83E] rounded-md">
+                  <span className="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#ECFDF5] text-[#68A91B] rounded-md">
                     {talent.passport_id}
                   </span>
                 )}
@@ -269,14 +269,14 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
               <div 
                 key={comp.id}
                 onClick={() => onNavigate('companies')}
-                className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs hover:border-[#123B5D]/40 transition-all cursor-pointer flex flex-col items-center text-center space-y-3"
+                className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs hover:border-[#06234B]/40 transition-all cursor-pointer flex flex-col items-center text-center space-y-3"
               >
-                <div className="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center font-bold text-lg text-[#123B5D]">
+                <div className="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center font-bold text-lg text-[#06234B]">
                   {comp.name.charAt(0)}
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#101820] text-base">{comp.name}</h3>
-                  <p className="text-xs text-stone-500 mt-0.5">{comp.industry || 'Entreprise partenaire'}</p>
+                  <h3 className="font-bold text-[#1A2233] text-base">{comp.name}</h3>
+                  <p className="text-xs text-[#5C6B78] mt-0.5">{comp.industry || 'Entreprise partenaire'}</p>
                   {comp.location && <p className="text-[11px] text-stone-400 mt-0.5">{comp.location}</p>}
                 </div>
               </div>
@@ -289,18 +289,18 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
               <div 
                 key={course.id}
                 onClick={() => onNavigate('learn')}
-                className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/40 transition-all cursor-pointer"
+                className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#06234B]/40 transition-all cursor-pointer"
               >
                 <div className="space-y-3">
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#59B83E]">
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-[#ECFDF5] text-[#68A91B]">
                     {course.is_free ? 'GRATUIT' : `${course.price} XOF`}
                   </span>
-                  <h3 className="font-bold text-base text-[#101820]">{course.title}</h3>
-                  <p className="text-xs text-stone-500 line-clamp-2">{course.description}</p>
+                  <h3 className="font-bold text-base text-[#1A2233]">{course.title}</h3>
+                  <p className="text-xs text-[#5C6B78] line-clamp-2">{course.description}</p>
                 </div>
                 <div className="flex items-center justify-between text-xs text-stone-400 pt-4 mt-4 border-t border-stone-100">
                   <span className="flex items-center gap-1"><FaIcon icon={faClock} /> {course.total_duration_minutes} min</span>
-                  <span className="font-bold text-[#123B5D]">{course.enrollments_count} inscrits</span>
+                  <span className="font-bold text-[#06234B]">{course.enrollments_count} inscrits</span>
                 </div>
               </div>
             ))}

@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2E8E5] py-3.5' 
-          : 'bg-[#F5F7F6]/90 backdrop-blur-sm border-b border-stone-200/60 py-5'
+          : 'bg-[#F7F8F3]/90 backdrop-blur-sm border-b border-stone-200/60 py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -61,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
         </div>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#101820]/80">
+        <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-[#1A2233]/80">
           {navLinks.map((link) => {
             const isActive = currentView === link.view;
             return (
@@ -71,15 +71,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 onClick={() => handleNav(link.view)}
                 className={`transition-colors cursor-pointer py-1 relative ${
                   isActive 
-                    ? 'text-[#123B5D] font-bold' 
-                    : 'hover:text-[#123B5D]'
+                    ? 'text-[#06234B] font-bold' 
+                    : 'hover:text-[#06234B]'
                 }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.span 
                     layoutId="activeNavTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#59B83E] rounded-full" 
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#68A91B] rounded-full" 
                     transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] as const }}
                   />
                 )}
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             className="sb-btn px-2.5 py-1.5 rounded-xl border border-[#E2E8E5] bg-white text-xs font-mono font-bold text-stone-700 hover:bg-stone-50 flex items-center gap-1.5 cursor-pointer shadow-2xs"
             title={language === 'fr' ? 'Passer en Anglais' : 'Switch to French'}
           >
-            <Globe className="w-3.5 h-3.5 text-[#59B83E]" />
+            <Globe className="w-3.5 h-3.5 text-[#68A91B]" />
             <span className="uppercase">{language}</span>
           </button>
 
@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             {theme === 'dark' ? (
               <Sun className="w-4 h-4 text-amber-400" />
             ) : (
-              <Moon className="w-4 h-4 text-[#123B5D]" />
+              <Moon className="w-4 h-4 text-[#06234B]" />
             )}
           </button>
 
@@ -124,11 +124,11 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 onClick={() => handleNav('passport')}
                 className={`sb-btn px-3.5 py-2 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                   currentView === 'passport'
-                    ? 'bg-[#123B5D] text-white shadow-xs'
-                    : 'bg-white border border-[#E2E8E5] text-[#123B5D] hover:bg-stone-50'
+                    ? 'bg-[#06234B] text-white shadow-xs'
+                    : 'bg-white border border-[#E2E8E5] text-[#06234B] hover:bg-stone-50'
                 }`}
               >
-                <span className="w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
+                <span className="w-2 h-2 rounded-full bg-[#68A91B] sb-pulse-dot" />
                 <span>{t('nav.passport')}</span>
               </button>
 
@@ -157,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               <button
                 type="button"
                 onClick={() => handleNav('auth')}
-                className="sb-btn px-3.5 py-2 rounded-xl text-xs font-bold text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+                className="sb-btn px-3.5 py-2 rounded-xl text-xs font-bold text-[#06234B] hover:bg-stone-100 transition-colors cursor-pointer"
               >
                 {t('nav.login')}
               </button>
@@ -165,10 +165,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               <button
                 type="button"
                 onClick={() => handleNav('onboarding')}
-                className="sb-btn px-4 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer group"
+                className="sb-btn px-4 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white text-xs font-bold transition-all shadow-xs flex items-center gap-2 cursor-pointer group"
               >
                 <span>{t('nav.join')}</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#C8F169] group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#68A91B] group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
           )}
@@ -184,7 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-stone-700 cursor-pointer"
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#123B5D]" />}
+            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-[#06234B]" />}
           </button>
 
           {/* Quick Language Switch Mobile */}
@@ -199,7 +199,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-[#101820] hover:bg-stone-100 cursor-pointer"
+            className="p-2 rounded-xl bg-white border border-[#E2E8E5] text-[#1A2233] hover:bg-stone-100 cursor-pointer"
             aria-label="Menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -228,8 +228,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                     onClick={() => handleNav(link.view)}
                     className={`text-left text-sm font-semibold py-2 px-3 rounded-lg transition-all cursor-pointer ${
                       isActive 
-                        ? 'bg-[#F5F7F6] text-[#123B5D] font-bold' 
-                        : 'text-[#101820]/80 hover:bg-stone-50'
+                        ? 'bg-[#F7F8F3] text-[#06234B] font-bold' 
+                        : 'text-[#1A2233]/80 hover:bg-stone-50'
                     }`}
                   >
                     {link.label}
@@ -243,7 +243,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 <button
                   type="button"
                   onClick={() => handleNav('dashboard-talent')}
-                  className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
+                  className="sb-btn w-full py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <UserAvatar profile={profile} size="xs" />
                   <span>{t('nav.dashboard')}</span>
@@ -253,17 +253,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                   <button
                     type="button"
                     onClick={() => handleNav('auth')}
-                    className="sb-btn w-full py-2.5 rounded-xl bg-white border border-[#E2E8E5] text-[#123B5D] font-bold text-xs cursor-pointer"
+                    className="sb-btn w-full py-2.5 rounded-xl bg-white border border-[#E2E8E5] text-[#06234B] font-bold text-xs cursor-pointer"
                   >
                     {t('nav.login')}
                   </button>
                   <button
                     type="button"
                     onClick={() => handleNav('onboarding')}
-                    className="sb-btn w-full py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
+                    className="sb-btn w-full py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>{t('nav.join')}</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C8F169]" />
+                    <ArrowRight className="w-3.5 h-3.5 text-[#68A91B]" />
                   </button>
                 </>
               )}

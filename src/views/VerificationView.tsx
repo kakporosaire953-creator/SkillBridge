@@ -50,19 +50,19 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
   };
 
   return (
-    <div className="w-full bg-[#F5F7F6] min-h-screen py-8 sm:py-14 px-4 sm:px-6 lg:px-10">
+    <div className="w-full bg-[#F7F8F3] min-h-screen py-8 sm:py-14 px-4 sm:px-6 lg:px-10">
       <div className="max-w-4xl mx-auto space-y-10">
         
         {/* Header Hero */}
         <div className="text-center space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#59B83E]/10 text-[#59B83E] text-xs font-mono font-bold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#68A91B]/10 text-[#68A91B] text-xs font-mono font-bold">
             <FaIcon icon={faShieldHalved} />
             <span>Registre Public de Certification</span>
           </div>
-          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#101820] tracking-tight">
+          <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-[#1A2233] tracking-tight">
             Vérification d'Authenticité SkillBridge
           </h1>
-          <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#5C6B78] max-w-xl mx-auto leading-relaxed">
             Vérifiez instantanément la validité d'un diplôme, titre ou certificat émis par la plateforme SkillBridge en saisissant son identifiant unique.
           </p>
         </div>
@@ -76,15 +76,15 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
               placeholder="Ex: SB-CERT-2026-X8F2B9"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-stone-50 border border-stone-200 text-xs sm:text-sm font-mono focus:ring-2 focus:ring-[#123B5D]/20 focus:border-[#123B5D] outline-none"
+              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-stone-50 border border-stone-200 text-xs sm:text-sm font-mono focus:ring-2 focus:ring-[#06234B]/20 focus:border-[#06234B] outline-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all whitespace-nowrap"
+            className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm transition-all whitespace-nowrap"
           >
-            <FaIcon icon={faShieldHalved} className="text-[#59B83E]" />
+            <FaIcon icon={faShieldHalved} className="text-[#68A91B]" />
             <span>Vérifier le Certificat</span>
           </button>
         </form>
@@ -93,25 +93,25 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
         {hasSearched && (
           <div>
             {searchedCert ? (
-              <div className="bg-white rounded-3xl border-2 border-[#59B83E]/40 p-6 sm:p-8 shadow-lg space-y-6 animate-fadeIn">
+              <div className="bg-white rounded-3xl border-2 border-[#68A91B]/40 p-6 sm:p-8 shadow-lg space-y-6 animate-fadeIn">
                 
                 {/* Result Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-stone-100">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#59B83E]/10 text-[#59B83E] flex items-center justify-center text-xl">
+                    <div className="w-12 h-12 rounded-2xl bg-[#68A91B]/10 text-[#68A91B] flex items-center justify-center text-xl">
                       <FaIcon icon={faCircleCheck} />
                     </div>
                     <div>
-                      <div className="text-xs font-mono text-[#59B83E] font-bold uppercase tracking-wider">
+                      <div className="text-xs font-mono text-[#68A91B] font-bold uppercase tracking-wider">
                         Certificat Officiel Authentifié
                       </div>
-                      <h2 className="font-heading text-lg sm:text-xl font-bold text-[#101820]">
+                      <h2 className="font-heading text-lg sm:text-xl font-bold text-[#1A2233]">
                         {searchedCert.contentTitle}
                       </h2>
                     </div>
                   </div>
 
-                  <span className="px-3 py-1 rounded-full bg-[#59B83E]/10 text-[#59B83E] font-mono text-xs font-bold w-fit">
+                  <span className="px-3 py-1 rounded-full bg-[#68A91B]/10 text-[#68A91B] font-mono text-xs font-bold w-fit">
                     Statut : Valide
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">
                       Titulaire du certificat
                     </div>
-                    <div className="font-bold text-sm text-[#101820]">
+                    <div className="font-bold text-sm text-[#1A2233]">
                       {searchedCert.userName}
                     </div>
                   </div>
@@ -132,7 +132,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">
                       Organisme Émetteur
                     </div>
-                    <div className="font-bold text-sm text-[#123B5D]">
+                    <div className="font-bold text-sm text-[#06234B]">
                       {searchedCert.issuer}
                     </div>
                   </div>
@@ -151,7 +151,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     <div className="text-[10px] font-mono uppercase tracking-wider text-stone-400">
                       Score de réussite audité
                     </div>
-                    <div className="font-mono font-bold text-sm text-[#59B83E]">
+                    <div className="font-mono font-bold text-sm text-[#68A91B]">
                       {searchedCert.scorePercent}%
                     </div>
                   </div>
@@ -167,9 +167,9 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     {searchedCert.skillsValidated.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 rounded-xl bg-white border border-[#E2E8E5] text-xs font-mono font-bold text-[#123B5D] flex items-center gap-1.5 shadow-2xs"
+                        className="px-3 py-1 rounded-xl bg-white border border-[#E2E8E5] text-xs font-mono font-bold text-[#06234B] flex items-center gap-1.5 shadow-2xs"
                       >
-                        <FaIcon icon={faCheck} className="text-[#59B83E] text-xs" />
+                        <FaIcon icon={faCheck} className="text-[#68A91B] text-xs" />
                         <span>{skill}</span>
                       </span>
                     ))}
@@ -191,7 +191,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(true)}
-                    className="px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold inline-flex items-center gap-2 cursor-pointer shadow-xs transition-colors"
+                    className="px-5 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs font-bold inline-flex items-center gap-2 cursor-pointer shadow-xs transition-colors"
                   >
                     <FaIcon icon={faEye} />
                     <span>Afficher le Diplôme Officiel</span>
@@ -221,7 +221,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
         {userCertificates.length > 0 && !hasSearched && (
           <div className="space-y-4 pt-4">
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-stone-400 flex items-center gap-2">
-              <FaIcon icon={faCertificate} className="text-[#59B83E]" />
+              <FaIcon icon={faCertificate} className="text-[#68A91B]" />
               <span>Vos certificats récents à tester</span>
             </div>
 
@@ -235,13 +235,13 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     setSearchedCert(cert);
                     setHasSearched(true);
                   }}
-                  className="p-4 rounded-2xl bg-white border border-[#E2E8E5] text-left hover:border-[#123B5D] hover:shadow-xs transition-all flex items-center justify-between cursor-pointer group"
+                  className="p-4 rounded-2xl bg-white border border-[#E2E8E5] text-left hover:border-[#06234B] hover:shadow-xs transition-all flex items-center justify-between cursor-pointer group"
                 >
                   <div className="space-y-1 min-w-0 pr-2">
-                    <div className="font-mono text-[10px] text-[#59B83E] font-bold">
+                    <div className="font-mono text-[10px] text-[#68A91B] font-bold">
                       {cert.id}
                     </div>
-                    <div className="text-xs font-bold text-[#101820] group-hover:text-[#123B5D] truncate">
+                    <div className="text-xs font-bold text-[#1A2233] group-hover:text-[#06234B] truncate">
                       {cert.contentTitle}
                     </div>
                     <div className="text-[10px] text-stone-400">
@@ -249,7 +249,7 @@ export const VerificationView: React.FC<VerificationViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="w-8 h-8 rounded-xl bg-stone-100 group-hover:bg-[#123B5D] group-hover:text-white flex items-center justify-center text-stone-400 transition-colors shrink-0">
+                  <div className="w-8 h-8 rounded-xl bg-stone-100 group-hover:bg-[#06234B] group-hover:text-white flex items-center justify-center text-stone-400 transition-colors shrink-0">
                     <FaIcon icon={faShieldHalved} className="text-xs" />
                   </div>
                 </button>

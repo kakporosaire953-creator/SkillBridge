@@ -113,20 +113,20 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
   });
 
   return (
-    <div className="flex-1 w-full bg-[#F5F7F6] text-[#101820]">
+    <div className="flex-1 w-full bg-[#F7F8F3] text-[#1A2233]">
       
       {/* Hero */}
       <section className="py-20 sm:py-28 border-b border-[#E2E8E5] bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F7F6] border border-[#E2E8E5] text-[#123B5D] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F8F3] border border-[#E2E8E5] text-[#06234B] text-xs font-mono font-bold uppercase tracking-wider">
             <span>ESPACE TALENTS SKILLBRIDGE</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101820] leading-tight">
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1A2233] leading-tight">
             Votre potentiel mérite plus qu'un CV.
           </h1>
 
-          <p className="text-stone-600 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#5C6B78] text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
             Créez votre profil, attestez de vos compétences par des preuves concrètes, recevez les retours de pairs et accédez aux opportunités professionnelles les plus exigeantes.
           </p>
 
@@ -134,10 +134,10 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => onNavigate('onboarding')}
-              className="px-8 py-4 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
+              className="px-8 py-4 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
             >
               <span>Construire mon profil</span>
-              <ArrowRight className="w-4 h-4 text-[#C8F169]" />
+              <ArrowRight className="w-4 h-4 text-[#68A91B]" />
             </button>
           </div>
         </div>
@@ -148,10 +148,10 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInUp>
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-              <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
+              <span className="text-xs font-mono font-bold uppercase text-[#68A91B] tracking-wider">
                 FONCTIONNALITÉS ESSENTIELLES
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#101820]">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#1A2233]">
                 Comment SkillBridge valorise votre travail
               </h2>
             </div>
@@ -159,34 +159,34 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
 
           <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <ScaleOnHover>
-              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
-                <span className="font-mono text-xs font-bold text-[#123B5D]">01 · SKILL PROOFS</span>
-                <h3 className="font-heading font-bold text-base text-[#101820]">Preuves Vérifiées</h3>
-                <p className="text-xs text-stone-600 font-light">Associez vos dépôts GitHub, démos et audits examinés par des pairs.</p>
+              <div className="p-6 bg-[#F7F8F3] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#06234B]">01 · SKILL PROOFS</span>
+                <h3 className="font-heading font-bold text-base text-[#1A2233]">Preuves Vérifiées</h3>
+                <p className="text-xs text-[#5C6B78] font-light">Associez vos dépôts GitHub, démos et audits examinés par des pairs.</p>
               </div>
             </ScaleOnHover>
 
             <ScaleOnHover>
-              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
-                <span className="font-mono text-xs font-bold text-[#59B83E]">02 · PASSPORT SCORE</span>
-                <h3 className="font-heading font-bold text-base text-[#101820]">Indice d'Aptitude</h3>
-                <p className="text-xs text-stone-600 font-light">Un score transparent et souverain calculé à partir de données réelles.</p>
+              <div className="p-6 bg-[#F7F8F3] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#68A91B]">02 · PASSPORT SCORE</span>
+                <h3 className="font-heading font-bold text-base text-[#1A2233]">Indice d'Aptitude</h3>
+                <p className="text-xs text-[#5C6B78] font-light">Un score transparent et souverain calculé à partir de données réelles.</p>
               </div>
             </ScaleOnHover>
 
             <ScaleOnHover>
-              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
-                <span className="font-mono text-xs font-bold text-[#123B5D]">03 · MENTOR REVIEWS</span>
-                <h3 className="font-heading font-bold text-base text-[#101820]">Recommandations</h3>
-                <p className="text-xs text-stone-600 font-light">Des avis authentifiés rédigés par des ingénieurs et leads seniors.</p>
+              <div className="p-6 bg-[#F7F8F3] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#06234B]">03 · MENTOR REVIEWS</span>
+                <h3 className="font-heading font-bold text-base text-[#1A2233]">Recommandations</h3>
+                <p className="text-xs text-[#5C6B78] font-light">Des avis authentifiés rédigés par des ingénieurs et leads seniors.</p>
               </div>
             </ScaleOnHover>
 
             <ScaleOnHover>
-              <div className="p-6 bg-[#F5F7F6] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
-                <span className="font-mono text-xs font-bold text-[#101820]">04 · OPPORTUNITÉS</span>
-                <h3 className="font-heading font-bold text-base text-[#101820]">Contact Direct</h3>
-                <p className="text-xs text-stone-600 font-light">Soyez sollicité directement par les organisations pour vos capacités.</p>
+              <div className="p-6 bg-[#F7F8F3] border border-[#E2E8E5] rounded-2xl space-y-2 h-full">
+                <span className="font-mono text-xs font-bold text-[#1A2233]">04 · OPPORTUNITÉS</span>
+                <h3 className="font-heading font-bold text-base text-[#1A2233]">Contact Direct</h3>
+                <p className="text-xs text-[#5C6B78] font-light">Soyez sollicité directement par les organisations pour vos capacités.</p>
               </div>
             </ScaleOnHover>
           </StaggerContainer>
@@ -199,10 +199,10 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
         <FadeInUp>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#E2E8E5]">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
+              <span className="text-xs font-mono font-bold uppercase text-[#68A91B] tracking-wider">
                 ANNUAIRE & PROFILS DÉMONSTRATION
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820]">
+              <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1A2233]">
                 Découvrez des profils certifiés SkillBridge
               </h2>
             </div>
@@ -216,8 +216,8 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
                     onClick={() => setCategoryFilter(cat)}
                     className={`sb-btn px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer whitespace-nowrap ${
                       categoryFilter === cat
-                        ? 'bg-[#123B5D] text-white'
-                        : 'bg-white border border-[#E2E8E5] text-stone-600 hover:bg-stone-50'
+                        ? 'bg-[#06234B] text-white'
+                        : 'bg-white border border-[#E2E8E5] text-[#5C6B78] hover:bg-stone-50'
                     }`}
                   >
                     {cat}
@@ -232,7 +232,7 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Rechercher une compétence..."
-                  className="sb-focus w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-[#E2E8E5] text-xs text-[#101820] focus:outline-hidden focus:border-[#123B5D]"
+                  className="sb-focus w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-[#E2E8E5] text-xs text-[#1A2233] focus:outline-hidden focus:border-[#06234B]"
                 />
               </div>
             </div>
@@ -245,39 +245,39 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
             <ScaleOnHover key={t.id}>
               <div
                 onClick={() => setSelectedTalent(t)}
-                className="bg-white border border-[#E2E8E5] rounded-3xl p-6 space-y-5 hover:border-[#123B5D] transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between h-full"
+                className="bg-white border border-[#E2E8E5] rounded-3xl p-6 space-y-5 hover:border-[#06234B] transition-all cursor-pointer shadow-xs hover:shadow-md flex flex-col justify-between h-full"
               >
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-base">
+                      <div className="w-12 h-12 rounded-2xl bg-[#06234B] text-white flex items-center justify-center font-bold text-base">
                         {t.name.slice(0, 2).toUpperCase()}
                       </div>
                       <div>
-                        <h4 className="font-heading font-bold text-base text-[#101820]">{t.name}</h4>
-                        <p className="text-xs text-stone-500">{t.location}, {t.country}</p>
+                        <h4 className="font-heading font-bold text-base text-[#1A2233]">{t.name}</h4>
+                        <p className="text-xs text-[#5C6B78]">{t.location}, {t.country}</p>
                       </div>
                     </div>
 
-                    <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#59B83E]/10 text-[#59B83E]">
+                    <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#68A91B]/10 text-[#68A91B]">
                       {t.passportScore}/100
                     </span>
                   </div>
 
-                  <p className="text-xs text-stone-600 font-medium line-clamp-2">
+                  <p className="text-xs text-[#5C6B78] font-medium line-clamp-2">
                     {t.headline}
                   </p>
 
                   <div className="flex flex-wrap gap-1.5 pt-1">
                     {t.skills.map((s) => (
-                      <span key={s.name} className="text-[11px] px-2.5 py-1 rounded-lg bg-[#F5F7F6] border border-[#E2E8E5] text-[#101820] font-medium">
+                      <span key={s.name} className="text-[11px] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E2E8E5] text-[#1A2233] font-medium">
                         {s.name}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#123B5D] font-bold">
+                <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between text-xs text-[#06234B] font-bold">
                   <span>Voir le profil complet</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -296,35 +296,35 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => setSelectedTalent(null)}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F5F7F6] text-stone-500 hover:text-[#101820]"
+              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F7F8F3] text-[#5C6B78] hover:text-[#1A2233]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-4 border-b border-[#E2E8E5] pb-6">
-              <div className="w-16 h-16 rounded-2xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-xl">
+              <div className="w-16 h-16 rounded-2xl bg-[#06234B] text-white flex items-center justify-center font-bold text-xl">
                 {selectedTalent.name.slice(0, 2).toUpperCase()}
               </div>
               <div>
-                <h3 className="font-heading text-2xl font-bold text-[#101820]">{selectedTalent.name}</h3>
-                <p className="text-xs text-stone-500 font-medium">{selectedTalent.headline} · {selectedTalent.location}, {selectedTalent.country}</p>
-                <span className="text-xs font-mono font-bold text-[#59B83E] mt-1 inline-block">Score Passport : {selectedTalent.passportScore}/100</span>
+                <h3 className="font-heading text-2xl font-bold text-[#1A2233]">{selectedTalent.name}</h3>
+                <p className="text-xs text-[#5C6B78] font-medium">{selectedTalent.headline} · {selectedTalent.location}, {selectedTalent.country}</p>
+                <span className="text-xs font-mono font-bold text-[#68A91B] mt-1 inline-block">Score Passport : {selectedTalent.passportScore}/100</span>
               </div>
             </div>
 
             {/* Skills & Proofs */}
             <div className="space-y-3">
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#123B5D]">
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#06234B]">
                 Compétences vérifiées
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {selectedTalent.skills.map((s) => (
-                  <div key={s.name} className="p-3 rounded-xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-1 text-xs">
-                    <div className="flex justify-between font-bold text-[#101820]">
+                  <div key={s.name} className="p-3 rounded-xl bg-[#F7F8F3] border border-[#E2E8E5] space-y-1 text-xs">
+                    <div className="flex justify-between font-bold text-[#1A2233]">
                       <span>{s.name}</span>
-                      <span className="font-mono text-[#59B83E]">{s.level}%</span>
+                      <span className="font-mono text-[#68A91B]">{s.level}%</span>
                     </div>
-                    <span className="text-[11px] text-stone-500">{s.proofCount} preuves de code auditées</span>
+                    <span className="text-[11px] text-[#5C6B78]">{s.proofCount} preuves de code auditées</span>
                   </div>
                 ))}
               </div>
@@ -332,26 +332,26 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
 
             {/* Projects */}
             <div className="space-y-3">
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#123B5D]">
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#06234B]">
                 Projet en Production
               </h4>
               {selectedTalent.projects.map((p, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#F5F7F6] border border-[#E2E8E5] space-y-2 text-xs">
-                  <div className="font-bold text-[#101820]">{p.title}</div>
-                  <p className="text-stone-600 font-light">{p.description}</p>
+                <div key={idx} className="p-4 rounded-xl bg-[#F7F8F3] border border-[#E2E8E5] space-y-2 text-xs">
+                  <div className="font-bold text-[#1A2233]">{p.title}</div>
+                  <p className="text-[#5C6B78] font-light">{p.description}</p>
                 </div>
               ))}
             </div>
 
             {/* Recommendation */}
             <div className="space-y-3">
-              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#123B5D]">
+              <h4 className="font-heading font-bold text-xs uppercase tracking-wider text-[#06234B]">
                 Recommandation de pair
               </h4>
               {selectedTalent.recommendations.map((r, idx) => (
                 <div key={idx} className="p-4 rounded-xl bg-white border border-[#E2E8E5] space-y-1 text-xs">
                   <p className="italic text-stone-700">« {r.text} »</p>
-                  <span className="text-[11px] font-bold text-[#123B5D] block pt-1">— {r.author}, {r.role} chez {r.company}</span>
+                  <span className="text-[11px] font-bold text-[#06234B] block pt-1">— {r.author}, {r.role} chez {r.company}</span>
                 </div>
               ))}
             </div>
@@ -363,7 +363,7 @@ export const TalentsView: React.FC<TalentsViewProps> = ({ onNavigate }) => {
                   setSelectedTalent(null);
                   onNavigate('onboarding');
                 }}
-                className="px-6 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs cursor-pointer"
+                className="px-6 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs cursor-pointer"
               >
                 Créer un profil similaire
               </button>

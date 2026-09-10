@@ -77,12 +77,12 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
   if (!activeContent || !currentLesson) {
     return (
       <div className="max-w-xl mx-auto py-24 px-4 text-center space-y-4">
-        <h2 className="text-xl font-bold text-[#101820]">Aucune leçon sélectionnée</h2>
-        <p className="text-xs text-stone-500">Veuillez choisir un cours depuis votre espace d'apprentissage.</p>
+        <h2 className="text-xl font-bold text-[#1A2233]">Aucune leçon sélectionnée</h2>
+        <p className="text-xs text-[#5C6B78]">Veuillez choisir un cours depuis votre espace d'apprentissage.</p>
         <button
           type="button"
           onClick={() => onNavigate('learn')}
-          className="px-5 py-2.5 rounded-xl bg-[#123B5D] text-white text-xs font-bold cursor-pointer"
+          className="px-5 py-2.5 rounded-xl bg-[#06234B] text-white text-xs font-bold cursor-pointer"
         >
           Retour à l'espace Apprendre
         </button>
@@ -138,12 +138,12 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
   };
 
   return (
-    <div className="w-full bg-[#F5F7F6] min-h-screen flex flex-col">
+    <div className="w-full bg-[#F7F8F3] min-h-screen flex flex-col">
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#123B5D] text-white px-4 py-3 rounded-2xl shadow-xl border border-white/20 text-xs flex items-center gap-2 animate-slideUp">
-          <FaIcon icon={faCheckCircle} className="text-[#59B83E] text-base shrink-0" />
+        <div className="fixed bottom-6 right-6 z-50 bg-[#06234B] text-white px-4 py-3 rounded-2xl shadow-xl border border-white/20 text-xs flex items-center gap-2 animate-slideUp">
+          <FaIcon icon={faCheckCircle} className="text-[#68A91B] text-base shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -154,7 +154,7 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
           <button
             type="button"
             onClick={() => onNavigate('learn')}
-            className="p-2 rounded-xl text-stone-600 hover:text-[#101820] hover:bg-stone-100 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#5C6B78] hover:text-[#1A2233] hover:bg-stone-100 transition-colors cursor-pointer"
             aria-label="Quitter le cours"
           >
             <FaIcon icon={faArrowLeft} />
@@ -163,7 +163,7 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
           <button
             type="button"
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded-xl text-stone-600 hover:text-[#101820] hover:bg-stone-100 transition-colors cursor-pointer"
+            className="p-2 rounded-xl text-[#5C6B78] hover:text-[#1A2233] hover:bg-stone-100 transition-colors cursor-pointer"
             aria-label="Afficher/Masquer le sommaire"
           >
             <FaIcon icon={faBars} />
@@ -175,12 +175,12 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
                 {activeContent.isOfficialSkillBridge ? 'Programme Officiel' : 'Cours Mentor'}
               </span>
               {activeContent.isCertifying && (
-                <span className="px-2 py-0.5 rounded-full bg-[#59B83E]/10 text-[#59B83E] text-[10px] font-mono font-bold">
+                <span className="px-2 py-0.5 rounded-full bg-[#68A91B]/10 text-[#68A91B] text-[10px] font-mono font-bold">
                   Certifiant
                 </span>
               )}
             </div>
-            <h1 className="text-xs sm:text-sm font-bold text-[#101820] truncate max-w-md">
+            <h1 className="text-xs sm:text-sm font-bold text-[#1A2233] truncate max-w-md">
               {activeContent.title}
             </h1>
           </div>
@@ -193,8 +193,8 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
             onClick={handleToggleComplete}
             className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
               isCompleted
-                ? 'bg-[#59B83E]/10 text-[#59B83E] border border-[#59B83E]/30'
-                : 'bg-[#123B5D] text-white hover:bg-[#0A2338]'
+                ? 'bg-[#68A91B]/10 text-[#68A91B] border border-[#68A91B]/30'
+                : 'bg-[#06234B] text-white hover:bg-[#0A2338]'
             }`}
           >
             <FaIcon icon={isCompleted ? faCheckCircle : faCheck} className="text-xs" />
@@ -208,7 +208,7 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
             <button
               type="button"
               onClick={handleClaimCertificate}
-              className="px-3.5 py-2 rounded-xl bg-[#59B83E] hover:bg-[#4ea834] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
+              className="px-3.5 py-2 rounded-xl bg-[#68A91B] hover:bg-[#4ea834] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors cursor-pointer"
             >
               <FaIcon icon={faCertificate} />
               <span className="hidden sm:inline">
@@ -229,7 +229,7 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
           } transition-all duration-300 bg-white border-r border-[#E2E8E5] flex flex-col shrink-0 overflow-hidden select-none`}
         >
           <div className="p-4 border-b border-[#E2E8E5] flex items-center justify-between bg-[#FAFCFB]">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#5C6B78]">
               Plan de formation
             </span>
             <span className="text-[11px] font-mono text-stone-400">
@@ -260,12 +260,12 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
                         }}
                         className={`w-full p-2.5 rounded-xl text-left flex items-start gap-2.5 transition-all text-xs cursor-pointer ${
                           isActive
-                            ? 'bg-[#123B5D] text-white font-bold shadow-2xs'
+                            ? 'bg-[#06234B] text-white font-bold shadow-2xs'
                             : 'text-stone-700 hover:bg-stone-100'
                         }`}
                       >
                         {lesCompleted ? (
-                          <FaIcon icon={faCheckCircle} className={`mt-0.5 shrink-0 ${isActive ? 'text-[#59B83E]' : 'text-[#59B83E]'}`} />
+                          <FaIcon icon={faCheckCircle} className={`mt-0.5 shrink-0 ${isActive ? 'text-[#68A91B]' : 'text-[#68A91B]'}`} />
                         ) : (
                           <div className={`w-3.5 h-3.5 mt-0.5 rounded-full border-2 shrink-0 ${isActive ? 'border-white/60' : 'border-stone-300'}`} />
                         )}
@@ -285,12 +285,12 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
           </div>
 
           {/* Sidebar Footer: Skill Passport Sync Indicator */}
-          <div className="p-4 border-t border-[#E2E8E5] bg-[#F5F7F6]">
-            <div className="flex items-center gap-2 text-xs font-semibold text-[#123B5D]">
-              <FaIcon icon={faShieldHalved} className="text-[#59B83E]" />
+          <div className="p-4 border-t border-[#E2E8E5] bg-[#F7F8F3]">
+            <div className="flex items-center gap-2 text-xs font-semibold text-[#06234B]">
+              <FaIcon icon={faShieldHalved} className="text-[#68A91B]" />
               <span>Skill Passport Connecté</span>
             </div>
-            <p className="text-[11px] text-stone-500 mt-1">
+            <p className="text-[11px] text-[#5C6B78] mt-1">
               Vos quiz et projets enrichissent directement votre profil audité.
             </p>
           </div>
@@ -301,14 +301,14 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
           
           {/* Lesson Title Header */}
           <div className="space-y-2 pb-6 border-b border-stone-200">
-            <div className="text-xs font-mono font-semibold text-[#59B83E] uppercase tracking-wider">
+            <div className="text-xs font-mono font-semibold text-[#68A91B] uppercase tracking-wider">
               {currentItem?.moduleTitle}
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#101820]">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#1A2233]">
               {currentLesson.title}
             </h1>
             {currentLesson.description && (
-              <p className="text-sm text-stone-600 leading-relaxed">
+              <p className="text-sm text-[#5C6B78] leading-relaxed">
                 {currentLesson.description}
               </p>
             )}
@@ -344,9 +344,9 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
 
           {/* End of Course Certification Callout Banner */}
           {activeContent.isCertifying && (
-            <div className="bg-gradient-to-r from-[#123B5D] to-[#0A2338] text-white rounded-3xl p-6 sm:p-8 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div className="bg-gradient-to-r from-[#06234B] to-[#0A2338] text-white rounded-3xl p-6 sm:p-8 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               <div className="space-y-2 max-w-md">
-                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#59B83E]/20 text-[#59B83E] text-xs font-mono font-bold">
+                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-[#68A91B]/20 text-[#68A91B] text-xs font-mono font-bold">
                   <FaIcon icon={faCertificate} />
                   <span>Certification Officielle</span>
                 </div>
@@ -361,7 +361,7 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
               <button
                 type="button"
                 onClick={handleClaimCertificate}
-                className="px-5 py-3 rounded-xl bg-[#59B83E] hover:bg-[#4ea834] text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer whitespace-nowrap"
+                className="px-5 py-3 rounded-xl bg-[#68A91B] hover:bg-[#4ea834] text-white font-bold text-xs transition-colors flex items-center justify-center gap-2 shadow-xs cursor-pointer whitespace-nowrap"
               >
                 <FaIcon icon={faAward} />
                 <span>{existingCert ? 'Consulter le Certificat' : 'Délivrer mon Certificat'}</span>
@@ -389,10 +389,10 @@ export const LessonPlayerView: React.FC<LessonPlayerProps> = ({ onNavigate }) =>
                 }
                 handleNextLesson();
               }}
-              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-all"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-all"
             >
               <span>{currentLessonIndex === allLessons.length - 1 ? 'Terminer le programme' : 'Leçon suivante'}</span>
-              <FaIcon icon={faChevronRight} className="text-[#59B83E]" />
+              <FaIcon icon={faChevronRight} className="text-[#68A91B]" />
             </button>
           </div>
 
@@ -468,7 +468,7 @@ const RenderLessonBlock: React.FC<{
             referrerPolicy="no-referrer"
           />
           {c.caption && (
-            <p className="text-center text-[11px] text-stone-500 mt-3 italic">{c.caption}</p>
+            <p className="text-center text-[11px] text-[#5C6B78] mt-3 italic">{c.caption}</p>
           )}
         </div>
       );
@@ -488,7 +488,7 @@ const RenderLessonBlock: React.FC<{
               />
             ) : (
               <div className="text-center text-white space-y-2 p-6">
-                <div className="w-14 h-14 rounded-full bg-[#59B83E] flex items-center justify-center mx-auto text-[#123B5D]">
+                <div className="w-14 h-14 rounded-full bg-[#68A91B] flex items-center justify-center mx-auto text-[#06234B]">
                   <FaIcon icon={faPlay} className="text-xl ml-1" />
                 </div>
                 <div className="text-xs font-bold">{c.videoUrl}</div>
@@ -496,7 +496,7 @@ const RenderLessonBlock: React.FC<{
             )}
           </div>
           {c.caption && (
-            <p className="text-xs text-stone-500 font-light px-2">{c.caption}</p>
+            <p className="text-xs text-[#5C6B78] font-light px-2">{c.caption}</p>
           )}
         </div>
       );
@@ -552,11 +552,11 @@ const InteractiveQuiz: React.FC<{
   return (
     <div className="bg-white rounded-2xl border border-[#E2E8E5] p-6 sm:p-8 shadow-2xs space-y-6">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#123B5D]">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#06234B]">
           <FaIcon icon={faCircleQuestion} />
           <span>Évaluation des Connaissances</span>
         </div>
-        <span className="px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-600 font-mono text-[10px] font-bold">
+        <span className="px-2.5 py-0.5 rounded-md bg-stone-100 text-[#5C6B78] font-mono text-[10px] font-bold">
           Seuil de réussite : {quiz.passingScorePercent || 70}%
         </span>
       </div>
@@ -564,7 +564,7 @@ const InteractiveQuiz: React.FC<{
       <div className="space-y-6">
         {quiz.questions.map((q, qIndex) => (
           <div key={q.id} className="space-y-3 pb-4 border-b border-stone-100 last:border-0">
-            <h4 className="text-xs sm:text-sm font-bold text-[#101820]">
+            <h4 className="text-xs sm:text-sm font-bold text-[#1A2233]">
               {qIndex + 1}. {q.question}
             </h4>
 
@@ -576,12 +576,12 @@ const InteractiveQuiz: React.FC<{
                 let btnStyle = 'border-stone-200 hover:bg-stone-50 text-stone-700';
                 if (submitted) {
                   if (isCorrect) {
-                    btnStyle = 'border-[#59B83E] bg-[#59B83E]/10 text-[#123B5D] font-bold';
+                    btnStyle = 'border-[#68A91B] bg-[#68A91B]/10 text-[#06234B] font-bold';
                   } else if (isSelected && !isCorrect) {
                     btnStyle = 'border-rose-300 bg-rose-50 text-rose-800';
                   }
                 } else if (isSelected) {
-                  btnStyle = 'border-[#123B5D] bg-[#123B5D]/5 text-[#123B5D] font-bold';
+                  btnStyle = 'border-[#06234B] bg-[#06234B]/5 text-[#06234B] font-bold';
                 }
 
                 return (
@@ -592,14 +592,14 @@ const InteractiveQuiz: React.FC<{
                     className={`w-full p-3 rounded-xl border text-left text-xs transition-all flex items-center justify-between cursor-pointer ${btnStyle}`}
                   >
                     <span>{opt.text}</span>
-                    {submitted && isCorrect && <FaIcon icon={faCheckCircle} className="text-[#59B83E]" />}
+                    {submitted && isCorrect && <FaIcon icon={faCheckCircle} className="text-[#68A91B]" />}
                   </button>
                 );
               })}
             </div>
 
             {submitted && q.explanation && (
-              <div className="p-3 rounded-xl bg-stone-50 text-[11px] text-stone-600">
+              <div className="p-3 rounded-xl bg-stone-50 text-[11px] text-[#5C6B78]">
                 <strong>Explication :</strong> {q.explanation}
               </div>
             )}
@@ -612,12 +612,12 @@ const InteractiveQuiz: React.FC<{
           type="button"
           onClick={handleValidate}
           disabled={Object.keys(selectedOptions).length < quiz.questions.length}
-          className="w-full py-3 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] disabled:opacity-40 text-white font-bold text-xs cursor-pointer transition-all shadow-xs"
+          className="w-full py-3 rounded-xl bg-[#06234B] hover:bg-[#0A2338] disabled:opacity-40 text-white font-bold text-xs cursor-pointer transition-all shadow-xs"
         >
           Valider mes réponses
         </button>
       ) : (
-        <div className={`p-4 rounded-xl text-center space-y-2 ${passed ? 'bg-[#59B83E]/10 text-[#123B5D]' : 'bg-rose-50 text-rose-900'}`}>
+        <div className={`p-4 rounded-xl text-center space-y-2 ${passed ? 'bg-[#68A91B]/10 text-[#06234B]' : 'bg-rose-50 text-rose-900'}`}>
           <div className="font-heading text-base font-extrabold">
             Résultat : {score}% {passed ? '— Validé avec succès !' : '— Score insuffisant.'}
           </div>
@@ -655,24 +655,24 @@ const InteractiveProjectDeliverable: React.FC<{
   return (
     <div className="bg-white rounded-2xl border border-[#E2E8E5] p-6 sm:p-8 shadow-2xs space-y-6">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#123B5D]">
+        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#06234B]">
           <FaIcon icon={faAward} />
           <span>Projet Pratique — Démonstration de Compétence</span>
         </div>
-        <span className="px-2.5 py-0.5 rounded-md bg-[#59B83E]/10 text-[#59B83E] font-mono text-[10px] font-bold">
+        <span className="px-2.5 py-0.5 rounded-md bg-[#68A91B]/10 text-[#68A91B] font-mono text-[10px] font-bold">
           Stade : Démontrée
         </span>
       </div>
 
       <div className="space-y-2">
-        <h4 className="text-base font-bold text-[#101820]">{project.title}</h4>
-        <p className="text-xs text-stone-600 leading-relaxed">{project.context}</p>
+        <h4 className="text-base font-bold text-[#1A2233]">{project.title}</h4>
+        <p className="text-xs text-[#5C6B78] leading-relaxed">{project.context}</p>
       </div>
 
       {project.objectives && project.objectives.length > 0 && (
         <div className="space-y-2">
           <h5 className="text-xs font-bold text-stone-700">Objectifs du livrable :</h5>
-          <ul className="space-y-1 pl-4 list-disc text-xs text-stone-600">
+          <ul className="space-y-1 pl-4 list-disc text-xs text-[#5C6B78]">
             {project.objectives.map((obj, i) => (
               <li key={i}>{obj}</li>
             ))}
@@ -681,8 +681,8 @@ const InteractiveProjectDeliverable: React.FC<{
       )}
 
       {isSubmittedSuccess ? (
-        <div className="p-4 rounded-xl bg-[#59B83E]/10 border border-[#59B83E]/30 text-[#123B5D] text-xs flex items-center gap-3">
-          <FaIcon icon={faCheckCircle} className="text-[#59B83E] text-base shrink-0" />
+        <div className="p-4 rounded-xl bg-[#68A91B]/10 border border-[#68A91B]/30 text-[#06234B] text-xs flex items-center gap-3">
+          <FaIcon icon={faCheckCircle} className="text-[#68A91B] text-base shrink-0" />
           <div>
             <strong>Livrable transmis avec succès !</strong> Votre projet est indexé sur votre Skill Passport.
           </div>
@@ -699,7 +699,7 @@ const InteractiveProjectDeliverable: React.FC<{
               placeholder="https://github.com/votre-compte/projet-resilience"
               value={deliverableUrl}
               onChange={(e) => setDeliverableUrl(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:ring-2 focus:ring-[#123B5D]/20 focus:border-[#123B5D] outline-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:ring-2 focus:ring-[#06234B]/20 focus:border-[#06234B] outline-none"
             />
           </div>
 
@@ -712,16 +712,16 @@ const InteractiveProjectDeliverable: React.FC<{
               placeholder="Précisez les choix techniques..."
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:ring-2 focus:ring-[#123B5D]/20 focus:border-[#123B5D] outline-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:ring-2 focus:ring-[#06234B]/20 focus:border-[#06234B] outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={isSubmitting || !deliverableUrl}
-            className="w-full py-3 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] disabled:opacity-40 text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs"
+            className="w-full py-3 rounded-xl bg-[#06234B] hover:bg-[#0A2338] disabled:opacity-40 text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs"
           >
-            <FaIcon icon={faPaperPlane} className="text-[#59B83E]" />
+            <FaIcon icon={faPaperPlane} className="text-[#68A91B]" />
             <span>{isSubmitting ? 'Enregistrement...' : 'Soumettre le projet et certifier la compétence'}</span>
           </button>
         </form>

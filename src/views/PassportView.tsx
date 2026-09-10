@@ -69,7 +69,7 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] pb-24 lg:pb-8">
+    <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] pb-24 lg:pb-8">
       
       {/* Utility / Actions Header */}
       <div className="bg-white border-b border-[#E2E8E5] sticky top-0 z-40 print:hidden">
@@ -77,13 +77,13 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
           <div className="flex items-center gap-4">
             <button 
               onClick={() => onNavigate('dashboard-talent')}
-              className="sb-btn p-2 rounded-xl border border-[#E2E8E5] text-stone-500 hover:bg-stone-50 transition-colors cursor-pointer"
+              className="sb-btn p-2 rounded-xl border border-[#E2E8E5] text-[#5C6B78] hover:bg-stone-50 transition-colors cursor-pointer"
             >
               <FaIcon icon={faArrowLeft} />
             </button>
             <div>
-              <h1 className="text-xl sm:text-2xl font-heading font-black text-[#101820]">Skill Passport</h1>
-              <p className="text-xs text-stone-500 font-medium hidden sm:block">
+              <h1 className="text-xl sm:text-2xl font-heading font-black text-[#1A2233]">Skill Passport</h1>
+              <p className="text-xs text-[#5C6B78] font-medium hidden sm:block">
                 Votre identité professionnelle vérifiée.
               </p>
             </div>
@@ -105,7 +105,7 @@ export const PassportView: React.FC<PassportViewProps> = ({ onNavigate }) => {
             <button 
               onClick={handleExportPDF}
               disabled={isExporting}
-              className="sb-btn flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold transition-colors inline-flex justify-center items-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
+              className="sb-btn flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs font-bold transition-colors inline-flex justify-center items-center gap-2 shadow-xs cursor-pointer disabled:opacity-50"
             >
               <FaIcon icon={faDownload} /> {isExporting ? 'Génération...' : 'Télécharger PDF'}
             </button>

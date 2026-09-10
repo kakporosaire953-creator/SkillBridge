@@ -56,7 +56,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   };
 
   return (
-    <div className="flex min-h-screen bg-[#F5F7F6] text-[#101820] antialiased">
+    <div className="flex min-h-screen bg-[#F7F8F3] text-[#1A2233] antialiased">
       {/* Desktop Sidebar */}
       <AppSidebar
         currentView={currentView}
@@ -82,7 +82,7 @@ export const AppShell: React.FC<AppShellProps> = ({
             <button
               type="button"
               onClick={toggleTheme}
-              className="p-2 rounded-xl text-stone-600 hover:bg-stone-100 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-[#5C6B78] hover:bg-stone-100 transition-colors cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <Sun className="w-3.5 h-3.5 text-amber-400" /> : <Moon className="w-3.5 h-3.5" />}
@@ -91,7 +91,7 @@ export const AppShell: React.FC<AppShellProps> = ({
             <button
               type="button"
               onClick={toggleLanguage}
-              className="px-2 py-1 rounded-xl text-[10px] font-mono font-bold text-stone-600 hover:bg-stone-100 transition-colors cursor-pointer"
+              className="px-2 py-1 rounded-xl text-[10px] font-mono font-bold text-[#5C6B78] hover:bg-stone-100 transition-colors cursor-pointer"
             >
               {language.toUpperCase()}
             </button>
@@ -99,19 +99,19 @@ export const AppShell: React.FC<AppShellProps> = ({
             <button
               type="button"
               onClick={() => setIsNotificationsOpen(true)}
-              className="relative p-2 rounded-xl text-stone-600 hover:bg-stone-100 transition-colors cursor-pointer"
+              className="relative p-2 rounded-xl text-[#5C6B78] hover:bg-stone-100 transition-colors cursor-pointer"
               aria-label="Notifications"
             >
               <FaIcon icon={faBell} className="text-xs" />
               {unreadNotificationsCount > 0 && (
-                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#59B83E] sb-pulse-dot" />
+                <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#68A91B] sb-pulse-dot" />
               )}
             </button>
 
             <button
               type="button"
               onClick={() => setIsProfileModalOpen(true)}
-              className="p-0.5 rounded-xl hover:ring-2 hover:ring-[#123B5D]/20 transition-all cursor-pointer"
+              className="p-0.5 rounded-xl hover:ring-2 hover:ring-[#06234B]/20 transition-all cursor-pointer"
               aria-label="Mon Profil"
             >
               <UserAvatar profile={profile} size="xs" />
@@ -131,10 +131,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           type="button"
           onClick={() => onNavigate('dashboard-talent')}
           className={`flex flex-col items-center gap-1 p-1 rounded-xl text-[10px] font-medium transition-colors cursor-pointer ${
-            isViewActive('dashboard') ? 'text-[#123B5D] font-bold' : 'text-stone-500'
+            isViewActive('dashboard') ? 'text-[#06234B] font-bold' : 'text-[#5C6B78]'
           }`}
         >
-          <div className={`p-1.5 rounded-lg ${isViewActive('dashboard') ? 'bg-[#123B5D] text-white shadow-2xs' : 'bg-transparent'}`}>
+          <div className={`p-1.5 rounded-lg ${isViewActive('dashboard') ? 'bg-[#06234B] text-white shadow-2xs' : 'bg-transparent'}`}>
             <FaIcon icon={faHouse} className="text-xs" />
           </div>
           <span>Accueil</span>
@@ -144,10 +144,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           type="button"
           onClick={() => onNavigate('explorer')}
           className={`flex flex-col items-center gap-1 p-1 rounded-xl text-[10px] font-medium transition-colors cursor-pointer ${
-            isViewActive('explore') ? 'text-[#123B5D] font-bold' : 'text-stone-500'
+            isViewActive('explore') ? 'text-[#06234B] font-bold' : 'text-[#5C6B78]'
           }`}
         >
-          <div className={`p-1.5 rounded-lg ${isViewActive('explore') ? 'bg-[#123B5D] text-white shadow-2xs' : 'bg-transparent'}`}>
+          <div className={`p-1.5 rounded-lg ${isViewActive('explore') ? 'bg-[#06234B] text-white shadow-2xs' : 'bg-transparent'}`}>
             <FaIcon icon={faCompass} className="text-xs" />
           </div>
           <span>Explorer</span>
@@ -157,10 +157,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           type="button"
           onClick={() => onNavigate('messaging')}
           className={`flex flex-col items-center gap-1 p-1 rounded-xl text-[10px] font-medium transition-colors cursor-pointer ${
-            isViewActive('messaging') ? 'text-[#123B5D] font-bold' : 'text-stone-500'
+            isViewActive('messaging') ? 'text-[#06234B] font-bold' : 'text-[#5C6B78]'
           }`}
         >
-          <div className={`p-1.5 rounded-lg ${isViewActive('messaging') ? 'bg-[#123B5D] text-white shadow-2xs' : 'bg-transparent'}`}>
+          <div className={`p-1.5 rounded-lg ${isViewActive('messaging') ? 'bg-[#06234B] text-white shadow-2xs' : 'bg-transparent'}`}>
             <FaIcon icon={faComments} className="text-xs" />
           </div>
           <span>Messages</span>
@@ -170,10 +170,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           type="button"
           onClick={() => onNavigate('learn')}
           className={`flex flex-col items-center gap-1 p-1 rounded-xl text-[10px] font-medium transition-colors cursor-pointer ${
-            isViewActive('learn') ? 'text-[#123B5D] font-bold' : 'text-stone-500'
+            isViewActive('learn') ? 'text-[#06234B] font-bold' : 'text-[#5C6B78]'
           }`}
         >
-          <div className={`p-1.5 rounded-lg ${isViewActive('learn') ? 'bg-[#123B5D] text-white shadow-2xs' : 'bg-transparent'}`}>
+          <div className={`p-1.5 rounded-lg ${isViewActive('learn') ? 'bg-[#06234B] text-white shadow-2xs' : 'bg-transparent'}`}>
             <FaIcon icon={faGraduationCap} className="text-xs" />
           </div>
           <span>Apprendre</span>
@@ -183,10 +183,10 @@ export const AppShell: React.FC<AppShellProps> = ({
           type="button"
           onClick={() => onNavigate('passport')}
           className={`flex flex-col items-center gap-1 p-1 rounded-xl text-[10px] font-medium transition-colors cursor-pointer ${
-            isViewActive('passport') ? 'text-[#123B5D] font-bold' : 'text-stone-500'
+            isViewActive('passport') ? 'text-[#06234B] font-bold' : 'text-[#5C6B78]'
           }`}
         >
-          <div className={`p-1.5 rounded-lg ${isViewActive('passport') ? 'bg-[#123B5D] text-[#59B83E] shadow-2xs' : 'bg-transparent'}`}>
+          <div className={`p-1.5 rounded-lg ${isViewActive('passport') ? 'bg-[#06234B] text-[#68A91B] shadow-2xs' : 'bg-transparent'}`}>
             <FaIcon icon={faShieldHalved} className="text-xs" />
           </div>
           <span>Passeport</span>

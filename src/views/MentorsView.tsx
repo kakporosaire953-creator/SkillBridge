@@ -72,21 +72,21 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="flex-1 w-full bg-[#F5F7F6] text-[#101820]">
+    <div className="flex-1 w-full bg-[#F7F8F3] text-[#1A2233]">
       
       {/* Hero */}
       <section className="py-20 sm:py-28 border-b border-[#E2E8E5] bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F7F6] border border-[#E2E8E5] text-[#123B5D] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F8F3] border border-[#E2E8E5] text-[#06234B] text-xs font-mono font-bold uppercase tracking-wider">
             <span>RÉSEAU DE MENTORAT PANAFRICAIN</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101820] leading-tight">
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1A2233] leading-tight">
             L'expérience devient plus puissante <br className="hidden sm:inline" />
-            <span className="text-[#59B83E]">lorsqu'elle est transmise.</span>
+            <span className="text-[#68A91B]">lorsqu'elle est transmise.</span>
           </h1>
 
-          <p className="text-stone-600 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#5C6B78] text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
             Échangez avec des architectes, VPs produit et leaders techniques établis pour débloquer vos défis d'ingénierie et accélérer votre trajectoire.
           </p>
 
@@ -94,7 +94,7 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => onNavigate('learn')}
-              className="px-8 py-4 rounded-xl bg-[#59B83E] hover:bg-[#4ea236] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
+              className="px-8 py-4 rounded-xl bg-[#68A91B] hover:bg-[#4ea236] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
             >
               <span>Explorer les cours & masterclasses</span>
               <ArrowRight className="w-4 h-4 text-white" />
@@ -103,10 +103,10 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => onNavigate('onboarding')}
-              className="px-8 py-4 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
+              className="px-8 py-4 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2.5 cursor-pointer shadow-md"
             >
               <span>Devenir mentor</span>
-              <ArrowRight className="w-4 h-4 text-[#C8F169]" />
+              <ArrowRight className="w-4 h-4 text-[#68A91B]" />
             </button>
           </div>
         </div>
@@ -117,14 +117,14 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
         
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-[#E2E8E5]">
           <div className="space-y-1">
-            <span className="text-xs font-mono font-bold uppercase text-[#59B83E] tracking-wider">
+            <span className="text-xs font-mono font-bold uppercase text-[#68A91B] tracking-wider">
               PROFILS D'EXEMPLES CERTIFIÉS
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820]">
+            <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1A2233]">
               Mentors disponibles pour des sessions 1-on-1
             </h2>
           </div>
-          <p className="text-xs text-stone-500 font-mono">Sessions d'accompagnement de 45 minutes</p>
+          <p className="text-xs text-[#5C6B78] font-mono">Sessions d'accompagnement de 45 minutes</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -135,27 +135,27 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-[#123B5D] text-white flex items-center justify-center font-bold text-lg">
+                  <div className="w-14 h-14 rounded-2xl bg-[#06234B] text-white flex items-center justify-center font-bold text-lg">
                     {m.name.slice(0, 2).toUpperCase()}
                   </div>
-                  <span className="text-xs font-mono font-bold text-[#59B83E] bg-[#59B83E]/10 px-2.5 py-1 rounded-md">
+                  <span className="text-xs font-mono font-bold text-[#68A91B] bg-[#68A91B]/10 px-2.5 py-1 rounded-md">
                     ★ {m.rating} ({m.sessionsConducted} sessions)
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="font-heading font-bold text-lg text-[#101820]">{m.name}</h3>
-                  <p className="text-xs text-stone-500 font-medium">{m.role} · {m.company}</p>
-                  <p className="text-[11px] text-[#123B5D] font-mono mt-0.5">{m.country} · {m.experienceYears} ans d'expérience</p>
+                  <h3 className="font-heading font-bold text-lg text-[#1A2233]">{m.name}</h3>
+                  <p className="text-xs text-[#5C6B78] font-medium">{m.role} · {m.company}</p>
+                  <p className="text-[11px] text-[#06234B] font-mono mt-0.5">{m.country} · {m.experienceYears} ans d'expérience</p>
                 </div>
 
-                <p className="text-xs text-stone-600 font-light leading-relaxed">
+                <p className="text-xs text-[#5C6B78] font-light leading-relaxed">
                   {m.bio}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {m.expertise.map((e) => (
-                    <span key={e} className="text-[10px] px-2.5 py-1 rounded-lg bg-[#F5F7F6] border border-[#E2E8E5] text-[#101820]">
+                    <span key={e} className="text-[10px] px-2.5 py-1 rounded-lg bg-[#F7F8F3] border border-[#E2E8E5] text-[#1A2233]">
                       {e}
                     </span>
                   ))}
@@ -163,14 +163,14 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
               </div>
 
               <div className="pt-4 border-t border-[#E2E8E5] flex items-center justify-between">
-                <span className="text-[11px] text-[#59B83E] font-medium font-mono">
+                <span className="text-[11px] text-[#68A91B] font-medium font-mono">
                   {m.availability}
                 </span>
 
                 <button
                   type="button"
                   onClick={() => setActiveMentor(m)}
-                  className="px-4 py-2 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   Réserver un créneau
                 </button>
@@ -189,26 +189,26 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
             <button
               type="button"
               onClick={() => setActiveMentor(null)}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F5F7F6] text-stone-500 hover:text-[#101820]"
+              className="absolute top-6 right-6 p-2 rounded-xl bg-[#F7F8F3] text-[#5C6B78] hover:text-[#1A2233]"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#59B83E] block">
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B] block">
                 SESSION DE MENTORAT 1-ON-1 · 45 MIN
               </span>
-              <h2 className="font-heading text-2xl font-bold text-[#101820]">
+              <h2 className="font-heading text-2xl font-bold text-[#1A2233]">
                 Réserver avec {activeMentor.name}
               </h2>
-              <p className="text-xs text-stone-500">
+              <p className="text-xs text-[#5C6B78]">
                 {activeMentor.role} chez {activeMentor.company}
               </p>
             </div>
 
             <form onSubmit={handleBookSession} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#06234B] mb-1.5">
                   Objectif principal de la session
                 </label>
                 <input
@@ -217,19 +217,19 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
                   value={bookingTopic}
                   onChange={(e) => setBookingTopic(e.target.value)}
                   placeholder="Ex: Revue d'architecture microservices, transition de carrière..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#F5F7F6] border border-[#E2E8E5] text-xs text-[#101820] focus:outline-hidden focus:border-[#123B5D]"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#F7F8F3] border border-[#E2E8E5] text-xs text-[#1A2233] focus:outline-hidden focus:border-[#06234B]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#123B5D] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#06234B] mb-1.5">
                   Créneau horaire
                 </label>
                 <select
                   required
                   value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#F5F7F6] border border-[#E2E8E5] text-xs text-[#101820] focus:outline-hidden focus:border-[#123B5D]"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#F7F8F3] border border-[#E2E8E5] text-xs text-[#1A2233] focus:outline-hidden focus:border-[#06234B]"
                 >
                   <option value="">Sélectionner une plage horaire</option>
                   <option value="jeudi-18h">Jeudi à 18h00 GMT</option>
@@ -242,9 +242,9 @@ export const MentorsView: React.FC<MentorsViewProps> = ({ onNavigate }) => {
                 <button
                   type="submit"
                   disabled={bookingSuccess}
-                  className="w-full py-3 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
-                  <CheckCircle2 className="w-4 h-4 text-[#C8F169]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#68A91B]" />
                   <span>{bookingSuccess ? 'Confirmation en cours...' : 'Confirmer la réservation'}</span>
                 </button>
               </div>

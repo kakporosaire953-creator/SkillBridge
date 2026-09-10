@@ -113,19 +113,19 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
   const isCompanyOrMentor = profile?.account_type === 'company' || profile?.account_type === 'mentor';
 
   return (
-    <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] pb-24 lg:pb-8">
+    <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] pb-24 lg:pb-8">
       {/* Header */}
       <div className="bg-white border-b border-[#E2E8E5] sticky top-0 z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#101820]">Opportunités Réelles</h1>
-              <p className="text-sm text-stone-500 mt-1">Postulez directement avec la preuve certifiée de votre Skill Passport.</p>
+              <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#1A2233]">Opportunités Réelles</h1>
+              <p className="text-sm text-[#5C6B78] mt-1">Postulez directement avec la preuve certifiée de votre Skill Passport.</p>
             </div>
             {isCompanyOrMentor && (
               <button
                 onClick={() => setIsCreateOpen(true)}
-                className="px-5 py-2.5 rounded-xl bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center gap-2 shadow-sm"
+                className="px-5 py-2.5 rounded-xl bg-[#06234B] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center gap-2 shadow-sm"
               >
                 <FaIcon icon={faPlus} />
                 Publier une offre
@@ -141,7 +141,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Rechercher par titre, compétences requises, mot-clé..."
-                className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E2E8E5] bg-[#F5F7F6] focus:bg-white focus:outline-none focus:border-[#59B83E] transition-all text-xs"
+                className="w-full pl-11 pr-4 py-3 rounded-xl border border-[#E2E8E5] bg-[#F7F8F3] focus:bg-white focus:outline-none focus:border-[#68A91B] transition-all text-xs"
               />
             </div>
             
@@ -153,8 +153,8 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   onClick={() => setSelectedType(type)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold capitalize transition-colors ${
                     selectedType === type
-                      ? 'bg-[#123B5D] text-white'
-                      : 'bg-white border border-[#E2E8E5] text-stone-600 hover:bg-stone-50'
+                      ? 'bg-[#06234B] text-white'
+                      : 'bg-white border border-[#E2E8E5] text-[#5C6B78] hover:bg-stone-50'
                   }`}
                 >
                   {type === 'all' ? 'Toutes' : type}
@@ -168,7 +168,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
         {successNotice && (
-          <div className="p-4 rounded-2xl bg-[#ECFDF5] border border-[#59B83E]/20 text-[#59B83E] text-xs font-bold flex items-center gap-2">
+          <div className="p-4 rounded-2xl bg-[#ECFDF5] border border-[#68A91B]/20 text-[#68A91B] text-xs font-bold flex items-center gap-2">
             <FaIcon icon={faCheck} />
             {successNotice}
           </div>
@@ -178,23 +178,23 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
           <div className="text-center py-20 text-xs text-stone-400">Chargement des opportunités...</div>
         ) : filteredOpps.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-3xl border border-[#E2E8E5] shadow-xs">
-            <div className="w-16 h-16 rounded-2xl bg-stone-50 border border-stone-100 flex items-center justify-center mx-auto mb-4 text-[#123B5D] text-2xl">
+            <div className="w-16 h-16 rounded-2xl bg-stone-50 border border-stone-100 flex items-center justify-center mx-auto mb-4 text-[#06234B] text-2xl">
               <FaIcon icon={faBriefcase} />
             </div>
-            <h3 className="text-lg font-heading font-bold text-[#101820] mb-2">
+            <h3 className="text-lg font-heading font-bold text-[#1A2233] mb-2">
               Aucune opportunité disponible
             </h3>
-            <p className="text-xs text-stone-500 max-w-sm mx-auto">
+            <p className="text-xs text-[#5C6B78] max-w-sm mx-auto">
               Revenez régulièrement ou modifiez vos filtres de recherche.
             </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredOpps.map((opp) => (
-              <div key={opp.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/30 transition-all">
+              <div key={opp.id} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#06234B]/30 transition-all">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF3F8] text-[#123B5D]">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#EBF3F8] text-[#06234B]">
                       {opp.type}
                     </span>
                     {opp.location && (
@@ -205,11 +205,11 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                     )}
                   </div>
 
-                  <h3 className="font-bold text-base text-[#101820] leading-snug">{opp.title}</h3>
-                  <p className="text-xs text-stone-500 line-clamp-3">{opp.description}</p>
+                  <h3 className="font-bold text-base text-[#1A2233] leading-snug">{opp.title}</h3>
+                  <p className="text-xs text-[#5C6B78] line-clamp-3">{opp.description}</p>
 
                   {opp.salary_min && (
-                    <div className="text-xs font-semibold text-[#59B83E] flex items-center gap-1.5 pt-1">
+                    <div className="text-xs font-semibold text-[#68A91B] flex items-center gap-1.5 pt-1">
                       <FaIcon icon={faMoneyBillWave} />
                       {opp.salary_min.toLocaleString()} {opp.currency}
                     </div>
@@ -217,7 +217,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
 
                   <div className="flex flex-wrap gap-1.5 pt-1">
                     {opp.required_skills.map((s, idx) => (
-                      <span key={idx} className="text-[10px] font-semibold bg-stone-100 text-stone-600 px-2 py-0.5 rounded-md">
+                      <span key={idx} className="text-[10px] font-semibold bg-stone-100 text-[#5C6B78] px-2 py-0.5 rounded-md">
                         {s}
                       </span>
                     ))}
@@ -228,7 +228,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   <span className="text-[11px] text-stone-400">{opp.applications_count} candidatures</span>
                   <button
                     onClick={() => setSelectedOpp(opp)}
-                    className="px-5 py-2 rounded-xl bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center gap-1.5"
+                    className="px-5 py-2 rounded-xl bg-[#06234B] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center gap-1.5"
                   >
                     <FaIcon icon={faPaperPlane} />
                     Postuler
@@ -246,23 +246,23 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-6 shadow-2xl border border-stone-100">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-base font-bold font-heading text-[#101820]">
+                <h3 className="text-base font-bold font-heading text-[#1A2233]">
                   Postuler à : {selectedOpp.title}
                 </h3>
                 <p className="text-xs text-stone-400 mt-0.5">Votre Skill Passport sera automatiquement attaché</p>
               </div>
-              <button onClick={() => setSelectedOpp(null)} className="text-stone-400 hover:text-stone-600">
+              <button onClick={() => setSelectedOpp(null)} className="text-stone-400 hover:text-[#5C6B78]">
                 <FaIcon icon={faTimes} />
               </button>
             </div>
 
             {profile?.passport_id && (
-              <div className="p-3.5 rounded-xl bg-[#ECFDF5] border border-[#59B83E]/20 flex items-center justify-between text-xs">
+              <div className="p-3.5 rounded-xl bg-[#ECFDF5] border border-[#68A91B]/20 flex items-center justify-between text-xs">
                 <div>
-                  <span className="font-bold text-[#101820] block">Skill Passport Certifié</span>
-                  <span className="font-mono text-[#59B83E] font-bold text-[11px]">{profile.passport_id}</span>
+                  <span className="font-bold text-[#1A2233] block">Skill Passport Certifié</span>
+                  <span className="font-mono text-[#68A91B] font-bold text-[11px]">{profile.passport_id}</span>
                 </div>
-                <span className="px-2 py-1 bg-white rounded-md font-bold text-[10px] text-[#59B83E] shadow-2xs">
+                <span className="px-2 py-1 bg-white rounded-md font-bold text-[10px] text-[#68A91B] shadow-2xs">
                   Score : {profile.passport_score || 0}/100
                 </span>
               </div>
@@ -279,7 +279,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={coverMessage}
                   onChange={(e) => setCoverMessage(e.target.value)}
                   placeholder="Présentez vos points forts et votre pertinence pour cette mission..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -287,14 +287,14 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                 <button
                   type="button"
                   onClick={() => setSelectedOpp(null)}
-                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-stone-600 font-bold text-xs hover:bg-stone-200"
+                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-[#5C6B78] font-bold text-xs hover:bg-stone-200"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-2.5 rounded-xl bg-[#59B83E] text-white font-bold text-xs hover:bg-[#4ea834] disabled:opacity-50 flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 rounded-xl bg-[#68A91B] text-white font-bold text-xs hover:bg-[#4ea834] disabled:opacity-50 flex items-center justify-center gap-1.5"
                 >
                   <FaIcon icon={faPaperPlane} />
                   {isSubmitting ? 'Envoi...' : 'Transmettre ma candidature'}
@@ -310,8 +310,8 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-6 shadow-2xl border border-stone-100">
             <div className="flex items-center justify-between">
-              <h3 className="text-base font-bold font-heading text-[#101820]">Publier une opportunité</h3>
-              <button onClick={() => setIsCreateOpen(false)} className="text-stone-400 hover:text-stone-600">
+              <h3 className="text-base font-bold font-heading text-[#1A2233]">Publier une opportunité</h3>
+              <button onClick={() => setIsCreateOpen(false)} className="text-stone-400 hover:text-[#5C6B78]">
                 <FaIcon icon={faTimes} />
               </button>
             </div>
@@ -325,7 +325,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
                   placeholder="Ex: Développeur React & TypeScript"
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -335,7 +335,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   <select
                     value={newType}
                     onChange={(e) => setNewType(e.target.value as any)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none bg-white"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none bg-white"
                   >
                     <option value="emploi">Emploi / CDI / CDD</option>
                     <option value="stage">Stage</option>
@@ -350,7 +350,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                     value={newLocation}
                     onChange={(e) => setNewLocation(e.target.value)}
                     placeholder="Ex: Télétravail / Dakar"
-                    className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                   />
                 </div>
               </div>
@@ -362,7 +362,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={newSkills}
                   onChange={(e) => setNewSkills(e.target.value)}
                   placeholder="Ex: React, Tailwind, Supabase"
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -373,7 +373,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={newSalary}
                   onChange={(e) => setNewSalary(e.target.value)}
                   placeholder="Ex: 500000"
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -385,7 +385,7 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={newDesc}
                   onChange={(e) => setNewDesc(e.target.value)}
                   placeholder="Détaillez les missions, responsabilités et profil recherché..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-xs focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -393,14 +393,14 @@ export const OpportunitiesView: React.FC<{ onNavigate: (view: ViewType) => void 
                 <button
                   type="button"
                   onClick={() => setIsCreateOpen(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-stone-600 font-bold text-xs hover:bg-stone-200"
+                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-[#5C6B78] font-bold text-xs hover:bg-stone-200"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs hover:bg-[#0A2338] disabled:opacity-50"
+                  className="flex-1 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs hover:bg-[#0A2338] disabled:opacity-50"
                 >
                   {isSubmitting ? 'Publication...' : 'Publier l’offre'}
                 </button>

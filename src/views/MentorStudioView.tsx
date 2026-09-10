@@ -223,23 +223,23 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
   };
 
   return (
-    <div className="w-full bg-[#F5F7F6] min-h-screen pb-20">
+    <div className="w-full bg-[#F7F8F3] min-h-screen pb-20">
       
       {/* Header Banner */}
-      <div className="bg-[#123B5D] text-white py-8 px-4 sm:px-6 lg:px-8 border-b border-stone-800">
+      <div className="bg-[#06234B] text-white py-8 px-4 sm:px-6 lg:px-8 border-b border-stone-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-1">
             <button
               type="button"
               onClick={() => onNavigate('learn')}
-              className="inline-flex items-center gap-1.5 text-xs text-[#C8F169] hover:underline font-semibold"
+              className="inline-flex items-center gap-1.5 text-xs text-[#68A91B] hover:underline font-semibold"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Retour à l'espace Apprendre</span>
             </button>
             <h1 className="text-2xl sm:text-3xl font-bold flex items-center gap-2.5">
               <span>Espace Mentor Studio</span>
-              <ShieldCheck className="w-6 h-6 text-[#59B83E]" />
+              <ShieldCheck className="w-6 h-6 text-[#68A91B]" />
             </h1>
             <p className="text-xs text-stone-300">
               Gérez vos cours, créez des leçons riches et validez les projets de vos apprenants.
@@ -250,7 +250,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             <button
               type="button"
               onClick={() => handleStartCreate('course')}
-              className="px-4 py-2.5 rounded-xl bg-[#59B83E] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-sm cursor-pointer"
+              className="px-4 py-2.5 rounded-xl bg-[#68A91B] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-sm cursor-pointer"
             >
               <PlusCircle className="w-4 h-4" />
               <span>Créer un cours</span>
@@ -261,7 +261,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
               onClick={() => handleStartCreate('masterclass')}
               className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-xs flex items-center gap-2 transition-all cursor-pointer"
             >
-              <Calendar className="w-4 h-4 text-[#C8F169]" />
+              <Calendar className="w-4 h-4 text-[#68A91B]" />
               <span>Planifier une masterclass</span>
             </button>
           </div>
@@ -275,7 +275,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             type="button"
             onClick={() => setActiveTab('contents')}
             className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap cursor-pointer ${
-              activeTab === 'contents' ? 'bg-[#123B5D] text-white' : 'text-stone-600 hover:bg-stone-100'
+              activeTab === 'contents' ? 'bg-[#06234B] text-white' : 'text-[#5C6B78] hover:bg-stone-100'
             }`}
           >
             Mes contenus ({myAuthoredContents.length || allContents.length})
@@ -285,7 +285,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             type="button"
             onClick={() => handleStartCreate('course')}
             className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'create' ? 'bg-[#123B5D] text-white' : 'text-stone-600 hover:bg-stone-100'
+              activeTab === 'create' ? 'bg-[#06234B] text-white' : 'text-[#5C6B78] hover:bg-stone-100'
             }`}
           >
             <PlusCircle className="w-3.5 h-3.5" />
@@ -296,7 +296,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             type="button"
             onClick={() => setActiveTab('learners')}
             className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'learners' ? 'bg-[#123B5D] text-white' : 'text-stone-600 hover:bg-stone-100'
+              activeTab === 'learners' ? 'bg-[#06234B] text-white' : 'text-[#5C6B78] hover:bg-stone-100'
             }`}
           >
             <Users className="w-3.5 h-3.5" />
@@ -307,7 +307,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             type="button"
             onClick={() => setActiveTab('analytics')}
             className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
-              activeTab === 'analytics' ? 'bg-[#123B5D] text-white' : 'text-stone-600 hover:bg-stone-100'
+              activeTab === 'analytics' ? 'bg-[#06234B] text-white' : 'text-[#5C6B78] hover:bg-stone-100'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
@@ -331,8 +331,8 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
           <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-xl font-bold text-[#123B5D]">Mes programmes et publications</h2>
-                <p className="text-xs text-stone-500">Tous les cours et masterclasses créés sous votre identité mentor.</p>
+                <h2 className="text-xl font-bold text-[#06234B]">Mes programmes et publications</h2>
+                <p className="text-xs text-[#5C6B78]">Tous les cours et masterclasses créés sous votre identité mentor.</p>
               </div>
             </div>
 
@@ -349,7 +349,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                         alt={item.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md bg-[#123B5D] text-white text-[11px] font-bold uppercase">
+                      <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-md bg-[#06234B] text-white text-[11px] font-bold uppercase">
                         {item.type}
                       </div>
                       <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-emerald-600 text-white text-[10px] font-bold">
@@ -359,10 +359,10 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
 
                     <div className="p-5 space-y-2">
                       <div className="text-[11px] font-mono text-stone-400">{item.category}</div>
-                      <h3 className="text-base font-bold text-[#101820] line-clamp-1">{item.title}</h3>
-                      <p className="text-xs text-stone-500 line-clamp-2">{item.headline}</p>
+                      <h3 className="text-base font-bold text-[#1A2233] line-clamp-1">{item.title}</h3>
+                      <p className="text-xs text-[#5C6B78] line-clamp-2">{item.headline}</p>
                       
-                      <div className="pt-2 text-xs text-stone-600 flex items-center gap-3">
+                      <div className="pt-2 text-xs text-[#5C6B78] flex items-center gap-3">
                         <span>{item.modules?.length || 0} modules</span>
                         <span>•</span>
                         <span>{item.accessType === 'free' ? 'Gratuit' : `${item.price} ${item.currency}`}</span>
@@ -377,7 +377,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                         setActiveContentId(item.id);
                         onNavigate('learn-detail');
                       }}
-                      className="text-xs text-stone-600 hover:text-[#123B5D] flex items-center gap-1 font-semibold"
+                      className="text-xs text-[#5C6B78] hover:text-[#06234B] flex items-center gap-1 font-semibold"
                     >
                       <Eye className="w-3.5 h-3.5" />
                       <span>Aperçu</span>
@@ -387,7 +387,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                       <button
                         type="button"
                         onClick={() => handleEditContent(item)}
-                        className="p-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-[#123B5D] text-xs font-semibold flex items-center gap-1"
+                        className="p-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-[#06234B] text-xs font-semibold flex items-center gap-1"
                         title="Modifier"
                       >
                         <Edit3 className="w-3.5 h-3.5" />
@@ -420,11 +420,11 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   type="button"
                   onClick={() => setCreationStep(1)}
                   className={`flex items-center gap-2 text-xs font-bold cursor-pointer ${
-                    creationStep === 1 ? 'text-[#123B5D]' : 'text-stone-400'
+                    creationStep === 1 ? 'text-[#06234B]' : 'text-stone-400'
                   }`}
                 >
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-                    creationStep === 1 ? 'bg-[#123B5D] text-white' : 'bg-stone-100 text-stone-500'
+                    creationStep === 1 ? 'bg-[#06234B] text-white' : 'bg-stone-100 text-[#5C6B78]'
                   }`}>1</span>
                   <span>Infos Générales</span>
                 </button>
@@ -435,11 +435,11 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   type="button"
                   onClick={() => setCreationStep(2)}
                   className={`flex items-center gap-2 text-xs font-bold cursor-pointer ${
-                    creationStep === 2 ? 'text-[#123B5D]' : 'text-stone-400'
+                    creationStep === 2 ? 'text-[#06234B]' : 'text-stone-400'
                   }`}
                 >
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-                    creationStep === 2 ? 'bg-[#123B5D] text-white' : 'bg-stone-100 text-stone-500'
+                    creationStep === 2 ? 'bg-[#06234B] text-white' : 'bg-stone-100 text-[#5C6B78]'
                   }`}>2</span>
                   <span>Structure Modules & Leçons</span>
                 </button>
@@ -450,11 +450,11 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   type="button"
                   onClick={() => setCreationStep(3)}
                   className={`flex items-center gap-2 text-xs font-bold cursor-pointer ${
-                    creationStep === 3 ? 'text-[#123B5D]' : 'text-stone-400'
+                    creationStep === 3 ? 'text-[#06234B]' : 'text-stone-400'
                   }`}
                 >
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs ${
-                    creationStep === 3 ? 'bg-[#123B5D] text-white' : 'bg-stone-100 text-stone-500'
+                    creationStep === 3 ? 'bg-[#06234B] text-white' : 'bg-stone-100 text-[#5C6B78]'
                   }`}>3</span>
                   <span>Blocs de Contenu Riches</span>
                 </button>
@@ -463,7 +463,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
               <button
                 type="button"
                 onClick={handleSaveContent}
-                className="px-5 py-2.5 rounded-xl bg-[#59B83E] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-xl bg-[#68A91B] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-colors cursor-pointer"
               >
                 <Save className="w-4 h-4" />
                 <span>Enregistrer & Publier</span>
@@ -507,7 +507,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     value={editingContent.title}
                     onChange={(e) => setEditingContent({ ...editingContent, title: e.target.value })}
                     placeholder="Ex: Architecture Systèmes Distribués & Résilience Réseau"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-bold text-[#101820]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs font-bold text-[#1A2233]"
                   />
                 </div>
 
@@ -613,7 +613,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   <button
                     type="button"
                     onClick={() => setCreationStep(2)}
-                    className="px-6 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs flex items-center gap-2 cursor-pointer"
                   >
                     <span>Continuer vers la structure</span>
                     <ChevronRight className="w-4 h-4" />
@@ -626,7 +626,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
             {creationStep === 2 && (
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-base font-bold text-[#123B5D]">Définition des Modules & Leçons</h3>
+                  <h3 className="text-base font-bold text-[#06234B]">Définition des Modules & Leçons</h3>
                   <button
                     type="button"
                     onClick={() => {
@@ -649,7 +649,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                         modules: [...(editingContent.modules || []), newMod]
                       });
                     }}
-                    className="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-[#123B5D] text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+                    className="px-3.5 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-[#06234B] text-xs font-bold flex items-center gap-1.5 cursor-pointer"
                   >
                     <PlusCircle className="w-3.5 h-3.5" />
                     <span>Ajouter un module</span>
@@ -668,7 +668,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                             updated[mIdx].title = e.target.value;
                             setEditingContent({ ...editingContent, modules: updated });
                           }}
-                          className="flex-1 px-3 py-1.5 rounded-lg border border-stone-300 font-bold text-xs text-[#101820] bg-white"
+                          className="flex-1 px-3 py-1.5 rounded-lg border border-stone-300 font-bold text-xs text-[#1A2233] bg-white"
                         />
                         <button
                           type="button"
@@ -717,7 +717,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                                   setSelectedLessonIndex(lIdx);
                                   setCreationStep(3);
                                 }}
-                                className="px-3 py-1 rounded bg-[#123B5D] text-white text-[11px] font-bold"
+                                className="px-3 py-1 rounded bg-[#06234B] text-white text-[11px] font-bold"
                               >
                                 Éditer le contenu ({les.blocks?.length || 0} blocs)
                               </button>
@@ -739,7 +739,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                             updated[mIdx].lessons.push(newLesson);
                             setEditingContent({ ...editingContent, modules: updated });
                           }}
-                          className="text-xs font-semibold text-[#123B5D] hover:underline flex items-center gap-1 mt-2"
+                          className="text-xs font-semibold text-[#06234B] hover:underline flex items-center gap-1 mt-2"
                         >
                           <PlusCircle className="w-3.5 h-3.5" />
                           <span>Ajouter une leçon à ce module</span>
@@ -761,7 +761,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   <button
                     type="button"
                     onClick={() => setCreationStep(3)}
-                    className="px-6 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-xs flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-xs flex items-center gap-2 cursor-pointer"
                   >
                     <span>Continuer vers les blocs de contenu</span>
                     <ChevronRight className="w-4 h-4" />
@@ -786,7 +786,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                 {/* Add block toolbar */}
                 <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200 space-y-2">
                   <div className="text-xs font-bold text-stone-700 flex items-center gap-1.5">
-                    <PlusCircle className="w-4 h-4 text-[#59B83E]" />
+                    <PlusCircle className="w-4 h-4 text-[#68A91B]" />
                     <span>+ Ajouter un bloc de contenu</span>
                   </div>
                   
@@ -794,7 +794,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('text')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <FileText className="w-3.5 h-3.5 text-blue-600" />
                       <span>Texte / Markdown</span>
@@ -803,7 +803,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('video')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <Video className="w-3.5 h-3.5 text-rose-600" />
                       <span>Vidéo</span>
@@ -812,7 +812,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('image')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <ImageIcon className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Image</span>
@@ -821,16 +821,16 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('document')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
-                      <FileText className="w-3.5 h-3.5 text-stone-600" />
+                      <FileText className="w-3.5 h-3.5 text-[#5C6B78]" />
                       <span>Document / PDF</span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => handleAddBlock('quiz')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
                       <span>Quiz Interactif</span>
@@ -839,7 +839,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('exercise')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <Code2 className="w-3.5 h-3.5 text-indigo-600" />
                       <span>Exercice de code</span>
@@ -848,7 +848,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                     <button
                       type="button"
                       onClick={() => handleAddBlock('project')}
-                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#123B5D] flex items-center gap-1.5 cursor-pointer"
+                      className="px-3 py-1.5 rounded-lg bg-white border border-stone-200 text-xs font-medium hover:border-[#06234B] flex items-center gap-1.5 cursor-pointer"
                     >
                       <Award className="w-3.5 h-3.5 text-purple-600" />
                       <span>Projet / Challenge</span>
@@ -956,7 +956,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   <button
                     type="button"
                     onClick={handleSaveContent}
-                    className="px-6 py-2.5 rounded-xl bg-[#59B83E] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 cursor-pointer shadow-md"
+                    className="px-6 py-2.5 rounded-xl bg-[#68A91B] hover:bg-[#4ea236] text-white font-bold text-xs flex items-center gap-2 cursor-pointer shadow-md"
                   >
                     <Save className="w-4 h-4" />
                     <span>Enregistrer et publier le cours</span>
@@ -972,15 +972,15 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
         {activeTab === 'learners' && (
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-[#123B5D]">Apprenants inscrits & Projets soumis</h2>
-              <p className="text-xs text-stone-500">Revues de code et évaluations en attente de validation.</p>
+              <h2 className="text-xl font-bold text-[#06234B]">Apprenants inscrits & Projets soumis</h2>
+              <p className="text-xs text-[#5C6B78]">Revues de code et évaluations en attente de validation.</p>
             </div>
 
             {mentorSubmissions.length === 0 ? (
               <div className="bg-white rounded-2xl border border-[#E2E8E5] p-10 text-center space-y-2">
                 <Users className="w-8 h-8 text-stone-300 mx-auto" />
                 <h3 className="text-sm font-bold text-stone-800">Aucune soumission en attente</h3>
-                <p className="text-xs text-stone-500">Les projets soumis par vos apprenants apparaîtront ici pour revue.</p>
+                <p className="text-xs text-[#5C6B78]">Les projets soumis par vos apprenants apparaîtront ici pour revue.</p>
               </div>
             ) : (
               <div className="bg-white rounded-2xl border border-[#E2E8E5] divide-y divide-stone-100 overflow-hidden shadow-2xs">
@@ -988,14 +988,14 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                   <div key={sub.id} className="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-bold text-[#101820]">{sub.userName}</span>
+                        <span className="text-xs font-bold text-[#1A2233]">{sub.userName}</span>
                         <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
                           sub.status === 'approved' ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'
                         }`}>
                           {sub.status === 'approved' ? 'Validé' : 'En attente de revue'}
                         </span>
                       </div>
-                      <div className="text-xs text-stone-600 font-semibold">{sub.blockTitle}</div>
+                      <div className="text-xs text-[#5C6B78] font-semibold">{sub.blockTitle}</div>
                       <a
                         href={sub.deliverableUrl}
                         target="_blank"
@@ -1013,9 +1013,9 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
                         setActiveReviewSubmission(sub);
                         setFeedbackText(sub.feedback || 'Excellent travail sur la résilience et la modularité.');
                       }}
-                      className="px-4 py-2 rounded-xl bg-[#123B5D] hover:bg-[#101820] text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
+                      className="px-4 py-2 rounded-xl bg-[#06234B] hover:bg-[#1A2233] text-white text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
                     >
-                      <Award className="w-3.5 h-3.5 text-[#C8F169]" />
+                      <Award className="w-3.5 h-3.5 text-[#68A91B]" />
                       <span>Évaluer & Valider</span>
                     </button>
                   </div>
@@ -1029,26 +1029,26 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
         {activeTab === 'analytics' && (
           <div className="space-y-6">
             <div>
-              <h2 className="text-xl font-bold text-[#123B5D]">Performances Pédagogiques Réelles</h2>
-              <p className="text-xs text-stone-500">Statistiques collectées sur vos contenus publiés.</p>
+              <h2 className="text-xl font-bold text-[#06234B]">Performances Pédagogiques Réelles</h2>
+              <p className="text-xs text-[#5C6B78]">Statistiques collectées sur vos contenus publiés.</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="p-6 rounded-2xl bg-white border border-[#E2E8E5] space-y-1 shadow-2xs">
-                <div className="text-xs text-stone-500 font-semibold">Total Inscriptions</div>
-                <div className="text-3xl font-bold text-[#123B5D]">{mentorLearners.length}</div>
-                <p className="text-[11px] text-[#59B83E]">Apprenants actifs</p>
+                <div className="text-xs text-[#5C6B78] font-semibold">Total Inscriptions</div>
+                <div className="text-3xl font-bold text-[#06234B]">{mentorLearners.length}</div>
+                <p className="text-[11px] text-[#68A91B]">Apprenants actifs</p>
               </div>
 
               <div className="p-6 rounded-2xl bg-white border border-[#E2E8E5] space-y-1 shadow-2xs">
-                <div className="text-xs text-stone-500 font-semibold">Projets Soumis</div>
-                <div className="text-3xl font-bold text-[#123B5D]">{mentorSubmissions.length}</div>
+                <div className="text-xs text-[#5C6B78] font-semibold">Projets Soumis</div>
+                <div className="text-3xl font-bold text-[#06234B]">{mentorSubmissions.length}</div>
                 <p className="text-[11px] text-stone-400">Preuves auditées</p>
               </div>
 
               <div className="p-6 rounded-2xl bg-white border border-[#E2E8E5] space-y-1 shadow-2xs">
-                <div className="text-xs text-stone-500 font-semibold">Contenus Publiés</div>
-                <div className="text-3xl font-bold text-[#123B5D]">{allContents.length}</div>
+                <div className="text-xs text-[#5C6B78] font-semibold">Contenus Publiés</div>
+                <div className="text-3xl font-bold text-[#06234B]">{allContents.length}</div>
                 <p className="text-[11px] text-stone-400">Cours & Masterclasses</p>
               </div>
             </div>
@@ -1062,9 +1062,9 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl border border-[#E2E8E5] p-6 sm:p-8 max-w-lg w-full space-y-6 shadow-2xl">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold text-[#59B83E] uppercase">Revue de projet mentor</span>
-              <h3 className="text-lg font-bold text-[#101820]">{activeReviewSubmission.blockTitle}</h3>
-              <p className="text-xs text-stone-500">Apprenant : {activeReviewSubmission.userName}</p>
+              <span className="text-xs font-mono font-bold text-[#68A91B] uppercase">Revue de projet mentor</span>
+              <h3 className="text-lg font-bold text-[#1A2233]">{activeReviewSubmission.blockTitle}</h3>
+              <p className="text-xs text-[#5C6B78]">Apprenant : {activeReviewSubmission.userName}</p>
             </div>
 
             <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 text-xs">
@@ -1109,7 +1109,7 @@ export const MentorStudioView: React.FC<MentorStudioProps> = ({ onNavigate }) =>
               <button
                 type="button"
                 onClick={() => handleGradeSubmit('approved')}
-                className="px-5 py-2.5 rounded-xl bg-[#59B83E] hover:bg-[#4ea236] text-white text-xs font-bold flex items-center gap-1.5"
+                className="px-5 py-2.5 rounded-xl bg-[#68A91B] hover:bg-[#4ea236] text-white text-xs font-bold flex items-center gap-1.5"
               >
                 <Check className="w-4 h-4" />
                 <span>Valider la compétence (Vérifiée)</span>

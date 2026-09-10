@@ -133,10 +133,10 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between bg-stone-50/50">
           <div>
-            <h2 className="font-heading text-xl font-bold text-[#101820]">
+            <h2 className="font-heading text-xl font-bold text-[#1A2233]">
               Mon Profil & Paramètres
             </h2>
-            <p className="text-xs text-stone-500">
+            <p className="text-xs text-[#5C6B78]">
               Gérez votre identité souveraine et vos informations visibles
             </p>
           </div>
@@ -169,8 +169,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
             <UserAvatar profile={profile} size="2xl" showBorder />
             
             <div className="space-y-2 text-center sm:text-left flex-1">
-              <h3 className="text-sm font-bold text-[#101820]">Photo de profil</h3>
-              <p className="text-xs text-stone-500">
+              <h3 className="text-sm font-bold text-[#1A2233]">Photo de profil</h3>
+              <p className="text-xs text-[#5C6B78]">
                 Téléversez une photo réelle de vous ou conservez vos initiales souveraines.
               </p>
               <div className="flex flex-wrap items-center gap-2 pt-1 justify-center sm:justify-start">
@@ -185,7 +185,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={isSaving}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 text-xs font-medium text-[#123B5D] hover:bg-stone-50 transition-colors shadow-2xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 text-xs font-medium text-[#06234B] hover:bg-stone-50 transition-colors shadow-2xs"
                 >
                   <Camera className="w-3.5 h-3.5" />
                   <span>Changer la photo</span>
@@ -216,7 +216,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="Ex: Kwame"
               />
             </div>
@@ -229,7 +229,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="Ex: Mensah"
               />
             </div>
@@ -244,7 +244,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               type="text"
               value={headline}
               onChange={(e) => setHeadline(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
               placeholder="Ex: Ingénieur Logiciel & Architecture Distribuée"
             />
           </div>
@@ -258,7 +258,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               rows={3}
               value={bio}
               onChange={(e) => setBio(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
               placeholder="Décrivez votre parcours, vos technologies de prédilection et vos aspirations..."
             />
           </div>
@@ -273,7 +273,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="Ex: Dakar"
               />
             </div>
@@ -286,7 +286,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="Ex: Sénégal"
               />
             </div>
@@ -299,7 +299,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="text"
                 value={availability}
                 onChange={(e) => setAvailability(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="Ex: Immédiate / Temps plein"
               />
             </div>
@@ -315,7 +315,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="url"
                 value={githubUrl}
                 onChange={(e) => setGithubUrl(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="https://github.com/..."
               />
             </div>
@@ -328,7 +328,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="url"
                 value={linkedinUrl}
                 onChange={(e) => setLinkedinUrl(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="https://linkedin.com/in/..."
               />
             </div>
@@ -341,7 +341,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                 type="url"
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#101820] focus:outline-hidden focus:border-[#123B5D] focus:ring-1 focus:ring-[#123B5D]"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-white border border-stone-200 text-sm text-[#1A2233] focus:outline-hidden focus:border-[#06234B] focus:ring-1 focus:ring-[#06234B]"
                 placeholder="https://..."
               />
             </div>
@@ -372,7 +372,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
               <button
                 type="submit"
                 disabled={isSaving}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white font-medium text-xs transition-colors shadow-sm disabled:opacity-50"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white font-medium text-xs transition-colors shadow-sm disabled:opacity-50"
               >
                 <Save className="w-4 h-4" />
                 <span>{isSaving ? "Enregistrement..." : "Enregistrer les modifications"}</span>

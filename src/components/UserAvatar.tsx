@@ -40,14 +40,14 @@ export const UserAvatar: React.FC<UserAvatarProps> = ({
       : profile?.username || 'Talent SkillBridge'
   );
 
-  const borderClass = showBorder ? 'ring-2 ring-[#59B83E]/40 border border-white' : '';
+  const borderClass = showBorder ? 'ring-2 ring-[#68A91B]/40 border border-white' : '';
 
   return (
     <img
       src={effectiveAvatar && !imageError ? effectiveAvatar : defaultAvatarImg}
       alt={effectiveName}
       onError={() => setImageError(true)}
-      className={`${sizeClasses[size]} rounded-2xl object-cover shrink-0 ${borderClass} ${className} bg-[#101820]`}
+      className={`${sizeClasses[size]} rounded-2xl object-cover shrink-0 ${borderClass} ${className} bg-[#1A2233]`}
       loading="lazy"
     />
   );

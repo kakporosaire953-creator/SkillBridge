@@ -44,17 +44,17 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
   }, []);
 
   return (
-    <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] flex flex-col md:flex-row">
+    <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] flex flex-col md:flex-row">
       {/* Sidebar Admin */}
-      <div className="w-full md:w-64 bg-[#101820] text-white flex flex-col shrink-0">
+      <div className="w-full md:w-64 bg-[#1A2233] text-white flex flex-col shrink-0">
         <div className="p-6 border-b border-stone-800">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#59B83E] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#68A91B] flex items-center justify-center">
               <FaIcon icon={faShieldHalved} className="text-white" />
             </div>
             <div>
               <div className="font-heading font-bold text-sm leading-tight">Admin Center</div>
-              <div className="text-[10px] text-[#59B83E] font-mono tracking-widest uppercase">PostgreSQL Live</div>
+              <div className="text-[10px] text-[#68A91B] font-mono tracking-widest uppercase">PostgreSQL Live</div>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                   : 'text-stone-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <FaIcon icon={tab.icon} className={activeTab === tab.id ? 'text-[#59B83E]' : 'text-stone-500'} />
+              <FaIcon icon={tab.icon} className={activeTab === tab.id ? 'text-[#68A91B]' : 'text-[#5C6B78]'} />
               {tab.label}
             </button>
           ))}
@@ -91,10 +91,10 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
       <div className="flex-1 flex flex-col h-screen overflow-y-auto">
         <div className="p-8 space-y-8">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-heading font-bold text-[#101820]">
+            <h1 className="text-2xl font-heading font-bold text-[#1A2233]">
               {tabs.find(t => t.id === activeTab)?.label}
             </h1>
-            <span className="px-3 py-1 bg-[#ECFDF5] text-[#59B83E] rounded-full text-xs font-bold font-mono">
+            <span className="px-3 py-1 bg-[#ECFDF5] text-[#68A91B] rounded-full text-xs font-bold font-mono">
               PostgreSQL Connected
             </span>
           </div>
@@ -108,9 +108,9 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                 <div className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs">
                   <div className="flex items-center justify-between text-stone-400 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider">Profils Créés</span>
-                    <FaIcon icon={faUsers} className="text-[#123B5D]" />
+                    <FaIcon icon={faUsers} className="text-[#06234B]" />
                   </div>
-                  <div className="text-3xl font-heading font-bold text-[#101820]">
+                  <div className="text-3xl font-heading font-bold text-[#1A2233]">
                     {analytics?.total_profiles || 0}
                   </div>
                   <div className="text-[11px] text-stone-400 mt-1">
@@ -121,12 +121,12 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                 <div className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs">
                   <div className="flex items-center justify-between text-stone-400 mb-2">
                     <span className="text-xs font-bold uppercase tracking-wider">Skill Passports</span>
-                    <FaIcon icon={faIdCard} className="text-[#59B83E]" />
+                    <FaIcon icon={faIdCard} className="text-[#68A91B]" />
                   </div>
-                  <div className="text-3xl font-heading font-bold text-[#101820]">
+                  <div className="text-3xl font-heading font-bold text-[#1A2233]">
                     {analytics?.active_passports || 0}
                   </div>
-                  <div className="text-[11px] text-[#59B83E] font-medium mt-1">
+                  <div className="text-[11px] text-[#68A91B] font-medium mt-1">
                     {analytics?.valid_certificates || 0} certificats émis
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                     <span className="text-xs font-bold uppercase tracking-wider">Projets Réels</span>
                     <FaIcon icon={faFolderOpen} className="text-amber-500" />
                   </div>
-                  <div className="text-3xl font-heading font-bold text-[#101820]">
+                  <div className="text-3xl font-heading font-bold text-[#1A2233]">
                     {analytics?.total_projects_published || 0}
                   </div>
                   <div className="text-[11px] text-stone-400 mt-1">
@@ -149,7 +149,7 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                     <span className="text-xs font-bold uppercase tracking-wider">Opportunités</span>
                     <FaIcon icon={faBriefcase} className="text-indigo-500" />
                   </div>
-                  <div className="text-3xl font-heading font-bold text-[#101820]">
+                  <div className="text-3xl font-heading font-bold text-[#1A2233]">
                     {analytics?.total_opportunities_published || 0}
                   </div>
                   <div className="text-[11px] text-stone-400 mt-1">
@@ -161,22 +161,22 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
               {/* Secondary Metrics */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#59B83E] flex items-center justify-center text-xl">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#68A91B] flex items-center justify-center text-xl">
                     <FaIcon icon={faMoneyBillWave} />
                   </div>
                   <div>
                     <span className="text-xs text-stone-400 font-medium">Volume de Transactions</span>
-                    <div className="text-xl font-bold text-[#101820]">{analytics?.total_revenue || 0} XOF</div>
+                    <div className="text-xl font-bold text-[#1A2233]">{analytics?.total_revenue || 0} XOF</div>
                   </div>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl border border-[#E2E8E5] shadow-xs flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#123B5D] flex items-center justify-center text-xl">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#06234B] flex items-center justify-center text-xl">
                     <FaIcon icon={faBuilding} />
                   </div>
                   <div>
                     <span className="text-xs text-stone-400 font-medium">Entreprises Actives</span>
-                    <div className="text-xl font-bold text-[#101820]">{analytics?.active_companies || 0}</div>
+                    <div className="text-xl font-bold text-[#1A2233]">{analytics?.active_companies || 0}</div>
                   </div>
                 </div>
 
@@ -186,24 +186,24 @@ export const AdminDashboardView: React.FC<{ onNavigate: (view: ViewType) => void
                   </div>
                   <div>
                     <span className="text-xs text-stone-400 font-medium">Formations & Inscriptions</span>
-                    <div className="text-xl font-bold text-[#101820]">{analytics?.total_courses_published || 0} ({analytics?.total_enrollments || 0} inscrits)</div>
+                    <div className="text-xl font-bold text-[#1A2233]">{analytics?.total_courses_published || 0} ({analytics?.total_enrollments || 0} inscrits)</div>
                   </div>
                 </div>
               </div>
 
               {/* Server Security Status */}
               <div className="bg-white rounded-3xl border border-[#E2E8E5] p-8 shadow-xs space-y-4">
-                <h3 className="text-base font-bold text-[#101820] font-heading">
+                <h3 className="text-base font-bold text-[#1A2233] font-heading">
                   Architecture & Sécurité du Backend
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                   <div className="p-4 rounded-xl bg-stone-50 border border-stone-100 space-y-1">
-                    <span className="font-bold text-[#123B5D] block">Row Level Security (RLS)</span>
-                    <p className="text-stone-500">Toutes les tables PostgreSQL appliquent des politiques RLS strictes garantissant l'étanchéité des données utilisateurs.</p>
+                    <span className="font-bold text-[#06234B] block">Row Level Security (RLS)</span>
+                    <p className="text-[#5C6B78]">Toutes les tables PostgreSQL appliquent des politiques RLS strictes garantissant l'étanchéité des données utilisateurs.</p>
                   </div>
                   <div className="p-4 rounded-xl bg-stone-50 border border-stone-100 space-y-1">
-                    <span className="font-bold text-[#59B83E] block">Skill Passport Verifiable ID</span>
-                    <p className="text-stone-500">Les identifiants SBID permanents (format SB-YYYY-XXXXXX) sont générés côté serveur PostgreSQL et non modifiables par les utilisateurs.</p>
+                    <span className="font-bold text-[#68A91B] block">Skill Passport Verifiable ID</span>
+                    <p className="text-[#5C6B78]">Les identifiants SBID permanents (format SB-YYYY-XXXXXX) sont générés côté serveur PostgreSQL et non modifiables par les utilisateurs.</p>
                   </div>
                 </div>
               </div>

@@ -11,7 +11,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative z-10 w-full bg-[#101820] text-white border-t border-stone-800">
+    <footer className="relative z-10 w-full bg-[#1A2233] text-white border-t border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-16">
         
         {/* 4 Main Columns */}
@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Col 2 : Plateforme */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169]">
+            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B]">
               {t('footer.platform')}
             </h4>
             <ul className="space-y-2.5 text-xs text-stone-400">
@@ -61,7 +61,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Col 3 : Écosystème */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169]">
+            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B]">
               {t('footer.community')}
             </h4>
             <ul className="space-y-2.5 text-xs text-stone-400">
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Col 4 : Légal & Contact */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#C8F169]">
+            <h4 className="font-heading text-xs font-mono font-bold uppercase tracking-wider text-[#68A91B]">
               {t('footer.legal')}
             </h4>
             <ul className="space-y-2.5 text-xs text-stone-400">
@@ -100,8 +100,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-stone-500 font-mono">
-          <p>© 2026 SkillBridge. {t('footer.rights')} <button type="button" onClick={() => onNavigate('admin-auth')} className="ml-2 text-stone-700 hover:text-stone-500 transition-colors">DA</button></p>
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#5C6B78] font-mono">
+          <p>© 2026 SkillBridge. {t('footer.rights')} <button type="button" onClick={() => onNavigate('admin-auth')} className="ml-2 text-stone-700 hover:text-[#5C6B78] transition-colors">DA</button></p>
         </div>
 
       </div>

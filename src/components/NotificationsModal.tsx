@@ -110,9 +110,9 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
   const getIcon = (type: NotificationItem['type']) => {
     switch (type) {
       case 'passport':
-        return <ShieldCheck className="w-4 h-4 text-[#123B5D]" />;
+        return <ShieldCheck className="w-4 h-4 text-[#06234B]" />;
       case 'learning':
-        return <BookOpen className="w-4 h-4 text-[#59B83E]" />;
+        return <BookOpen className="w-4 h-4 text-[#68A91B]" />;
       case 'validation':
         return <Award className="w-4 h-4 text-amber-600" />;
       default:
@@ -132,19 +132,19 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
         {/* Header */}
         <div className="p-5 sm:p-6 border-b border-stone-100 flex items-center justify-between bg-stone-50/50">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#123B5D]/10 flex items-center justify-center text-[#123B5D]">
+            <div className="w-10 h-10 rounded-2xl bg-[#06234B]/10 flex items-center justify-center text-[#06234B]">
               <Bell className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="font-heading text-lg font-bold text-[#101820] flex items-center gap-2">
+              <h2 className="font-heading text-lg font-bold text-[#1A2233] flex items-center gap-2">
                 <span>Notifications</span>
                 {unreadCount > 0 && (
-                  <span className="px-2 py-0.5 rounded-full bg-[#59B83E] text-white text-[11px] font-mono font-bold">
+                  <span className="px-2 py-0.5 rounded-full bg-[#68A91B] text-white text-[11px] font-mono font-bold">
                     {unreadCount}
                   </span>
                 )}
               </h2>
-              <p className="text-xs text-stone-500">Mises à jour de votre parcours et de votre Skill Passport</p>
+              <p className="text-xs text-[#5C6B78]">Mises à jour de votre parcours et de votre Skill Passport</p>
             </div>
           </div>
 
@@ -153,7 +153,7 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
               <button
                 type="button"
                 onClick={markAllAsRead}
-                className="text-xs text-[#123B5D] hover:text-[#59B83E] font-medium transition-colors px-2 py-1"
+                className="text-xs text-[#06234B] hover:text-[#68A91B] font-medium transition-colors px-2 py-1"
               >
                 Tout lire
               </button>
@@ -175,7 +175,7 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
               <div className="w-12 h-12 rounded-2xl bg-stone-100 flex items-center justify-center text-stone-400 mx-auto">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <p className="text-sm font-medium text-stone-600">Vous êtes à jour !</p>
+              <p className="text-sm font-medium text-[#5C6B78]">Vous êtes à jour !</p>
               <p className="text-xs text-stone-400">Aucune notification non lue.</p>
             </div>
           ) : (
@@ -186,7 +186,7 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
                 className={`p-4 rounded-2xl border transition-all cursor-pointer group flex items-start gap-3.5 ${
                   notif.read
                     ? 'bg-white border-stone-200/80 hover:border-stone-300 opacity-80'
-                    : 'bg-[#F5F7F6] border-stone-200 hover:border-[#123B5D]/30 shadow-xs'
+                    : 'bg-[#F7F8F3] border-stone-200 hover:border-[#06234B]/30 shadow-xs'
                 }`}
               >
                 <div className="p-2.5 rounded-xl bg-white border border-stone-200 shrink-0 shadow-2xs">
@@ -195,18 +195,18 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className={`text-sm font-bold truncate ${notif.read ? 'text-stone-700' : 'text-[#101820]'}`}>
+                    <h3 className={`text-sm font-bold truncate ${notif.read ? 'text-stone-700' : 'text-[#1A2233]'}`}>
                       {notif.title}
                     </h3>
                     <span className="text-[11px] font-mono text-stone-400 shrink-0">{notif.date}</span>
                   </div>
 
-                  <p className="text-xs text-stone-600 mt-1 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#5C6B78] mt-1 line-clamp-2 leading-relaxed">
                     {notif.message}
                   </p>
 
                   {notif.actionLabel && (
-                    <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#123B5D] group-hover:text-[#59B83E] transition-colors">
+                    <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#06234B] group-hover:text-[#68A91B] transition-colors">
                       <span>{notif.actionLabel}</span>
                       <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                     </div>
@@ -227,12 +227,12 @@ export const NotificationsModal: React.FC<NotificationsModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-stone-100 bg-stone-50/50 flex items-center justify-between text-xs text-stone-500">
+        <div className="p-4 border-t border-stone-100 bg-stone-50/50 flex items-center justify-between text-xs text-[#5C6B78]">
           <span>SkillBridge Notifications</span>
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-[#123B5D] text-white font-medium hover:bg-[#0A2338] transition-colors"
+            className="px-4 py-2 rounded-xl bg-[#06234B] text-white font-medium hover:bg-[#0A2338] transition-colors"
           >
             Fermer
           </button>

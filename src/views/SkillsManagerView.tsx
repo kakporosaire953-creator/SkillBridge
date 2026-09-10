@@ -115,10 +115,10 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
     return (
       <div className="flex items-center gap-2 mt-1">
         <div className="flex-1 h-1.5 bg-stone-100 rounded-full overflow-hidden flex">
-          <div className={`h-full ${pct >= 25 ? 'bg-[#59B83E]' : 'bg-transparent'}`} style={{ width: '25%' }} />
-          <div className={`h-full ${pct >= 50 ? 'bg-[#59B83E]' : 'bg-transparent'}`} style={{ width: '25%' }} />
-          <div className={`h-full ${pct >= 75 ? 'bg-[#59B83E]' : 'bg-transparent'}`} style={{ width: '25%' }} />
-          <div className={`h-full ${pct >= 100 ? 'bg-[#59B83E]' : 'bg-transparent'}`} style={{ width: '25%' }} />
+          <div className={`h-full ${pct >= 25 ? 'bg-[#68A91B]' : 'bg-transparent'}`} style={{ width: '25%' }} />
+          <div className={`h-full ${pct >= 50 ? 'bg-[#68A91B]' : 'bg-transparent'}`} style={{ width: '25%' }} />
+          <div className={`h-full ${pct >= 75 ? 'bg-[#68A91B]' : 'bg-transparent'}`} style={{ width: '25%' }} />
+          <div className={`h-full ${pct >= 100 ? 'bg-[#68A91B]' : 'bg-transparent'}`} style={{ width: '25%' }} />
         </div>
         <span className="text-[10px] font-bold text-stone-400 font-mono w-8 text-right">{pct}%</span>
       </div>
@@ -134,15 +134,15 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
             <div className="flex items-center gap-4">
               <button 
                 onClick={() => onNavigate('dashboard-talent')}
-                className="w-10 h-10 shrink-0 rounded-xl bg-stone-100 hover:bg-stone-200 text-[#123B5D] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-10 h-10 shrink-0 rounded-xl bg-stone-100 hover:bg-stone-200 text-[#06234B] flex items-center justify-center transition-colors cursor-pointer"
               >
                 <FaIcon icon={faArrowLeft} />
               </button>
               <div>
-                <h1 className="text-xl sm:text-2xl font-heading font-black text-[#101820]">
+                <h1 className="text-xl sm:text-2xl font-heading font-black text-[#1A2233]">
                   Skill Intelligence
                 </h1>
-                <p className="text-xs sm:text-sm text-stone-500 font-medium">
+                <p className="text-xs sm:text-sm text-[#5C6B78] font-medium">
                   Organisez vos Core Skills et Supporting Skills
                 </p>
               </div>
@@ -150,15 +150,15 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
             
             <div className="flex items-center gap-4 bg-stone-50 px-4 py-2 rounded-xl border border-stone-200">
               <div className="text-right">
-                <div className="text-[10px] font-bold text-stone-500 uppercase tracking-wider">Profile Strength</div>
-                <div className={`text-lg font-black ${profileStrength >= 80 ? 'text-[#59B83E]' : 'text-[#123B5D]'}`}>
+                <div className="text-[10px] font-bold text-[#5C6B78] uppercase tracking-wider">Profile Strength</div>
+                <div className={`text-lg font-black ${profileStrength >= 80 ? 'text-[#68A91B]' : 'text-[#06234B]'}`}>
                   {profileStrength}%
                 </div>
               </div>
               <div className="w-12 h-12 relative flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
                   <path className="text-stone-200" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                  <path className={`${profileStrength >= 80 ? 'text-[#59B83E]' : 'text-[#123B5D]'}`} strokeDasharray={`${profileStrength}, 100`} strokeWidth="3" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  <path className={`${profileStrength >= 80 ? 'text-[#68A91B]' : 'text-[#06234B]'}`} strokeDasharray={`${profileStrength}, 100`} strokeWidth="3" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                 </svg>
               </div>
             </div>
@@ -174,8 +174,8 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
             <FadeInUp>
               <div className="bg-white rounded-3xl border border-[#E2E8E5] p-6 shadow-2xs space-y-6">
                 <div>
-                  <h2 className="text-lg font-heading font-black text-[#101820] mb-2">Ajouter une compétence</h2>
-                  <p className="text-xs text-stone-500">Recherchez parmi l'écosystème numérique (Dev, Design, Marketing, etc.)</p>
+                  <h2 className="text-lg font-heading font-black text-[#1A2233] mb-2">Ajouter une compétence</h2>
+                  <p className="text-xs text-[#5C6B78]">Recherchez parmi l'écosystème numérique (Dev, Design, Marketing, etc.)</p>
                 </div>
                 
                 {/* Search Box */}
@@ -186,10 +186,10 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                     placeholder="Ex: UI/UX Design, SEO, Frontend..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-[#59B83E] focus:ring-1 focus:ring-[#59B83E] transition-all"
+                    className="w-full pl-11 pr-4 py-3.5 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-[#68A91B] focus:ring-1 focus:ring-[#68A91B] transition-all"
                   />
                   {searchQuery && (
-                    <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600">
+                    <button onClick={() => setSearchQuery('')} className="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-[#5C6B78]">
                       <FaIcon icon={faTimes} />
                     </button>
                   )}
@@ -200,7 +200,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => setActiveCategory(null)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${!activeCategory ? 'bg-[#123B5D] text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${!activeCategory ? 'bg-[#06234B] text-white' : 'bg-stone-100 text-[#5C6B78] hover:bg-stone-200'}`}
                     >
                       Tout
                     </button>
@@ -208,7 +208,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                       <button
                         key={cat.id}
                         onClick={() => setActiveCategory(cat.id)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${activeCategory === cat.id ? 'bg-[#123B5D] text-white' : 'bg-stone-100 text-stone-600 hover:bg-stone-200'}`}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${activeCategory === cat.id ? 'bg-[#06234B] text-white' : 'bg-stone-100 text-[#5C6B78] hover:bg-stone-200'}`}
                       >
                         {cat.name}
                       </button>
@@ -224,14 +224,14 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                     </div>
                   ) : (
                     filteredCatalog.map(skill => (
-                      <div key={skill.id} className="flex items-center justify-between p-3 rounded-xl border border-stone-100 hover:border-[#C8F169] hover:bg-stone-50 transition-all group">
+                      <div key={skill.id} className="flex items-center justify-between p-3 rounded-xl border border-stone-100 hover:border-[#68A91B] hover:bg-stone-50 transition-all group">
                         <div>
-                          <div className="font-bold text-[#101820] text-sm">{skill.name}</div>
-                          <div className="text-[10px] text-stone-500 font-medium">{skillCategories.find(c => c.id === skill.categoryId)?.name}</div>
+                          <div className="font-bold text-[#1A2233] text-sm">{skill.name}</div>
+                          <div className="text-[10px] text-[#5C6B78] font-medium">{skillCategories.find(c => c.id === skill.categoryId)?.name}</div>
                         </div>
                         <button
                           onClick={() => addSkill(skill.id)}
-                          className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-[#123B5D] flex items-center justify-center group-hover:bg-[#59B83E] group-hover:text-white group-hover:border-[#59B83E] transition-all cursor-pointer"
+                          className="w-8 h-8 rounded-lg bg-white border border-stone-200 text-[#06234B] flex items-center justify-center group-hover:bg-[#68A91B] group-hover:text-white group-hover:border-[#68A91B] transition-all cursor-pointer"
                         >
                           <FaIcon icon={faPlus} />
                         </button>
@@ -250,17 +250,17 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#123B5D]/5 text-[#123B5D] flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-[#06234B]/5 text-[#06234B] flex items-center justify-center">
                     <FaIcon icon={faStar} />
                   </div>
-                  <h2 className="text-xl font-heading font-black text-[#101820]">Core Skills</h2>
+                  <h2 className="text-xl font-heading font-black text-[#1A2233]">Core Skills</h2>
                 </div>
-                <span className="text-xs font-bold text-stone-500 bg-stone-100 px-2.5 py-1 rounded-md">{coreSkillsCount}/3 Max</span>
+                <span className="text-xs font-bold text-[#5C6B78] bg-stone-100 px-2.5 py-1 rounded-md">{coreSkillsCount}/3 Max</span>
               </div>
               
               {userSkills.filter(s => s.isCore).length === 0 ? (
                 <div className="bg-white border border-dashed border-stone-300 rounded-2xl p-8 text-center">
-                  <p className="text-sm text-stone-500 font-medium">Vos compétences principales apparaîtront ici.</p>
+                  <p className="text-sm text-[#5C6B78] font-medium">Vos compétences principales apparaîtront ici.</p>
                 </div>
               ) : (
                 <StaggerContainer className="space-y-3">
@@ -270,26 +270,26 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                       <ScaleOnHover key={us.skillId}>
                         <div className="bg-white border border-[#E2E8E5] rounded-2xl p-5 shadow-2xs relative overflow-hidden group">
                           {/* Accent line */}
-                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#123B5D]" />
+                          <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#06234B]" />
                           
                           <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                             <div className="flex-1 space-y-1">
                               <div className="flex items-center gap-2">
-                                <h3 className="font-bold text-[#101820] text-base">{catalogInfo.name}</h3>
+                                <h3 className="font-bold text-[#1A2233] text-base">{catalogInfo.name}</h3>
                                 <button 
                                   onClick={() => updateSkill(us.skillId, { isCore: false })}
-                                  className="text-[10px] px-2 py-0.5 rounded bg-stone-100 hover:bg-red-50 text-stone-500 hover:text-red-500 font-bold uppercase transition-colors"
+                                  className="text-[10px] px-2 py-0.5 rounded bg-stone-100 hover:bg-red-50 text-[#5C6B78] hover:text-red-500 font-bold uppercase transition-colors"
                                   title="Retirer des compétences principales"
                                 >
                                   Demote
                                 </button>
                               </div>
-                              <div className="text-xs text-stone-500 flex items-center gap-2">
+                              <div className="text-xs text-[#5C6B78] flex items-center gap-2">
                                 <span>{skillCategories.find(c => c.id === catalogInfo.categoryId)?.name}</span>
                                 {us.experience && (
                                   <>
                                     <span>•</span>
-                                    <span className="font-medium text-[#123B5D]">{EXP_LABELS[us.experience]} d'expérience</span>
+                                    <span className="font-medium text-[#06234B]">{EXP_LABELS[us.experience]} d'expérience</span>
                                   </>
                                 )}
                               </div>
@@ -297,10 +297,10 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                             
                             <div className="w-full sm:w-48 shrink-0">
                               <div className="flex items-center justify-between text-xs mb-1">
-                                <span className="font-bold text-[#101820]">{LEVEL_LABELS[us.level].label}</span>
+                                <span className="font-bold text-[#1A2233]">{LEVEL_LABELS[us.level].label}</span>
                                 <button 
                                   onClick={() => setEditingSkillId(us.skillId)}
-                                  className="text-stone-400 hover:text-[#59B83E] transition-colors"
+                                  className="text-stone-400 hover:text-[#68A91B] transition-colors"
                                 >
                                   Éditer
                                 </button>
@@ -317,7 +317,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                                 {us.tools.map(toolId => {
                                   const toolName = toolsCatalog.find(t => t.id === toolId)?.name || toolId;
                                   return (
-                                    <span key={toolId} className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-md text-[10px] font-medium text-stone-600">
+                                    <span key={toolId} className="px-2 py-1 bg-stone-50 border border-stone-200 rounded-md text-[10px] font-medium text-[#5C6B78]">
                                       {toolName}
                                     </span>
                                   );
@@ -336,15 +336,15 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
             {/* Supporting Skills */}
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-stone-100 text-stone-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-stone-100 text-[#5C6B78] flex items-center justify-center">
                   <FaIcon icon={faLayerGroup} />
                 </div>
-                <h2 className="text-xl font-heading font-black text-[#101820]">Supporting Skills</h2>
+                <h2 className="text-xl font-heading font-black text-[#1A2233]">Supporting Skills</h2>
               </div>
               
               {userSkills.filter(s => !s.isCore).length === 0 ? (
                 <div className="bg-white border border-dashed border-stone-300 rounded-2xl p-8 text-center">
-                  <p className="text-sm text-stone-500 font-medium">Ajoutez des compétences complémentaires.</p>
+                  <p className="text-sm text-[#5C6B78] font-medium">Ajoutez des compétences complémentaires.</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -362,12 +362,12 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                           
                           <div className="pr-6 space-y-3">
                             <div>
-                              <h3 className="font-bold text-[#101820] text-sm truncate pr-2">{catalogInfo.name}</h3>
+                              <h3 className="font-bold text-[#1A2233] text-sm truncate pr-2">{catalogInfo.name}</h3>
                               <div className="flex items-center gap-2 mt-0.5">
-                                <span className="text-[10px] text-stone-500">{LEVEL_LABELS[us.level].label}</span>
+                                <span className="text-[10px] text-[#5C6B78]">{LEVEL_LABELS[us.level].label}</span>
                                 <button 
                                   onClick={() => setEditingSkillId(us.skillId)}
-                                  className="text-[10px] text-[#59B83E] hover:underline"
+                                  className="text-[10px] text-[#68A91B] hover:underline"
                                 >
                                   Éditer
                                 </button>
@@ -378,7 +378,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                             
                             <button
                               onClick={() => updateSkill(us.skillId, { isCore: true })}
-                              className="text-[10px] font-bold text-stone-500 hover:text-[#123B5D] w-full text-left flex items-center gap-1 mt-2"
+                              className="text-[10px] font-bold text-[#5C6B78] hover:text-[#06234B] w-full text-left flex items-center gap-1 mt-2"
                               disabled={coreSkillsCount >= 3}
                             >
                               <FaIcon icon={faStar} className={coreSkillsCount >= 3 ? 'opacity-30' : ''} />
@@ -400,7 +400,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
       {/* MODAL: EDIT SKILL */}
       {editingSkillId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-[#101820]/40 backdrop-blur-sm" onClick={() => setEditingSkillId(null)} />
+          <div className="absolute inset-0 bg-[#1A2233]/40 backdrop-blur-sm" onClick={() => setEditingSkillId(null)} />
           <div className="relative bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {(() => {
               const us = userSkills.find(s => s.skillId === editingSkillId)!;
@@ -411,10 +411,10 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                 <>
                   <div className="p-6 border-b border-stone-100 flex items-start justify-between">
                     <div>
-                      <h3 className="text-xl font-heading font-black text-[#101820]">{catalogInfo.name}</h3>
-                      <p className="text-sm text-stone-500">Configurez votre niveau et vos outils.</p>
+                      <h3 className="text-xl font-heading font-black text-[#1A2233]">{catalogInfo.name}</h3>
+                      <p className="text-sm text-[#5C6B78]">Configurez votre niveau et vos outils.</p>
                     </div>
-                    <button onClick={() => setEditingSkillId(null)} className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 flex items-center justify-center">
+                    <button onClick={() => setEditingSkillId(null)} className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 text-[#5C6B78] flex items-center justify-center">
                       <FaIcon icon={faTimes} />
                     </button>
                   </div>
@@ -423,13 +423,13 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                     
                     {/* LEVEL */}
                     <div className="space-y-3">
-                      <label className="text-sm font-bold text-[#101820] block">Niveau de maîtrise</label>
+                      <label className="text-sm font-bold text-[#1A2233] block">Niveau de maîtrise</label>
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                         {(Object.keys(LEVEL_LABELS) as SkillLevel[]).map(lvl => (
                           <button
                             key={lvl}
                             onClick={() => updateSkill(us.skillId, { level: lvl })}
-                            className={`p-3 rounded-xl border-2 text-xs font-bold transition-all ${us.level === lvl ? 'border-[#59B83E] bg-[#59B83E]/5 text-[#59B83E]' : 'border-stone-100 bg-white text-stone-600 hover:border-stone-200'}`}
+                            className={`p-3 rounded-xl border-2 text-xs font-bold transition-all ${us.level === lvl ? 'border-[#68A91B] bg-[#68A91B]/5 text-[#68A91B]' : 'border-stone-100 bg-white text-[#5C6B78] hover:border-stone-200'}`}
                           >
                             {LEVEL_LABELS[lvl].label}
                           </button>
@@ -439,13 +439,13 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
 
                     {/* EXPERIENCE */}
                     <div className="space-y-3">
-                      <label className="text-sm font-bold text-[#101820] block">Années d'expérience (Optionnel)</label>
+                      <label className="text-sm font-bold text-[#1A2233] block">Années d'expérience (Optionnel)</label>
                       <div className="flex flex-wrap gap-2">
                         {(Object.keys(EXP_LABELS) as SkillExperience[]).map(exp => (
                           <button
                             key={exp}
                             onClick={() => updateSkill(us.skillId, { experience: us.experience === exp ? undefined : exp })}
-                            className={`px-4 py-2 rounded-lg border text-xs font-bold transition-all ${us.experience === exp ? 'border-[#123B5D] bg-[#123B5D] text-white' : 'border-stone-200 bg-white text-stone-600 hover:bg-stone-50'}`}
+                            className={`px-4 py-2 rounded-lg border text-xs font-bold transition-all ${us.experience === exp ? 'border-[#06234B] bg-[#06234B] text-white' : 'border-stone-200 bg-white text-[#5C6B78] hover:bg-stone-50'}`}
                           >
                             {EXP_LABELS[exp]}
                           </button>
@@ -456,7 +456,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                     {/* TOOLS */}
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <label className="text-sm font-bold text-[#101820] block">Outils & Technologies liés</label>
+                        <label className="text-sm font-bold text-[#1A2233] block">Outils & Technologies liés</label>
                         <span className="text-[10px] text-stone-400 font-medium">Sélectionnez les outils que vous utilisez</span>
                       </div>
                       
@@ -475,7 +475,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                                   : [...us.tools, toolId];
                                 updateSkill(us.skillId, { tools: newTools });
                               }}
-                              className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition-all flex items-center gap-1.5 ${isSelected ? 'border-[#59B83E] bg-[#59B83E] text-white' : 'border-stone-200 bg-white text-stone-600 hover:bg-stone-50'}`}
+                              className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition-all flex items-center gap-1.5 ${isSelected ? 'border-[#68A91B] bg-[#68A91B] text-white' : 'border-stone-200 bg-white text-[#5C6B78] hover:bg-stone-50'}`}
                             >
                               {isSelected && <FaIcon icon={faCheckCircle} className="text-[10px]" />}
                               {tool.name}
@@ -491,7 +491,7 @@ export const SkillsManagerView: React.FC<SkillsManagerViewProps> = ({ onNavigate
                   <div className="p-4 border-t border-stone-100 bg-stone-50 flex justify-end">
                     <button 
                       onClick={() => setEditingSkillId(null)}
-                      className="sb-btn px-6 py-2.5 rounded-xl bg-[#101820] hover:bg-[#202c38] text-white text-sm font-bold transition-colors"
+                      className="sb-btn px-6 py-2.5 rounded-xl bg-[#1A2233] hover:bg-[#202c38] text-white text-sm font-bold transition-colors"
                     >
                       Terminer
                     </button>

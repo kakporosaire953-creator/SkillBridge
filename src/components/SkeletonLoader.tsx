@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SkeletonLoader: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#F5F7F6] flex flex-col justify-center items-center p-6">
+    <div className="min-h-screen bg-[#F7F8F3] flex flex-col justify-center items-center p-6">
       <div className="w-full max-w-4xl space-y-8">
         {/* Header skeleton */}
         <div className="flex items-center justify-between border-b border-[#E2E8E5] pb-6">

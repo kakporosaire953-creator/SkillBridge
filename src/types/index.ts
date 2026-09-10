@@ -832,8 +832,8 @@ export const SKILL_STAGE_LABELS: Record<SkillStage, { label: string; step: numbe
   declared: { label: 'Déclarée', step: 1, color: '#6B7280', bg: '#F3F4F6' },
   learning: { label: 'En apprentissage', step: 2, color: '#3B82F6', bg: '#EFF6FF' },
   practicing: { label: 'En pratique', step: 3, color: '#EAB308', bg: '#FEFCE8' },
-  demonstrated: { label: 'Démontrée', step: 4, color: '#123B5D', bg: '#EBF3F8' },
-  verified: { label: 'Vérifiée', step: 5, color: '#59B83E', bg: '#ECFDF5' },
+  demonstrated: { label: 'Démontrée', step: 4, color: '#06234B', bg: '#EBF3F8' },
+  verified: { label: 'Vérifiée', step: 5, color: '#68A91B', bg: '#ECFDF5' },
 };
 
 // Re-exports for backward compatibility

@@ -45,7 +45,7 @@ export const PremiumGridBackground: React.FC = () => {
   }, [isHovering]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#F5F7F6]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#F7F8F3]">
       {/* 
         Base CSS Grid 
         Using pseudo-element approach conceptually with divs. 
@@ -55,8 +55,8 @@ export const PremiumGridBackground: React.FC = () => {
         className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #123B5D 1px, transparent 1px),
-            linear-gradient(to bottom, #123B5D 1px, transparent 1px)
+            linear-gradient(to right, #06234B 1px, transparent 1px),
+            linear-gradient(to bottom, #06234B 1px, transparent 1px)
           `,
           backgroundSize: '48px 48px',
           // Mask to fade out slightly towards the bottom for depth
@@ -70,8 +70,8 @@ export const PremiumGridBackground: React.FC = () => {
         Adds depth without neon/cyberpunk feel.
       */}
       <div className="absolute inset-0 opacity-40">
-        <div className="absolute top-[-15%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#59B83E]/10 to-transparent blur-[120px]" />
-        <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-[#123B5D]/10 to-transparent blur-[120px]" />
+        <div className="absolute top-[-15%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-br from-[#68A91B]/10 to-transparent blur-[120px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-bl from-[#06234B]/10 to-transparent blur-[120px]" />
       </div>
 
       {/* 

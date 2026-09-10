@@ -33,7 +33,6 @@ export default defineConfig({
         manualChunks: {
           react: ['react', 'react-dom'],
           motion: ['motion'],
-          supabase: ['@supabase/supabase-js'],
           icons: [
             'lucide-react',
             '@fortawesome/react-fontawesome',

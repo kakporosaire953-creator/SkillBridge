@@ -101,8 +101,8 @@ export const AvatarUploader: React.FC<AvatarUploaderProps> = ({ currentAvatarUrl
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="flex flex-col items-center justify-center p-3 text-center text-stone-500">
-              <Camera className="w-8 h-8 mb-1.5 text-stone-600 group-hover:text-amber-500 transition-colors" />
+            <div className="flex flex-col items-center justify-center p-3 text-center text-[#5C6B78]">
+              <Camera className="w-8 h-8 mb-1.5 text-[#5C6B78] group-hover:text-amber-500 transition-colors" />
               <span className="text-xs font-medium text-stone-400">Aucune photo</span>
             </div>
           )}
@@ -156,7 +156,7 @@ export const AvatarUploader: React.FC<AvatarUploaderProps> = ({ currentAvatarUrl
         )}
       </div>
 
-      <p className="text-[11px] text-stone-500 text-center max-w-[220px]">
+      <p className="text-[11px] text-[#5C6B78] text-center max-w-[220px]">
         Formats acceptés : WEBP, PNG, JPEG. Taille max : 5 Mo.
       </p>
 

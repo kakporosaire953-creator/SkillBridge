@@ -58,9 +58,9 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-stone-200 overflow-hidden my-8">
         
         {/* Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#123B5D] text-white">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#06234B] text-white">
           <div className="flex items-center gap-2">
-            <FaIcon icon={faShieldHalved} className="text-[#59B83E]" />
+            <FaIcon icon={faShieldHalved} className="text-[#68A91B]" />
             <h2 id="checkout-modal-title" className="text-sm font-bold">
               Inscription à la formation officielle
             </h2>
@@ -78,8 +78,8 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
         {/* Item Recap */}
         <div className="p-6 space-y-6">
           <div className="p-4 rounded-2xl bg-[#FAFCFB] border border-[#E2E8E5] flex items-start gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-[#123B5D] text-white flex items-center justify-center shrink-0">
-              <FaIcon icon={faGraduationCap} className="text-lg text-[#59B83E]" />
+            <div className="w-12 h-12 rounded-xl bg-[#06234B] text-white flex items-center justify-center shrink-0">
+              <FaIcon icon={faGraduationCap} className="text-lg text-[#68A91B]" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
@@ -87,20 +87,20 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
                   {item.isOfficialSkillBridge ? 'SkillBridge Officiel' : 'Cours Mentor'}
                 </span>
                 {item.isCertifying && (
-                  <span className="px-2 py-0.5 rounded-full bg-[#59B83E]/10 text-[#59B83E] text-[10px] font-mono font-bold">
+                  <span className="px-2 py-0.5 rounded-full bg-[#68A91B]/10 text-[#68A91B] text-[10px] font-mono font-bold">
                     Certifiant
                   </span>
                 )}
               </div>
-              <h3 className="text-sm font-bold text-[#101820] truncate">
+              <h3 className="text-sm font-bold text-[#1A2233] truncate">
                 {item.title}
               </h3>
-              <div className="text-xs text-stone-500 mt-0.5">
+              <div className="text-xs text-[#5C6B78] mt-0.5">
                 Accès illimité + Évaluations + Certificat de compétence
               </div>
             </div>
             <div className="text-right">
-              <div className="text-base font-extrabold text-[#123B5D]">
+              <div className="text-base font-extrabold text-[#06234B]">
                 {priceAmount}
               </div>
               <div className="text-[10px] text-stone-400 font-mono">TTC</div>
@@ -120,7 +120,7 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
 
           {/* Payment Method Selection */}
           <div className="space-y-2">
-            <label className="text-xs font-mono font-bold uppercase tracking-wider text-stone-500">
+            <label className="text-xs font-mono font-bold uppercase tracking-wider text-[#5C6B78]">
               Mode de confirmation
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -129,11 +129,11 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
                 onClick={() => setSelectedMethod('sandbox')}
                 className={`p-3 rounded-xl border text-center transition-all text-xs cursor-pointer ${
                   selectedMethod === 'sandbox'
-                    ? 'border-[#123B5D] bg-[#123B5D]/5 font-bold text-[#123B5D]'
-                    : 'border-stone-200 hover:bg-stone-50 text-stone-600'
+                    ? 'border-[#06234B] bg-[#06234B]/5 font-bold text-[#06234B]'
+                    : 'border-stone-200 hover:bg-stone-50 text-[#5C6B78]'
                 }`}
               >
-                <div className="font-mono text-[10px] text-[#59B83E] font-bold">RECOMMANDÉ</div>
+                <div className="font-mono text-[10px] text-[#68A91B] font-bold">RECOMMANDÉ</div>
                 <span>Validation Directe</span>
               </button>
 
@@ -142,8 +142,8 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
                 onClick={() => setSelectedMethod('card')}
                 className={`p-3 rounded-xl border text-center transition-all text-xs cursor-pointer ${
                   selectedMethod === 'card'
-                    ? 'border-[#123B5D] bg-[#123B5D]/5 font-bold text-[#123B5D]'
-                    : 'border-stone-200 hover:bg-stone-50 text-stone-600'
+                    ? 'border-[#06234B] bg-[#06234B]/5 font-bold text-[#06234B]'
+                    : 'border-stone-200 hover:bg-stone-50 text-[#5C6B78]'
                 }`}
               >
                 <div className="text-[10px] text-stone-400">Visa / Mastercard</div>
@@ -155,8 +155,8 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
                 onClick={() => setSelectedMethod('mobile_money')}
                 className={`p-3 rounded-xl border text-center transition-all text-xs cursor-pointer ${
                   selectedMethod === 'mobile_money'
-                    ? 'border-[#123B5D] bg-[#123B5D]/5 font-bold text-[#123B5D]'
-                    : 'border-stone-200 hover:bg-stone-50 text-stone-600'
+                    ? 'border-[#06234B] bg-[#06234B]/5 font-bold text-[#06234B]'
+                    : 'border-stone-200 hover:bg-stone-50 text-[#5C6B78]'
                 }`}
               >
                 <div className="text-[10px] text-stone-400">Orange / MTN / Wave</div>
@@ -167,13 +167,13 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
 
           {/* Disclaimer Checkbox */}
           <form onSubmit={handleCheckout} className="space-y-4">
-            <label className="flex items-start gap-2.5 text-xs text-stone-600 cursor-pointer select-none">
+            <label className="flex items-start gap-2.5 text-xs text-[#5C6B78] cursor-pointer select-none">
               <input
                 type="checkbox"
                 required
                 checked={acceptedDisclaimer}
                 onChange={(e) => setAcceptedDisclaimer(e.target.checked)}
-                className="mt-0.5 rounded border-stone-300 text-[#123B5D] focus:ring-[#123B5D]"
+                className="mt-0.5 rounded border-stone-300 text-[#06234B] focus:ring-[#06234B]"
               />
               <span>
                 J'accepte d'activer mon inscription à ce programme et d'enregistrer mes preuves d'apprentissage sur mon Passeport de compétences.
@@ -193,7 +193,7 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
               <button
                 type="submit"
                 disabled={!acceptedDisclaimer || isProcessing}
-                className="flex-2 py-3 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md transition-all"
+                className="flex-2 py-3 rounded-xl bg-[#06234B] hover:bg-[#0A2338] disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold text-xs flex items-center justify-center gap-2 cursor-pointer shadow-md transition-all"
               >
                 {isProcessing ? (
                   <>
@@ -202,7 +202,7 @@ export const PaidCheckoutModal: React.FC<PaidCheckoutModalProps> = ({
                   </>
                 ) : (
                   <>
-                    <FaIcon icon={faLock} className="text-[#59B83E]" />
+                    <FaIcon icon={faLock} className="text-[#68A91B]" />
                     <span>Confirmer l'accès ({priceAmount})</span>
                   </>
                 )}

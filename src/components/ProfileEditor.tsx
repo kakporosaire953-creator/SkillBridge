@@ -158,7 +158,7 @@ export const ProfileEditor: React.FC<ProfileEditorProps> = ({ initialProfile, on
               Nom d’utilisateur (unique) <span className="text-amber-500">*</span>
             </label>
             <div className="relative">
-              <span className="absolute left-3.5 top-2.5 text-stone-500 text-sm select-none">@</span>
+              <span className="absolute left-3.5 top-2.5 text-[#5C6B78] text-sm select-none">@</span>
               <input
                 type="text"
                 name="username"
@@ -207,7 +207,7 @@ export const ProfileEditor: React.FC<ProfileEditorProps> = ({ initialProfile, on
             <label className="text-xs font-medium text-stone-300">
               Biographie
             </label>
-            <span className="text-[11px] text-stone-500">
+            <span className="text-[11px] text-[#5C6B78]">
               {(formData.bio || '').length}/500 caractères
             </span>
           </div>

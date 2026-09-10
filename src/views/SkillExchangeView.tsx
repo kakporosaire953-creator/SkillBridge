@@ -83,19 +83,19 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
   };
 
   return (
-    <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] py-8 lg:py-12">
+    <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] py-8 lg:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#101820]">Skill Exchange</h1>
-            <p className="text-sm text-stone-500 mt-1">Échangez vos compétences directement entre pairs de manière bilatérale.</p>
+            <h1 className="text-2xl sm:text-3xl font-heading font-bold text-[#1A2233]">Skill Exchange</h1>
+            <p className="text-sm text-[#5C6B78] mt-1">Échangez vos compétences directement entre pairs de manière bilatérale.</p>
           </div>
           {matches.length > 0 && (
             <button 
               onClick={() => handleOpenProposeModal(matches[0])}
-              className="px-5 py-2.5 rounded-xl bg-[#123B5D] text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#0A2338] transition-colors shadow-sm"
+              className="px-5 py-2.5 rounded-xl bg-[#06234B] text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-[#0A2338] transition-colors shadow-sm"
             >
               <FaIcon icon={faPlus} />
               Nouvel échange
@@ -104,7 +104,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
         </div>
 
         {notification && (
-          <div className="p-4 rounded-2xl bg-[#ECFDF5] border border-[#59B83E]/20 text-[#59B83E] text-sm font-medium flex items-center gap-2">
+          <div className="p-4 rounded-2xl bg-[#ECFDF5] border border-[#68A91B]/20 text-[#68A91B] text-sm font-medium flex items-center gap-2">
             <FaIcon icon={faCheck} />
             {notification}
           </div>
@@ -114,13 +114,13 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
         <div className="flex border-b border-[#E2E8E5]">
           <button 
             onClick={() => setActiveTab('suggestions')}
-            className={`py-3 px-4 font-medium text-sm transition-colors border-b-2 ${activeTab === 'suggestions' ? 'border-[#59B83E] text-[#123B5D]' : 'border-transparent text-stone-500 hover:text-stone-700'}`}
+            className={`py-3 px-4 font-medium text-sm transition-colors border-b-2 ${activeTab === 'suggestions' ? 'border-[#68A91B] text-[#06234B]' : 'border-transparent text-[#5C6B78] hover:text-stone-700'}`}
           >
             Suggestions de Match ({matches.length})
           </button>
           <button 
             onClick={() => setActiveTab('exchanges')}
-            className={`py-3 px-4 font-medium text-sm transition-colors border-b-2 ${activeTab === 'exchanges' ? 'border-[#59B83E] text-[#123B5D]' : 'border-transparent text-stone-500 hover:text-stone-700'}`}
+            className={`py-3 px-4 font-medium text-sm transition-colors border-b-2 ${activeTab === 'exchanges' ? 'border-[#68A91B] text-[#06234B]' : 'border-transparent text-[#5C6B78] hover:text-stone-700'}`}
           >
             Mes Échanges en cours ({exchanges.length})
           </button>
@@ -131,18 +131,18 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
         ) : activeTab === 'suggestions' ? (
           matches.length === 0 ? (
             <div className="bg-white rounded-3xl border border-[#E2E8E5] p-12 text-center shadow-xs">
-              <div className="w-16 h-16 rounded-2xl bg-stone-50 border border-stone-100 flex items-center justify-center mx-auto mb-4 text-[#123B5D] text-2xl">
+              <div className="w-16 h-16 rounded-2xl bg-stone-50 border border-stone-100 flex items-center justify-center mx-auto mb-4 text-[#06234B] text-2xl">
                 <FaIcon icon={faRetweet} />
               </div>
-              <h3 className="text-lg font-heading font-bold text-[#101820] mb-2">
+              <h3 className="text-lg font-heading font-bold text-[#1A2233] mb-2">
                 Aucune correspondance automatique pour l'instant
               </h3>
-              <p className="text-sm text-stone-500 max-w-md mx-auto">
-                Pour recevoir des correspondances d'échange, indiquez dans vos compétences celles que vous pouvez enseigner (<span className="text-[#59B83E] font-medium">I CAN TEACH</span>) et celles que vous souhaitez apprendre (<span className="text-[#3B82F6] font-medium">WANT TO LEARN</span>).
+              <p className="text-sm text-[#5C6B78] max-w-md mx-auto">
+                Pour recevoir des correspondances d'échange, indiquez dans vos compétences celles que vous pouvez enseigner (<span className="text-[#68A91B] font-medium">I CAN TEACH</span>) et celles que vous souhaitez apprendre (<span className="text-[#3B82F6] font-medium">WANT TO LEARN</span>).
               </p>
               <button 
                 onClick={() => onNavigate('dashboard-talent')}
-                className="mt-6 px-6 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-sm hover:bg-[#0A2338] transition-colors"
+                className="mt-6 px-6 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-sm hover:bg-[#0A2338] transition-colors"
               >
                 Gérer mes compétences
               </button>
@@ -150,7 +150,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {matches.map((match, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#123B5D]/30 transition-all">
+                <div key={idx} className="bg-white rounded-2xl border border-[#E2E8E5] p-6 shadow-xs flex flex-col justify-between hover:border-[#06234B]/30 transition-all">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <UserAvatar 
@@ -159,7 +159,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                         size="md"
                       />
                       <div>
-                        <h4 className="font-bold text-sm text-[#101820]">{match.partnerProfile.first_name} {match.partnerProfile.last_name}</h4>
+                        <h4 className="font-bold text-sm text-[#1A2233]">{match.partnerProfile.first_name} {match.partnerProfile.last_name}</h4>
                         <p className="text-xs text-stone-400">{match.partnerProfile.headline || match.partnerProfile.location || 'Membre SkillBridge'}</p>
                       </div>
                     </div>
@@ -167,10 +167,10 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                     <div className="p-3 rounded-xl bg-stone-50 border border-stone-100 space-y-2 text-xs">
                       {match.canTeach.length > 0 && (
                         <div className="flex items-start gap-2">
-                          <FaIcon icon={faChalkboardTeacher} className="text-[#59B83E] mt-0.5" />
+                          <FaIcon icon={faChalkboardTeacher} className="text-[#68A91B] mt-0.5" />
                           <div>
                             <span className="font-semibold text-stone-700">Peut vous enseigner : </span>
-                            <span className="text-[#123B5D] font-bold">{match.canTeach.join(', ')}</span>
+                            <span className="text-[#06234B] font-bold">{match.canTeach.join(', ')}</span>
                           </div>
                         </div>
                       )}
@@ -179,7 +179,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                           <FaIcon icon={faGraduationCap} className="text-[#3B82F6] mt-0.5" />
                           <div>
                             <span className="font-semibold text-stone-700">Souhaite apprendre de vous : </span>
-                            <span className="text-[#123B5D] font-bold">{match.wantsToLearn.join(', ')}</span>
+                            <span className="text-[#06234B] font-bold">{match.wantsToLearn.join(', ')}</span>
                           </div>
                         </div>
                       )}
@@ -188,7 +188,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
 
                   <button
                     onClick={() => handleOpenProposeModal(match)}
-                    className="mt-4 w-full py-2 rounded-xl bg-[#123B5D] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center justify-center gap-2"
+                    className="mt-4 w-full py-2 rounded-xl bg-[#06234B] text-white text-xs font-bold hover:bg-[#0A2338] transition-colors flex items-center justify-center gap-2"
                   >
                     <FaIcon icon={faRetweet} />
                     Proposer un échange
@@ -201,7 +201,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
           /* Exchanges Tab */
           exchanges.length === 0 ? (
             <div className="bg-white rounded-3xl border border-[#E2E8E5] p-12 text-center shadow-xs">
-              <p className="text-sm text-stone-500">Vous n'avez aucun échange en cours.</p>
+              <p className="text-sm text-[#5C6B78]">Vous n'avez aucun échange en cours.</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -219,17 +219,17 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                       />
                       <div>
                         <div className="flex items-center gap-2">
-                          <h4 className="font-bold text-sm text-[#101820]">{other?.first_name} {other?.last_name}</h4>
+                          <h4 className="font-bold text-sm text-[#1A2233]">{other?.first_name} {other?.last_name}</h4>
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                            ex.status === 'accepted' ? 'bg-[#ECFDF5] text-[#59B83E]' :
+                            ex.status === 'accepted' ? 'bg-[#ECFDF5] text-[#68A91B]' :
                             ex.status === 'pending' ? 'bg-amber-50 text-amber-600' :
-                            ex.status === 'declined' ? 'bg-rose-50 text-rose-600' : 'bg-stone-100 text-stone-600'
+                            ex.status === 'declined' ? 'bg-rose-50 text-rose-600' : 'bg-stone-100 text-[#5C6B78]'
                           }`}>
                             {ex.status.toUpperCase()}
                           </span>
                         </div>
-                        <p className="text-xs text-stone-500 mt-1">
-                          Offre : <strong className="text-[#123B5D]">{ex.offer_skill_name}</strong> ↔ Demande : <strong className="text-[#123B5D]">{ex.request_skill_name}</strong>
+                        <p className="text-xs text-[#5C6B78] mt-1">
+                          Offre : <strong className="text-[#06234B]">{ex.offer_skill_name}</strong> ↔ Demande : <strong className="text-[#06234B]">{ex.request_skill_name}</strong>
                         </p>
                         {ex.message && <p className="text-xs text-stone-400 italic mt-1">"{ex.message}"</p>}
                       </div>
@@ -239,14 +239,14 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                       <div className="flex items-center gap-2 w-full md:w-auto">
                         <button
                           onClick={() => handleUpdateStatus(ex.id, 'accepted')}
-                          className="px-4 py-1.5 rounded-lg bg-[#59B83E] text-white text-xs font-bold hover:bg-[#489932] flex items-center gap-1.5"
+                          className="px-4 py-1.5 rounded-lg bg-[#68A91B] text-white text-xs font-bold hover:bg-[#489932] flex items-center gap-1.5"
                         >
                           <FaIcon icon={faCheck} />
                           Accepter
                         </button>
                         <button
                           onClick={() => handleUpdateStatus(ex.id, 'declined')}
-                          className="px-4 py-1.5 rounded-lg bg-stone-100 text-stone-600 text-xs font-bold hover:bg-stone-200 flex items-center gap-1.5"
+                          className="px-4 py-1.5 rounded-lg bg-stone-100 text-[#5C6B78] text-xs font-bold hover:bg-stone-200 flex items-center gap-1.5"
                         >
                           <FaIcon icon={faTimes} />
                           Décliner
@@ -267,10 +267,10 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 space-y-6 shadow-2xl border border-stone-100 animate-in fade-in zoom-in duration-200">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold font-heading text-[#101820]">
+              <h3 className="text-lg font-bold font-heading text-[#1A2233]">
                 Proposer un échange avec {selectedPartner.partnerProfile.first_name}
               </h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-stone-400 hover:text-stone-600">
+              <button onClick={() => setIsModalOpen(false)} className="text-stone-400 hover:text-[#5C6B78]">
                 <FaIcon icon={faTimes} />
               </button>
             </div>
@@ -286,7 +286,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={offerSkill}
                   onChange={(e) => setOfferSkill(e.target.value)}
                   placeholder="Ex: React, Node.js, Design..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -300,7 +300,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={requestSkill}
                   onChange={(e) => setRequestSkill(e.target.value)}
                   placeholder="Ex: Python, Data Science, Figma..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -313,7 +313,7 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                   value={exchangeMsg}
                   onChange={(e) => setExchangeMsg(e.target.value)}
                   placeholder="Expliquez vos disponibilités et vos objectifs d'échange..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#123B5D] focus:outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E2E8E5] text-sm focus:border-[#06234B] focus:outline-none"
                 />
               </div>
 
@@ -321,14 +321,14 @@ export const SkillExchangeView: React.FC<{ onNavigate: (view: ViewType) => void 
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-stone-600 font-bold text-sm hover:bg-stone-200"
+                  className="flex-1 py-2.5 rounded-xl bg-stone-100 text-[#5C6B78] font-bold text-sm hover:bg-stone-200"
                 >
                   Annuler
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-2.5 rounded-xl bg-[#123B5D] text-white font-bold text-sm hover:bg-[#0A2338] disabled:opacity-50 flex items-center justify-center gap-2"
+                  className="flex-1 py-2.5 rounded-xl bg-[#06234B] text-white font-bold text-sm hover:bg-[#0A2338] disabled:opacity-50 flex items-center justify-center gap-2"
                 >
                   <FaIcon icon={faPaperPlane} />
                   {isSubmitting ? 'Envoi...' : 'Envoyer la proposition'}

@@ -165,7 +165,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-1.5 rounded-lg text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg text-[#5C6B78] hover:text-[#06234B] hover:bg-stone-100 transition-colors cursor-pointer"
             title={theme === 'dark' ? 'Mode clair' : 'Mode sombre'}
             aria-label="Toggle theme"
           >
@@ -175,7 +175,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <button
             type="button"
             onClick={toggleLanguage}
-            className="px-1.5 py-1 rounded-lg text-[10px] font-mono font-bold text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            className="px-1.5 py-1 rounded-lg text-[10px] font-mono font-bold text-[#5C6B78] hover:text-[#06234B] hover:bg-stone-100 transition-colors cursor-pointer"
             title="Langue"
           >
             {language.toUpperCase()}
@@ -185,13 +185,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <button
             type="button"
             onClick={onOpenNotifications}
-            className="relative p-1.5 rounded-lg text-stone-500 hover:text-[#123B5D] hover:bg-stone-100 transition-colors cursor-pointer"
+            className="relative p-1.5 rounded-lg text-[#5C6B78] hover:text-[#06234B] hover:bg-stone-100 transition-colors cursor-pointer"
             title="Notifications"
             aria-label="Notifications"
           >
             <FaIcon icon={faBell} className="text-xs" />
             {unreadNotificationsCount > 0 && (
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#59B83E] ring-2 ring-white sb-pulse-dot" />
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#68A91B] ring-2 ring-white sb-pulse-dot" />
             )}
           </button>
         </div>
@@ -211,15 +211,15 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               onClick={() => onNavigate(item.view)}
               className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-medium transition-all group cursor-pointer hover:translate-x-0.5 ${
                 item.active
-                  ? 'bg-white text-[#123B5D] shadow-xs border border-[#E2E8E5] font-semibold'
-                  : 'text-stone-600 hover:text-[#101820] hover:bg-white/60'
+                  ? 'bg-white text-[#06234B] shadow-xs border border-[#E2E8E5] font-semibold'
+                  : 'text-[#5C6B78] hover:text-[#1A2233] hover:bg-white/60'
               }`}
             >
               <div className="flex items-center gap-3">
                 <div className={`p-1.5 rounded-xl transition-colors ${
                   item.active 
-                    ? 'bg-[#123B5D] text-white shadow-2xs' 
-                    : 'bg-stone-100 text-stone-500 group-hover:text-[#123B5D] group-hover:bg-stone-200/80'
+                    ? 'bg-[#06234B] text-white shadow-2xs' 
+                    : 'bg-stone-100 text-[#5C6B78] group-hover:text-[#06234B] group-hover:bg-stone-200/80'
                 }`}>
                   <FaIcon icon={item.icon} className="text-xs" />
                 </div>
@@ -227,13 +227,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
               </div>
 
               {item.highlight && (
-                <span className="px-2 py-0.5 rounded-full bg-[#59B83E]/10 text-[#59B83E] text-[10px] font-mono font-bold">
+                <span className="px-2 py-0.5 rounded-full bg-[#68A91B]/10 text-[#68A91B] text-[10px] font-mono font-bold">
                   Souverain
                 </span>
               )}
 
               {item.count !== undefined && item.count > 0 && (
-                <span className="px-1.5 py-0.5 rounded-md bg-stone-100 text-stone-600 text-[10px] font-mono font-bold">
+                <span className="px-1.5 py-0.5 rounded-md bg-stone-100 text-[#5C6B78] text-[10px] font-mono font-bold">
                   {item.count}
                 </span>
               )}
@@ -251,12 +251,12 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           onClick={() => onNavigate('challenges')}
           className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-medium transition-all group cursor-pointer ${
             currentView === 'challenges'
-              ? 'bg-white text-[#123B5D] shadow-xs border border-[#E2E8E5]'
-              : 'text-stone-600 hover:text-[#101820] hover:bg-white/60'
+              ? 'bg-white text-[#06234B] shadow-xs border border-[#E2E8E5]'
+              : 'text-[#5C6B78] hover:text-[#1A2233] hover:bg-white/60'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="p-1.5 rounded-xl bg-stone-100 text-stone-500 group-hover:text-[#123B5D]">
+            <div className="p-1.5 rounded-xl bg-stone-100 text-[#5C6B78] group-hover:text-[#06234B]">
               <FaIcon icon={faAward} className="text-xs" />
             </div>
             <span>Défis & Preuves</span>
@@ -269,13 +269,13 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           onClick={() => onNavigate('verify')}
           className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-medium transition-all group cursor-pointer ${
             currentView === 'verify'
-              ? 'bg-white text-[#123B5D] shadow-xs border border-[#E2E8E5]'
-              : 'text-stone-600 hover:text-[#101820] hover:bg-white/60'
+              ? 'bg-white text-[#06234B] shadow-xs border border-[#E2E8E5]'
+              : 'text-[#5C6B78] hover:text-[#1A2233] hover:bg-white/60'
           }`}
         >
           <div className="flex items-center gap-3">
-            <div className="p-1.5 rounded-xl bg-stone-100 text-stone-500 group-hover:text-[#123B5D]">
-              <FaIcon icon={faShieldHalved} className="text-[#59B83E] text-xs" />
+            <div className="p-1.5 rounded-xl bg-stone-100 text-[#5C6B78] group-hover:text-[#06234B]">
+              <FaIcon icon={faShieldHalved} className="text-[#68A91B] text-xs" />
             </div>
             <span>Registre de Vérification</span>
           </div>
@@ -292,7 +292,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         >
           <UserAvatar profile={profile} size="sm" showBorder />
           <div className="flex-1 min-w-0">
-            <div className="text-xs font-bold text-[#101820] truncate">
+            <div className="text-xs font-bold text-[#1A2233] truncate">
               {displayName}
             </div>
             <div className="text-[10px] text-stone-400 truncate">
@@ -306,7 +306,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <button
             type="button"
             onClick={onOpenProfileModal}
-            className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl text-[11px] font-medium text-stone-600 hover:text-[#123B5D] hover:bg-stone-50 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl text-[11px] font-medium text-[#5C6B78] hover:text-[#06234B] hover:bg-stone-50 transition-colors cursor-pointer"
           >
             <FaIcon icon={faGear} className="text-stone-400 text-[11px]" />
             <span>Profil</span>
@@ -315,7 +315,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
           <button
             type="button"
             onClick={() => signOut()}
-            className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl text-[11px] font-medium text-stone-600 hover:text-rose-600 hover:bg-rose-50/50 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-xl text-[11px] font-medium text-[#5C6B78] hover:text-rose-600 hover:bg-rose-50/50 transition-colors cursor-pointer"
             title="Se déconnecter"
           >
             <FaIcon icon={faArrowRightFromBracket} className="text-stone-400 text-[11px]" />

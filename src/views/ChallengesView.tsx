@@ -63,25 +63,25 @@ export const ChallengesView: React.FC<ChallengesViewProps> = () => {
   };
 
   return (
-    <div className="flex-1 w-full bg-[#F5F7F6] text-[#101820]">
+    <div className="flex-1 w-full bg-[#F7F8F3] text-[#1A2233]">
       
       {/* Hero */}
       <section className="py-20 sm:py-28 border-b border-[#E2E8E5] bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F7F6] border border-[#E2E8E5] text-[#123B5D] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F7F8F3] border border-[#E2E8E5] text-[#06234B] text-xs font-mono font-bold uppercase tracking-wider">
             <span>SKILLBRIDGE CHALLENGES · SAISON 01</span>
           </div>
 
-          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#101820] leading-tight">
+          <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#1A2233] leading-tight">
             Prove what you can do.
           </h1>
 
-          <p className="text-stone-600 text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-[#5C6B78] text-base sm:text-xl font-light leading-relaxed max-w-2xl mx-auto">
             Les challenges SkillBridge sont des épreuves d'ingénierie et de design industriel. Résolvez des problèmes concrets, gagnez des dotations et enrichissez votre Skill Passport de preuves irréfutables.
           </p>
 
           <div className="pt-2 flex justify-center">
-            <span className="px-4 py-1.5 rounded-full bg-[#59B83E]/10 border border-[#59B83E]/30 text-xs font-mono font-bold text-[#59B83E]">
+            <span className="px-4 py-1.5 rounded-full bg-[#68A91B]/10 border border-[#68A91B]/30 text-xs font-mono font-bold text-[#68A91B]">
               STATUS GÉNÉRAL : LANCEMENT PROCHAIN
             </span>
           </div>
@@ -92,10 +92,10 @@ export const ChallengesView: React.FC<ChallengesViewProps> = () => {
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#101820]">
+          <h2 className="font-heading text-2xl sm:text-4xl font-bold text-[#1A2233]">
             Prochains Défis au Programme
           </h2>
-          <p className="text-sm text-stone-600 font-light">
+          <p className="text-sm text-[#5C6B78] font-light">
             Inscrivez-vous pour être prévenu dès l'ouverture des dépôts et des cahiers des charges.
           </p>
         </div>
@@ -104,43 +104,43 @@ export const ChallengesView: React.FC<ChallengesViewProps> = () => {
           {UPCOMING_CHALLENGES.map((ch) => (
             <div
               key={ch.number}
-              className="bg-white border border-[#E2E8E5] rounded-3xl p-8 sm:p-10 space-y-6 hover:border-[#123B5D] transition-all shadow-xs"
+              className="bg-white border border-[#E2E8E5] rounded-3xl p-8 sm:p-10 space-y-6 hover:border-[#06234B] transition-all shadow-xs"
             >
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-[#E2E8E5] pb-6">
                 <div>
                   <div className="flex items-center gap-3 mb-1.5">
-                    <span className="text-xs font-mono font-bold text-[#123B5D] uppercase tracking-wider">
+                    <span className="text-xs font-mono font-bold text-[#06234B] uppercase tracking-wider">
                       CHALLENGE #{ch.number}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-[#F5F7F6] text-[11px] font-mono font-semibold text-stone-600">
+                    <span className="px-2.5 py-0.5 rounded-md bg-[#F7F8F3] text-[11px] font-mono font-semibold text-[#5C6B78]">
                       {ch.track}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-md bg-[#59B83E]/10 text-[11px] font-mono font-bold text-[#59B83E]">
+                    <span className="px-2.5 py-0.5 rounded-md bg-[#68A91B]/10 text-[11px] font-mono font-bold text-[#68A91B]">
                       {ch.status}
                     </span>
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#101820]">
+                  <h3 className="font-heading text-xl sm:text-2xl font-bold text-[#1A2233]">
                     {ch.title}
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono text-stone-500 shrink-0">
+                <div className="flex items-center gap-4 text-xs font-mono text-[#5C6B78] shrink-0">
                   <span>DURÉE : {ch.duration}</span>
-                  <span className="text-[#123B5D] font-bold">RÉCOMPENSES PRÉVUES</span>
+                  <span className="text-[#06234B] font-bold">RÉCOMPENSES PRÉVUES</span>
                 </div>
               </div>
 
-              <p className="text-sm text-stone-600 font-light leading-relaxed max-w-3xl">
+              <p className="text-sm text-[#5C6B78] font-light leading-relaxed max-w-3xl">
                 {ch.description}
               </p>
 
               <div className="space-y-2">
-                <span className="text-xs font-mono font-bold uppercase text-[#123B5D] tracking-wider block">
+                <span className="text-xs font-mono font-bold uppercase text-[#06234B] tracking-wider block">
                   Critères d'évaluation clés :
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {ch.evaluationCriteria.map((c, i) => (
-                    <span key={i} className="text-xs px-3 py-1 bg-[#F5F7F6] border border-[#E2E8E5] rounded-lg text-[#101820]">
+                    <span key={i} className="text-xs px-3 py-1 bg-[#F7F8F3] border border-[#E2E8E5] rounded-lg text-[#1A2233]">
                       {c}
                     </span>
                   ))}
@@ -151,8 +151,8 @@ export const ChallengesView: React.FC<ChallengesViewProps> = () => {
         </div>
 
         {/* Global Waitlist Box */}
-        <div className="bg-[#123B5D] text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 max-w-3xl mx-auto shadow-xl">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#C8F169] block">
+        <div className="bg-[#06234B] text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 max-w-3xl mx-auto shadow-xl">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#68A91B] block">
             ACCÈS ANTICIPÉ AUX CHALLENGES
           </span>
           <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white">
@@ -169,11 +169,11 @@ export const ChallengesView: React.FC<ChallengesViewProps> = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Votre adresse e-mail..."
-              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-stone-400 text-xs focus:outline-hidden focus:border-[#C8F169]"
+              className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-stone-400 text-xs focus:outline-hidden focus:border-[#68A91B]"
             />
             <button
               type="submit"
-              className="w-full sm:w-auto shrink-0 px-6 py-3 rounded-xl bg-[#59B83E] hover:bg-[#4ea536] text-white text-xs font-bold transition-all cursor-pointer"
+              className="w-full sm:w-auto shrink-0 px-6 py-3 rounded-xl bg-[#68A91B] hover:bg-[#4ea536] text-white text-xs font-bold transition-all cursor-pointer"
             >
               {submitted ? 'Enregistré ✓' : 'Être informé du lancement →'}
             </button>

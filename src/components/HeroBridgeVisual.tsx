@@ -25,7 +25,7 @@ export const HeroBridgeVisual: React.FC = () => {
         transform: `perspective(1000px) rotateY(${mousePos.x * 0.5}deg) rotateX(${-mousePos.y * 0.5}deg)`
       }}
     >
-      <div className="relative w-full rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#F5F7F6] flex items-center justify-center">
+      <div className="relative w-full rounded-2xl overflow-hidden bg-gradient-to-b from-white to-[#F7F8F3] flex items-center justify-center">
         <img
           src={heroDiagram}
           alt="SkillBridge — Le pont entre les compétences et les opportunités (Skills, Talent, Experience, Opportunities)"

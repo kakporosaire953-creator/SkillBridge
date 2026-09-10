@@ -1,41 +1,82 @@
 @import "tailwindcss";
 
+@theme {
+  --color-sb-deep-blue: #06234B;
+  --color-sb-green: #68A91B;
+  --color-sb-light-green: #68A91B;
+  --color-sb-near-black: #1A2233;
+  --color-sb-secondary: #5C6B78;
+  --color-sb-white: #FFFFFF;
+  --color-sb-soft: #F7F8F3;
+  --font-sans: 'Inter', -apple-system, sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+}
+
 @layer base {
   :root {
-    --sb-deep-blue: #123B5D;
-    --sb-green: #59B83E;
-    --sb-light-green: #C8F169;
-    --sb-near-black: #101820;
-    --sb-white: #FFFFFF;
-    --sb-soft: #F5F7F6;
+    --sb-deep-blue: #06234B;   
+    --sb-green: #68A91B;       
+    --sb-light-green: #68A91B; 
+    --sb-near-black: #1A2233;  
+    --sb-secondary: #5C6B78;   
+    --sb-white: #FFFFFF;       
+    --sb-soft: #F7F8F3;        
   }
 
   body {
-    font-family: 'Manrope', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-    background-color: #F5F7F6;
-    color: #101820;
+    background-color: var(--sb-soft);
+    color: var(--sb-near-black);
     -webkit-font-smoothing: antialiased;
     transition: background-color 200ms ease, color 200ms ease;
+    line-height: 1.6;
   }
 
   html.dark body {
-    background-color: #0B131B;
+    background-color: #0A111A;
     color: #F1F5F9;
   }
   
   h1, h2, h3, h4, .font-heading {
-    font-family: 'Manrope', sans-serif;
-    letter-spacing: -0.03em;
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--sb-deep-blue);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
   }
 
   .font-editorial {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 }
 
 /* Dark Mode Global Overrides */
 html.dark body {
-  background-color: #101820 !important;
+  background-color: #0A111A !important;
+  color: #FFFFFF !important;
+}
+
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark .font-heading {
   color: #FFFFFF !important;
 }
 
@@ -69,7 +110,6 @@ html.dark .text-stone-400 {
   color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* Add custom liquid glass utility for specific panels if needed */
 html.dark .sb-liquid-glass {
   background-color: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
@@ -78,32 +118,32 @@ html.dark .sb-liquid-glass {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Custom SkillBridge color utilities */
-.bg-sb-deep-blue { background-color: #123B5D; }
-.text-sb-deep-blue { color: #123B5D; }
-.border-sb-deep-blue { border-color: #123B5D; }
+/* Custom SkillBridge color utilities for backwards compatibility */
+.bg-sb-deep-blue { background-color: var(--sb-deep-blue); }
+.text-sb-deep-blue { color: var(--sb-deep-blue); }
+.border-sb-deep-blue { border-color: var(--sb-deep-blue); }
 
-.bg-sb-green { background-color: #59B83E; }
-.text-sb-green { color: #59B83E; }
-.border-sb-green { border-color: #59B83E; }
+.bg-sb-green { background-color: var(--sb-green); }
+.text-sb-green { color: var(--sb-green); }
+.border-sb-green { border-color: var(--sb-green); }
 
-.bg-sb-light-green { background-color: #C8F169; }
-.text-sb-light-green { color: #C8F169; }
-.border-sb-light-green { border-color: #C8F169; }
+.bg-sb-light-green { background-color: var(--sb-light-green); }
+.text-sb-light-green { color: var(--sb-light-green); }
+.border-sb-light-green { border-color: var(--sb-light-green); }
 
-.bg-sb-near-black { background-color: #101820; }
-.text-sb-near-black { color: #101820; }
-.border-sb-near-black { border-color: #101820; }
+.bg-sb-near-black { background-color: var(--sb-near-black); }
+.text-sb-near-black { color: var(--sb-near-black); }
+.border-sb-near-black { border-color: var(--sb-near-black); }
 
-.bg-sb-soft { background-color: #F5F7F6; }
-.text-sb-soft { color: #F5F7F6; }
+.bg-sb-soft { background-color: var(--sb-soft); }
+.text-sb-soft { color: var(--sb-soft); }
 .border-sb-soft { border-color: #E2E8E5; }
 
 /* Architectural lines & bridge motif */
 .architectural-grid {
   background-image: 
-    linear-gradient(to right, rgba(18, 59, 93, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 59, 93, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(6, 35, 75, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 35, 75, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -117,115 +157,76 @@ html.dark .sb-liquid-glass {
 /* Subtle line accents */
 .bridge-line {
   height: 1px;
-  background: linear-gradient(90deg, #123B5D 0%, #59B83E 50%, #123B5D 100%);
+  background: linear-gradient(90deg, var(--sb-deep-blue) 0%, var(--sb-green) 50%, var(--sb-deep-blue) 100%);
 }
 
 .bridge-glow {
-  box-shadow: 0 10px 40px -10px rgba(18, 59, 93, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(6, 35, 75, 0.08);
 }
 
 /* ============================================================
    SKILLBRIDGE ANIMATION SYSTEM
    ============================================================ */
-
-/* Floating element — hero visual */
 @keyframes sb-float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-6px); }
 }
-
-/* Subtle green pulse — badges, notifications, active dots */
 @keyframes sb-pulse-green {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(107, 194, 63, 0); }
-  50%       { box-shadow: 0 0 0 6px rgba(107, 194, 63, 0.18); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(104, 169, 27, 0); }
+  50%       { box-shadow: 0 0 0 6px rgba(104, 169, 27, 0.18); }
 }
-
-/* Skeleton shimmer */
 @keyframes sb-shimmer {
   0%   { background-position: -400px 0; }
   100% { background-position: 400px 0; }
 }
-
-/* SVG path draw — BridgeConnector */
 @keyframes sb-draw {
   from { stroke-dashoffset: 800; }
   to   { stroke-dashoffset: 0; }
 }
-
-/* Progress bar grow */
 @keyframes sb-grow-x {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
 }
-
-/* Notification badge entrance */
 @keyframes sb-badge-pop {
   0%   { transform: scale(0); opacity: 0; }
   70%  { transform: scale(1.15); }
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* ---- Utility classes ---- */
-
-.sb-float {
-  animation: sb-float 6s ease-in-out infinite;
-}
-
-.sb-pulse-dot {
-  animation: sb-pulse-green 2.4s ease-in-out infinite;
-}
-
+.sb-float { animation: sb-float 6s ease-in-out infinite; }
+.sb-pulse-dot { animation: sb-pulse-green 2.4s ease-in-out infinite; }
 .sb-skeleton {
-  background: linear-gradient(
-    90deg,
-    #E2E8E5 0px,
-    #F0F4F2 40%,
-    #E2E8E5 80%
-  );
+  background: linear-gradient(90deg, #E2E8E5 0px, #F0F4F2 40%, #E2E8E5 80%);
   background-size: 800px 100%;
   animation: sb-shimmer 1.6s linear infinite;
 }
-
 .sb-progress-bar {
   transform-origin: left;
   animation: sb-grow-x 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
-
 .sb-badge-pop {
   animation: sb-badge-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Card hover lift — applied by motion component, also usable standalone */
-.sb-card-hover {
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
+.sb-card-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
 .sb-card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px -12px rgba(18, 59, 93, 0.14);
+  box-shadow: 0 16px 40px -12px rgba(6, 35, 75, 0.14);
 }
 
-/* Button global polish */
-.sb-btn {
-  transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
-}
+.sb-btn { transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease; }
 .sb-btn:hover  { transform: translateY(-1px); }
 .sb-btn:active { transform: scale(0.98); }
 
-/* Focus ring — forms */
 .sb-focus:focus-visible {
-  outline: 2px solid #6BC23F;
+  outline: 2px solid var(--sb-green);
   outline-offset: 2px;
-  border-color: #6BC23F;
+  border-color: var(--sb-green);
   transition: border-color 150ms ease, outline 150ms ease;
 }
 
-/* ---- Accessibility ---- */
 @media (prefers-reduced-motion: reduce) {
-  .sb-float,
-  .sb-pulse-dot,
-  .sb-skeleton,
-  .sb-progress-bar,
-  .sb-badge-pop {
+  .sb-float, .sb-pulse-dot, .sb-skeleton, .sb-progress-bar, .sb-badge-pop {
     animation: none !important;
   }
   * {

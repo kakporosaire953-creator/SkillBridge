@@ -62,11 +62,11 @@ export const PublicPassportVerificationView: React.FC<PublicPassportVerification
 
   if (isValidating) {
     return (
-      <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] flex flex-col items-center justify-center space-y-6">
+      <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] flex flex-col items-center justify-center space-y-6">
         <SkillBridgeLogo isDark={false} withTagline={false} />
         <div className="flex flex-col items-center gap-3">
-          <div className="w-8 h-8 rounded-full border-4 border-[#E2E8E5] border-t-[#59B83E] animate-spin" />
-          <p className="text-sm font-bold text-[#123B5D] animate-pulse uppercase tracking-widest">
+          <div className="w-8 h-8 rounded-full border-4 border-[#E2E8E5] border-t-[#68A91B] animate-spin" />
+          <p className="text-sm font-bold text-[#06234B] animate-pulse uppercase tracking-widest">
             Vérification cryptographique...
           </p>
         </div>
@@ -76,9 +76,9 @@ export const PublicPassportVerificationView: React.FC<PublicPassportVerification
 
   if (!publicData) {
     return (
-      <div className="flex-1 w-full min-h-screen bg-[#F5F7F6] flex flex-col items-center justify-center">
+      <div className="flex-1 w-full min-h-screen bg-[#F7F8F3] flex flex-col items-center justify-center">
         <p className="text-xl font-bold text-rose-600">PASSPORT NOT FOUND</p>
-        <button onClick={() => onNavigate('home')} className="mt-4 text-[#123B5D] underline">Retour à l'accueil</button>
+        <button onClick={() => onNavigate('home')} className="mt-4 text-[#06234B] underline">Retour à l'accueil</button>
       </div>
     );
   }
@@ -89,7 +89,7 @@ export const PublicPassportVerificationView: React.FC<PublicPassportVerification
       <div className="bg-[#0A192F] text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center space-y-4">
           <SkillBridgeLogo isDark={true} withTagline={false} />
-          <div className="flex items-center gap-2 px-4 py-2 bg-[#59B83E]/20 text-[#59B83E] rounded-full">
+          <div className="flex items-center gap-2 px-4 py-2 bg-[#68A91B]/20 text-[#68A91B] rounded-full">
             <ShieldCheck className="w-5 h-5" />
             <span className="text-xs font-bold tracking-widest uppercase">Verified by SkillBridge</span>
           </div>
@@ -105,7 +105,7 @@ export const PublicPassportVerificationView: React.FC<PublicPassportVerification
         <div className="mt-12 text-center">
           <button 
             onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#E2E8E5] text-[#123B5D] font-bold text-xs hover:bg-stone-50 transition-colors shadow-2xs"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border border-[#E2E8E5] text-[#06234B] font-bold text-xs hover:bg-stone-50 transition-colors shadow-2xs"
           >
             <ArrowLeft className="w-4 h-4" />
             Retour à l'accueil

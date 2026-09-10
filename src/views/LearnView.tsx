@@ -111,20 +111,20 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="w-full bg-[#F5F7F6] min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-10">
+    <div className="w-full bg-[#F7F8F3] min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-10">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Top Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-[#E2E8E5]">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#123B5D]/5 text-[#123B5D] text-xs font-mono font-bold">
-              <FaIcon icon={faShieldHalved} className="text-[#59B83E]" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#06234B]/5 text-[#06234B] text-xs font-mono font-bold">
+              <FaIcon icon={faShieldHalved} className="text-[#68A91B]" />
               <span>Souveraineté Pédagogique & Compétences</span>
             </div>
-            <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#101820] tracking-tight">
+            <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-[#1A2233] tracking-tight">
               Espace Apprendre & Formations
             </h1>
-            <p className="text-xs sm:text-sm text-stone-600 max-w-2xl">
+            <p className="text-xs sm:text-sm text-[#5C6B78] max-w-2xl">
               Formations officielles SkillBridge délivrant des certifications souveraines, et masterclasses pratiques animées par nos mentors certifiés.
             </p>
           </div>
@@ -136,7 +136,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('certificates')}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-[#E2E8E5] bg-white hover:bg-stone-50 text-xs font-bold text-stone-700 shadow-2xs transition-colors cursor-pointer"
             >
-              <FaIcon icon={faCertificate} className="text-[#59B83E]" />
+              <FaIcon icon={faCertificate} className="text-[#68A91B]" />
               <span>Mes Certifications ({userCertificates.length})</span>
             </button>
 
@@ -144,9 +144,9 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
               <button
                 type="button"
                 onClick={() => onNavigate('mentor-studio')}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
               >
-                <FaIcon icon={faPlus} className="text-[#59B83E]" />
+                <FaIcon icon={faPlus} className="text-[#68A91B]" />
                 <span>Studio Formateur</span>
               </button>
             )}
@@ -160,8 +160,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
             onClick={() => setActiveTab('discover')}
             className={`px-4 py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
               activeTab === 'discover'
-                ? 'border-[#123B5D] text-[#123B5D]'
-                : 'border-transparent text-stone-500 hover:text-stone-800'
+                ? 'border-[#06234B] text-[#06234B]'
+                : 'border-transparent text-[#5C6B78] hover:text-stone-800'
             }`}
           >
             <FaIcon icon={faCompass} />
@@ -173,11 +173,11 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
             onClick={() => setActiveTab('official')}
             className={`px-4 py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
               activeTab === 'official'
-                ? 'border-[#123B5D] text-[#123B5D]'
-                : 'border-transparent text-stone-500 hover:text-stone-800'
+                ? 'border-[#06234B] text-[#06234B]'
+                : 'border-transparent text-[#5C6B78] hover:text-stone-800'
             }`}
           >
-            <div className="w-2 h-2 rounded-full bg-[#59B83E]" />
+            <div className="w-2 h-2 rounded-full bg-[#68A91B]" />
             <span>Formations Officielles SkillBridge ({officialPrograms.length})</span>
           </button>
 
@@ -186,8 +186,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
             onClick={() => setActiveTab('mentors')}
             className={`px-4 py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
               activeTab === 'mentors'
-                ? 'border-[#123B5D] text-[#123B5D]'
-                : 'border-transparent text-stone-500 hover:text-stone-800'
+                ? 'border-[#06234B] text-[#06234B]'
+                : 'border-transparent text-[#5C6B78] hover:text-stone-800'
             }`}
           >
             <FaIcon icon={faGraduationCap} />
@@ -199,8 +199,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
             onClick={() => setActiveTab('masterclasses')}
             className={`px-4 py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
               activeTab === 'masterclasses'
-                ? 'border-[#123B5D] text-[#123B5D]'
-                : 'border-transparent text-stone-500 hover:text-stone-800'
+                ? 'border-[#06234B] text-[#06234B]'
+                : 'border-transparent text-[#5C6B78] hover:text-stone-800'
             }`}
           >
             <FaIcon icon={faVideo} />
@@ -212,8 +212,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
             onClick={() => setActiveTab('my-learnings')}
             className={`px-4 py-3 text-xs font-bold border-b-2 transition-all whitespace-nowrap cursor-pointer flex items-center gap-2 ${
               activeTab === 'my-learnings'
-                ? 'border-[#123B5D] text-[#123B5D]'
-                : 'border-transparent text-stone-500 hover:text-stone-800'
+                ? 'border-[#06234B] text-[#06234B]'
+                : 'border-transparent text-[#5C6B78] hover:text-stone-800'
             }`}
           >
             <FaIcon icon={faBookOpen} />
@@ -232,7 +232,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
               placeholder="Rechercher un cours, compétence, formateur..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#123B5D]/20 focus:border-[#123B5D] outline-none"
+              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-xs focus:ring-2 focus:ring-[#06234B]/20 focus:border-[#06234B] outline-none"
             />
           </div>
 
@@ -279,11 +279,11 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
               onClick={() => setSelectedCertOnly(!selectedCertOnly)}
               className={`px-3 py-2.5 rounded-xl border text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                 selectedCertOnly
-                  ? 'border-[#59B83E] bg-[#59B83E]/10 text-[#123B5D]'
-                  : 'border-stone-200 bg-stone-50 text-stone-600 hover:bg-stone-100'
+                  ? 'border-[#68A91B] bg-[#68A91B]/10 text-[#06234B]'
+                  : 'border-stone-200 bg-stone-50 text-[#5C6B78] hover:bg-stone-100'
               }`}
             >
-              <FaIcon icon={faCertificate} className={selectedCertOnly ? 'text-[#59B83E]' : 'text-stone-400'} />
+              <FaIcon icon={faCertificate} className={selectedCertOnly ? 'text-[#68A91B]' : 'text-stone-400'} />
               <span>Certifiant uniquement</span>
             </button>
           </div>
@@ -318,8 +318,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                     {/* Official vs Mentor Badge */}
                     <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
                       {item.isOfficialSkillBridge ? (
-                        <span className="px-2.5 py-1 rounded-full bg-[#123B5D]/90 text-white backdrop-blur-md font-mono text-[10px] font-bold flex items-center gap-1.5 shadow-xs">
-                          <span className="w-2 h-2 rounded-full bg-[#59B83E]" />
+                        <span className="px-2.5 py-1 rounded-full bg-[#06234B]/90 text-white backdrop-blur-md font-mono text-[10px] font-bold flex items-center gap-1.5 shadow-xs">
+                          <span className="w-2 h-2 rounded-full bg-[#68A91B]" />
                           <span>SkillBridge Officiel</span>
                         </span>
                       ) : (
@@ -329,7 +329,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                       )}
 
                       {item.isCertifying && (
-                        <span className="px-2 py-1 rounded-full bg-[#59B83E] text-white font-mono text-[10px] font-bold flex items-center gap-1 shadow-xs">
+                        <span className="px-2 py-1 rounded-full bg-[#68A91B] text-white font-mono text-[10px] font-bold flex items-center gap-1 shadow-xs">
                           <FaIcon icon={faCertificate} />
                           <span>Certifiant</span>
                         </span>
@@ -340,8 +340,8 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                     <div className="absolute top-3 right-3">
                       <span className={`px-2.5 py-1 rounded-full backdrop-blur-md font-mono text-[10px] font-bold shadow-xs ${
                         item.accessType === 'free'
-                          ? 'bg-[#59B83E]/90 text-white'
-                          : 'bg-[#123B5D]/90 text-white'
+                          ? 'bg-[#68A91B]/90 text-white'
+                          : 'bg-[#06234B]/90 text-white'
                       }`}>
                         {item.accessType === 'free' ? 'Gratuit' : item.price ? `${item.price.toLocaleString('fr-FR')} ${item.currency || 'FCFA'}` : 'Payant'}
                       </span>
@@ -362,11 +362,11 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                         </span>
                       </div>
 
-                      <h3 className="font-heading text-base font-bold text-[#101820] group-hover:text-[#123B5D] transition-colors line-clamp-2">
+                      <h3 className="font-heading text-base font-bold text-[#1A2233] group-hover:text-[#06234B] transition-colors line-clamp-2">
                         {item.title}
                       </h3>
 
-                      <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
+                      <p className="text-xs text-[#5C6B78] line-clamp-2 leading-relaxed">
                         {item.headline || item.description}
                       </p>
                     </div>
@@ -376,7 +376,7 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                       {item.targetSkills.slice(0, 3).map((s) => (
                         <span
                           key={s}
-                          className="px-2 py-0.5 rounded-md bg-[#FAFCFB] border border-stone-200 text-[10px] font-mono text-stone-600"
+                          className="px-2 py-0.5 rounded-md bg-[#FAFCFB] border border-stone-200 text-[10px] font-mono text-[#5C6B78]"
                         >
                           {s}
                         </span>
@@ -395,12 +395,12 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                       <div className="w-full flex items-center justify-between gap-3">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between text-[10px] font-mono mb-1">
-                            <span className="text-stone-500">Progression</span>
-                            <span className="font-bold text-[#59B83E]">{progressPct}%</span>
+                            <span className="text-[#5C6B78]">Progression</span>
+                            <span className="font-bold text-[#68A91B]">{progressPct}%</span>
                           </div>
                           <div className="w-full h-1 bg-stone-200 rounded-full overflow-hidden">
                             <div
-                              className="h-full bg-[#59B83E] rounded-full"
+                              className="h-full bg-[#68A91B] rounded-full"
                               style={{ width: `${progressPct}%` }}
                             />
                           </div>
@@ -409,31 +409,31 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
                         <button
                           type="button"
                           onClick={(e) => handleEnrollOrStart(e, item)}
-                          className="px-3.5 py-2 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold flex items-center gap-1.5 shrink-0 transition-colors shadow-2xs"
+                          className="px-3.5 py-2 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs font-bold flex items-center gap-1.5 shrink-0 transition-colors shadow-2xs"
                         >
-                          <FaIcon icon={faPlay} className="text-[10px] text-[#59B83E]" />
+                          <FaIcon icon={faPlay} className="text-[10px] text-[#68A91B]" />
                           <span>Reprendre</span>
                         </button>
                       </div>
                     ) : (
                       <div className="w-full flex items-center justify-between gap-2">
-                        <span className="text-xs text-stone-500 font-mono">
+                        <span className="text-xs text-[#5C6B78] font-mono">
                           {totalLessons} leçons
                         </span>
 
                         <button
                           type="button"
                           onClick={(e) => handleEnrollOrStart(e, item)}
-                          className="px-4 py-2 rounded-xl bg-[#123B5D] hover:bg-[#0A2338] text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
+                          className="px-4 py-2 rounded-xl bg-[#06234B] hover:bg-[#0A2338] text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-2xs"
                         >
                           {item.accessType === 'paid' ? (
                             <>
-                              <FaIcon icon={faLock} className="text-[10px] text-[#59B83E]" />
+                              <FaIcon icon={faLock} className="text-[10px] text-[#68A91B]" />
                               <span>S'inscrire</span>
                             </>
                           ) : (
                             <>
-                              <FaIcon icon={faGraduationCap} className="text-[10px] text-[#59B83E]" />
+                              <FaIcon icon={faGraduationCap} className="text-[10px] text-[#68A91B]" />
                               <span>Accéder Gratuitement</span>
                             </>
                           )}
@@ -452,10 +452,10 @@ export const LearnView: React.FC<LearnViewProps> = ({ onNavigate }) => {
               <FaIcon icon={faBookOpen} className="text-2xl" />
             </div>
             <div className="space-y-1 max-w-md mx-auto">
-              <h3 className="font-heading text-base font-bold text-[#101820]">
+              <h3 className="font-heading text-base font-bold text-[#1A2233]">
                 Aucun résultat pour cette recherche
               </h3>
-              <p className="text-xs text-stone-500">
+              <p className="text-xs text-[#5C6B78]">
                 Essayez de réinitialiser vos filtres de recherche ou sélectionnez un autre onglet.
               </p>
             </div>

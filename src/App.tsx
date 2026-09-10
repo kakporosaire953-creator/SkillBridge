@@ -212,7 +212,7 @@ export const App: React.FC = () => {
 
   // 2. PUBLIC EXPERIENCE (Marketing Showcase with Public Navbar & Footer)
   return (
-    <div className="min-h-screen bg-[#F5F7F6] text-[#101820] flex flex-col font-sans selection:bg-[#59B83E] selection:text-white">
+    <div className="min-h-screen bg-[#F7F8F3] text-[#1A2233] flex flex-col font-sans selection:bg-[#68A91B] selection:text-white">
       {/* Public Header */}
       <Navbar
         currentView={currentView}

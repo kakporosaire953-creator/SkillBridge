@@ -56,7 +56,7 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
   };
 
   return (
-    <div className="w-full bg-[#F5F7F6] min-h-screen pb-24">
+    <div className="w-full bg-[#F7F8F3] min-h-screen pb-24">
       
       {/* Top Breadcrumb Header */}
       <div className="bg-white border-b border-[#E2E8E5] py-4 px-4 sm:px-6 lg:px-8">
@@ -64,13 +64,13 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
           <button
             type="button"
             onClick={() => onNavigate('learn')}
-            className="inline-flex items-center gap-2 text-xs font-semibold text-stone-600 hover:text-[#123B5D] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-xs font-semibold text-[#5C6B78] hover:text-[#06234B] transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Retour à l'espace Apprendre</span>
           </button>
 
-          <span className="text-xs font-mono text-[#59B83E] font-bold uppercase flex items-center gap-1">
+          <span className="text-xs font-mono text-[#68A91B] font-bold uppercase flex items-center gap-1">
             <ShieldCheck className="w-4 h-4" />
             <span>Profil Mentor Certifié</span>
           </span>
@@ -86,30 +86,30 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
               <img
                 src={sampleMentor.avatar}
                 alt={sampleMentor.name}
-                className="w-28 h-28 rounded-3xl object-cover border-2 border-[#59B83E] shadow-sm mx-auto"
+                className="w-28 h-28 rounded-3xl object-cover border-2 border-[#68A91B] shadow-sm mx-auto"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute -bottom-2 right-2 p-1.5 rounded-full bg-[#59B83E] text-white shadow">
+              <div className="absolute -bottom-2 right-2 p-1.5 rounded-full bg-[#68A91B] text-white shadow">
                 <ShieldCheck className="w-4 h-4" />
               </div>
             </div>
 
             <div className="space-y-1">
-              <h1 className="text-xl font-bold text-[#101820]">{sampleMentor.name}</h1>
-              <p className="text-xs font-medium text-[#123B5D]">{sampleMentor.role}</p>
-              <p className="text-xs text-stone-500">{sampleMentor.company}</p>
+              <h1 className="text-xl font-bold text-[#1A2233]">{sampleMentor.name}</h1>
+              <p className="text-xs font-medium text-[#06234B]">{sampleMentor.role}</p>
+              <p className="text-xs text-[#5C6B78]">{sampleMentor.company}</p>
             </div>
 
-            <p className="text-xs text-stone-600 leading-relaxed text-left border-t border-stone-100 pt-4">
+            <p className="text-xs text-[#5C6B78] leading-relaxed text-left border-t border-stone-100 pt-4">
               {sampleMentor.bio}
             </p>
 
             <button
               type="button"
               onClick={() => setContactModalOpen(true)}
-              className="w-full py-3 rounded-2xl bg-[#123B5D] hover:bg-[#101820] text-white font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
+              className="w-full py-3 rounded-2xl bg-[#06234B] hover:bg-[#1A2233] text-white font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm"
             >
-              <MessageSquare className="w-4 h-4 text-[#C8F169]" />
+              <MessageSquare className="w-4 h-4 text-[#68A91B]" />
               <span>Contacter le mentor</span>
             </button>
           </div>
@@ -117,7 +117,7 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
           {/* Mentoring Expertise Areas */}
           <div className="bg-white rounded-3xl border border-[#E2E8E5] p-6 shadow-2xs space-y-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-stone-700 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-[#59B83E]" />
+              <Sparkles className="w-4 h-4 text-[#68A91B]" />
               <span>Domaines d'expertise audités</span>
             </h3>
 
@@ -138,8 +138,8 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
         {/* Right Column: Published Courses and Masterclasses */}
         <div className="lg:col-span-8 space-y-6">
           <div>
-            <h2 className="text-xl font-bold text-[#123B5D]">Programmes créés par {sampleMentor.name}</h2>
-            <p className="text-xs text-stone-500">
+            <h2 className="text-xl font-bold text-[#06234B]">Programmes créés par {sampleMentor.name}</h2>
+            <p className="text-xs text-[#5C6B78]">
               Formations certifiantes, cours pratiques et masterclasses en direct.
             </p>
           </div>
@@ -148,7 +148,7 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
             {mentorContents.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-2xl border border-[#E2E8E5] p-5 shadow-2xs hover:border-[#123B5D] transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                className="bg-white rounded-2xl border border-[#E2E8E5] p-5 shadow-2xs hover:border-[#06234B] transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               >
                 <div className="flex items-start gap-4">
                   <img
@@ -158,13 +158,13 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
                   />
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-[#123B5D] text-white text-[10px] font-bold uppercase">
+                      <span className="px-2 py-0.5 rounded bg-[#06234B] text-white text-[10px] font-bold uppercase">
                         {item.type}
                       </span>
                       <span className="text-[11px] font-mono text-stone-400">{item.level}</span>
                     </div>
-                    <h3 className="text-sm font-bold text-[#101820]">{item.title}</h3>
-                    <p className="text-xs text-stone-500 line-clamp-1">{item.headline}</p>
+                    <h3 className="text-sm font-bold text-[#1A2233]">{item.title}</h3>
+                    <p className="text-xs text-[#5C6B78] line-clamp-1">{item.headline}</p>
                     <div className="text-[11px] text-stone-400 flex items-center gap-2">
                       <Clock className="w-3 h-3" />
                       <span>{item.estimatedDuration}</span>
@@ -180,7 +180,7 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
                     setActiveContentId(item.id);
                     onNavigate('learn-detail');
                   }}
-                  className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-[#123B5D] hover:text-white text-[#123B5D] text-xs font-bold flex items-center gap-1.5 transition-all flex-shrink-0 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-stone-100 hover:bg-[#06234B] hover:text-white text-[#06234B] text-xs font-bold flex items-center gap-1.5 transition-all flex-shrink-0 cursor-pointer"
                 >
                   <span>Découvrir</span>
                   <ChevronRight className="w-3.5 h-3.5" />
@@ -197,8 +197,8 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl border border-[#E2E8E5] p-6 sm:p-8 max-w-md w-full space-y-6 shadow-2xl">
             <div className="space-y-1">
-              <span className="text-xs font-mono font-bold text-[#59B83E] uppercase">Messagerie Mentor</span>
-              <h3 className="text-lg font-bold text-[#101820]">Poser une question à {sampleMentor.name}</h3>
+              <span className="text-xs font-mono font-bold text-[#68A91B] uppercase">Messagerie Mentor</span>
+              <h3 className="text-lg font-bold text-[#1A2233]">Poser une question à {sampleMentor.name}</h3>
             </div>
 
             {messageSent ? (
@@ -216,7 +216,7 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
                     value={contactMessage}
                     onChange={(e) => setContactMessage(e.target.value)}
                     placeholder="Bonjour Dr. Mercier, j'aimerais échanger sur..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#123B5D]"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 text-xs focus:ring-2 focus:ring-[#06234B]"
                   />
                 </div>
 
@@ -231,9 +231,9 @@ export const MentorProfileView: React.FC<MentorProfileProps> = ({ onNavigate }) 
 
                   <button
                     type="submit"
-                    className="px-5 py-2.5 rounded-xl bg-[#123B5D] text-white text-xs font-bold flex items-center gap-1.5"
+                    className="px-5 py-2.5 rounded-xl bg-[#06234B] text-white text-xs font-bold flex items-center gap-1.5"
                   >
-                    <Mail className="w-3.5 h-3.5 text-[#C8F169]" />
+                    <Mail className="w-3.5 h-3.5 text-[#68A91B]" />
                     <span>Envoyer le message</span>
                   </button>
                 </div>
