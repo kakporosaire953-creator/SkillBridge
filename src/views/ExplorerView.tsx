@@ -4,7 +4,6 @@ import { Opportunity, Project, Course, Company, Profile } from '../types';
 import { OpportunityService } from '../services/opportunityService';
 import { ProjectService } from '../services/projectService';
 import { LearningService } from '../services/learningService';
-import { supabase } from '../services/supabase';
 import { FaIcon } from '../components/FaIcon';
 import { 
   faBriefcase, 
@@ -53,7 +52,7 @@ export const ExplorerView: React.FC<ExplorerViewProps> = ({ onNavigate }) => {
         ProjectService.getPublishedProjects(),
         OpportunityService.getCompanies(),
         LearningService.getPublishedCourses(),
-        supabase.from('profiles').select('*').eq('profile_visibility', 'public').limit(20)
+        Promise.resolve({ data: [] })
       ]);
 
       setOpportunities(oppsRes.data || []);

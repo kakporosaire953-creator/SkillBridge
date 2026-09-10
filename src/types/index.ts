@@ -841,3 +841,4 @@ export type { SkillStage as SkillStageType };
 export * from './platform';
 export * from './learning';
 export * from './ecosystem';
+export * from './auth';

@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
-import { User, Session } from '@supabase/supabase-js';
+import { User, Session } from '../types/auth';
 import { Profile, ProfileUpdateInput, AccountType, UserSkillItem, UserProjectItem, UserCertificationItem, SkillStage, SkillProof } from '../types';
 import { AuthService, SignUpParams, SignInParams } from '../services/authService';
 import { ProfileService } from '../services/profileService';
@@ -7,8 +7,6 @@ import { StorageService } from '../services/storageService';
 import { SkillService } from '../services/skillService';
 import { ProjectService } from '../services/projectService';
 import { PassportService } from '../services/passportService';
-import { isSupabaseConfigured } from '../services/supabase';
-
 const STORAGE_KEY_PROFILE = 'sb_active_profile_v2';
 const STORAGE_KEY_USER = 'sb_active_user_v2';
 
@@ -84,7 +82,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const isConfigured = isSupabaseConfigured();
+  const isConfigured = false;
 
   // Load from local storage or initialize
   const loadLocalState = useCallback(() => {
